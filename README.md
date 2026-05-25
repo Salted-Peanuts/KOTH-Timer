@@ -12,11 +12,11 @@ The goal is to keep it practical, buildable, and easy to modify.
 
 ### Finished Prototype
 
-![OpenKOTH Timer finished prototype](images/20260212_203113.jpg)
+![OpenKOTH Timer finished prototype](Images/20260212_203113.jpg)
 
 ### Inside Wiring
 
-![OpenKOTH Timer internal wiring](images/20260213_172516.jpg)
+![OpenKOTH Timer internal wiring](Images/20260213_172516.jpg)
 
 ---
 
