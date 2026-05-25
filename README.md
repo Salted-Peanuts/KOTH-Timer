@@ -8,6 +8,18 @@ The goal is to keep it practical, buildable, and easy to modify.
 
 ---
 
+## Prototype Photos
+
+### Finished Prototype
+
+![OpenKOTH Timer finished prototype](images/20260212_203113.jpg)
+
+### Inside Wiring
+
+![OpenKOTH Timer internal wiring](images/20260213_172516.jpg)
+
+---
+
 ## What It Does
 
 OpenKOTH Timer is a physical objective timer for two-team King of the Hill style games.
