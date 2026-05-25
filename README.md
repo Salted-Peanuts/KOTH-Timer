@@ -86,6 +86,7 @@ Exact parts may change as the project develops, but the prototype uses:
 - Enclosure
 - USB cable for flashing
 - Basic soldering tools
+- 3D printed housing (Or other replacment housing)
 
 More detailed parts information will be added in the docs folder.
 
