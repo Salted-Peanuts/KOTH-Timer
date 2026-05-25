@@ -22,7 +22,7 @@ The goal is to keep it practical, buildable, and easy to modify.
 
 ## What It Does
 
-OpenKOTH Timer is a physical objective timer for two-team King of the Hill style games.
+KOTH Timer is a physical objective timer for two-team King of the Hill style games.
 
 Players press their team’s button to capture the objective. The timer tracks control time and shows the game state through the local web interface (via an admin phone) and button LEDs.
 
