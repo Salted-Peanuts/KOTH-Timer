@@ -1,0 +1,22 @@
+Reference,Qty,Value,Description:,Product links:
+A1,1x,Arduino_Nano_ESP32,Arduino branded ESP32 Board (Code will not work with generic ESP32 family devices),https://core-electronics.com.au/arduino-nano-esp32.html
+BT1,1x,18650_Cell,18650 battery cell,https://www.jaycar.com.au/18650-samsung-3500mah-3-7v-flat-top-li-ion-rechargeable-battery/p/SB2630
+C1,1x,470uf_E_Cap,470uf electrolytic capacitor ,https://www.jaycar.com.au/470uf-16vdc-low-esr-electrolytic-capacitor/p/RE6314
+C2,1x,0.1uf_C_Cap,0.1uf (100nf) ceramic capacitor ,https://www.jaycar.com.au/100nf-50vdc-ceramic-capacitors-pack-of-2/p/RC5360
+"D3,D4,D5,D6,D7",1x,"LED_RED, LED_YELLOW, LED_GREEN","5 segement LED bar graph (any colours you prefer. I used one with 3x green bars, 1x yellow bar, 1x red bar)",https://www.aliexpress.com/item/1005010479786364.html
+F1,1x,2.5-3A_Fuse,2.5a-3a Glass tube fuse with some sort of holder (Use wire thicker than your fuse for runs) ,https://www.aliexpress.com/item/1005007846817140.html
+"R1,R2",2x,100K,100k resistor,https://www.jaycar.com.au/100k-ohm-0-5-watt-metal-film-resistors-pack-of-8/p/RR0620
+"R3,R4,R5,R6,R7,R8,R9",7x,220R,220R resistor,https://www.jaycar.com.au/220k-ohm-0-5-watt-metal-film-resistors-pack-of-8/p/RR0628
+SW1,1x,Rocker_Switch,on/off rocker style (or your prefence) for device power on and off,https://www.aliexpress.com/item/4001108045600.html
+"SW2,SW3,D1,D2",2x,"Push_Switch (Team_A), Push_Switch (Team_B)",100mm Arcade style push buttons with LEDs  ,https://www.aliexpress.com/item/33029152680.html
+SW4,1x,SW_Push,PCB button switch: For turning 5 segment display on to see battery level,https://www.jaycar.com.au/spst-pcb-mount-tactile-switch-round/p/SP0609
+TM1637,4x,"4_Digit_DIsplay (Team_A), 4_Digit_DIsplay (Team_B)",TM1637 4-digit 7-segment display (2x of two diffent colours for each teams time keeping),https://www.aliexpress.com/item/1005001582129952.html
+U1,1x,5v_Step_Up,0.9-5V to 5V DC-DC Step-Up Power Module,https://www.amazon.com.au/dp/B0CWXM62Y5?ref=ppx_yo2ov_dt_b_fed_asin_title
+,,,,
+,,,,
+,1x,18650 battery cell holder,you can also find them local at jaycar,https://www.amazon.com.au/dp/B0CQ73GFVY?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1
+,,PCBs,Prototyping PCBs (for soldering eveything to),https://www.aliexpress.com/item/1005007549507093.html
+,,Insulated wire (I used 22 AWG),Insulated wire (I used 22 AWG),
+,,Heat shrink,,
+,,Arduino Nano Breakout board,,
+,,Terminal blocks as required,,
