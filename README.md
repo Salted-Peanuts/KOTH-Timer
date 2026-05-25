@@ -47,11 +47,11 @@ It is designed to run locally from an ESP32, so it does not need internet access
 
 ## Current Status
 
-This is an early public release based on a working prototype.
+This is an extremely early public release based on a working prototype.
 
-It has been tested at real Nerf events, but the documentation is still being improved.
+It has been tested at real Nerf events, but the documentation and firmware is still being improved.
 
-Expect some rough edges.
+Expect some rough edges and potentially hardware changes on future revisions.
 
 If you build one, feel free to modify it for your own event rules, enclosure, buttons, battery setup, or game style.
 
