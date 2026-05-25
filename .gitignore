@@ -1,0 +1,29 @@
+# Windows junk
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS junk
+.DS_Store
+
+# Arduino build output
+build/
+*.elf
+*.bin
+*.hex
+*.map
+
+# Arduino temporary files
+*.tmp
+*.bak
+
+# VS Code
+.vscode/
+
+# PlatformIO, if used later
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# Logs
+*.log
