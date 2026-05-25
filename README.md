@@ -47,9 +47,9 @@ It is designed to run locally from an ESP32, so it does not need internet access
 
 ## Current Status
 
-This is an extremely early public release based on a working prototype.
+This is an extremely early public release based on a working prototype. I dont yet have a build guide, But have provided shematics and a few images of my prototype for refrence. 
 
-It has been tested at real Nerf events, but the documentation and firmware is still being improved.
+It has been tested at real Nerf events, but the documentation and firmware is still being improved. Curent build is v0.2 With build v0.3 in the works to make the UI more feature rich and stable for KOTH. There are plans to add more game modes down the line.  
 
 Expect some rough edges and potentially hardware changes on future revisions.
 
