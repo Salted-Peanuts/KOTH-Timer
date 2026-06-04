@@ -81,7 +81,7 @@ Exact parts may change as the project develops, but the prototype uses:
 - LED arcade buttons or separate button LEDs
 - Resistors for LEDs
 - Resistors for battery voltage sensing
-- 5V power supply or suitable battery setup
+- 18650 single cell battry
 - Wires
 - Enclosure
 - USB cable for flashing
