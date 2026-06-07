@@ -49,7 +49,7 @@ It is designed to run locally from an ESP32, so it does not need internet access
 
 This is an extremely early public release based on a working prototype. I dont yet have a build guide, But have provided shematics and a few images of my prototype for refrence if you want to try and put one together. 
 
-It has been tested at real Nerf events, but the documentation and firmware is still being improved. Curent build is v0.2 With build v0.3 in the works to make the UI more feature rich and stable for KOTH. There are then plans to add more game modes down the line.
+It has been tested at real Nerf events, but the documentation and firmware is still being improved. Curent build is v0.2 With build v0.3 in the works to make the UI more feature rich and stable for KOTH. There are then plans to add more game modes down the line. If there is enough popularity in this project, I might consider making an app that can use BT instead of local WIFI for connection to the ESP32. 
 
 Expect some rough edges and potentially hardware changes on future revisions.
 
@@ -107,7 +107,7 @@ More detailed parts information will be added in the docs folder.
 
 ## Firmware
 
-The firmware is written for ESP32 using the Arduino IDE.
+The firmware is written for ESP32 using Arduino IDE.
 
 The main code can be found in:
 
