@@ -112,4 +112,4 @@ The firmware is written for ESP32 using Arduino IDE.
 The main code can be found in:
 
 ```text
-firmware/KOTH_Timer.ino
+firmware/v0.2_KOTH_timer.ino
