@@ -4,7 +4,7 @@ This guide explains how to build the prototype version of the KOTH Timer.
 
 KOTH Timer is a DIY King of the Hill timer for Nerf, foam flinging, and other objective-based hobby games. It uses an Arduino Nano ESP32, two large team buttons, four TM1637 display modules, LED feedback, a battery display, and a local Wi-Fi web interface for controlling the game.
 
-This guide is based on the current v0.2 prototype.
+This guide is based on the current v0.3 prototype.
 
 > **Important:** This is still an early public build. Check the schematic, BOM, firmware, and photos before soldering. Future versions may change the wiring or hardware.
 
@@ -43,16 +43,15 @@ The game logic is simple:
 
 ## Current Prototype Status
 
-This build is based on the working v0.2 prototype.
+This build is based on the Pre-release v0.3 prototype.
 
-It has been used successfully at local Nerf events, but the documentation and firmware are still being improved.
+It has NOT been used at local Nerf events yet, but the documentation and firmware are stable for public testing.
 
 Known future work:
 
-* Improved v0.3 firmware
-* Better web UI
-* More stable KOTH interface
-* Possible extra game modes later
+* Improved v0.4 firmware
+* Possible extra game modes
+* Potental debugging
 
 ---
 
@@ -62,7 +61,7 @@ Useful files in this repo:
 
 ```text
 Firmware/
-  v0.2_KOTH_timer.ino
+  KOTH_timer_v0.3.ino
 
 docs/
   BOM.csv
@@ -158,7 +157,7 @@ Battery indicator GND
 
 ## Arduino Nano ESP32 Pinout
 
-The v0.2 firmware uses the following pin assignments.
+The v0.3 firmware uses the following pin assignments.
 
 ### Team Buttons
 
@@ -405,8 +404,8 @@ Example:
 
 ```text
 Firmware/
-  KOTH_Timer_v0_2/
-    KOTH_Timer_v0_2.ino
+  KOTH_Timer_v0_3/
+    KOTH_Timer_v0_3.ino
 ```
 
 ### 5. Upload
@@ -456,7 +455,7 @@ There is no internet through this network. That is normal.
 Open a browser and try:
 
 ```text
-http://192.168.4.1
+http://10.10.10.1
 ```
 
 The KOTH Timer web interface should load.
@@ -603,7 +602,8 @@ Check:
 
 * Your phone/laptop is connected to `KOTH-Timer`
 * Mobile data is not interfering
-* Try opening `http://192.168.4.1`
+* Disable any VPNs
+* Try opening `http://10.10.10.1`
 * Try another browser
 * Restart the timer
 
@@ -734,7 +734,7 @@ If you improve the design, consider sharing your changes back with the project.
 Guide written for:
 
 ```text
-KOTH Timer v0.2 prototype
+KOTH Timer v0.3 prototype
 ```
 
 Future firmware or hardware versions may use different wiring.
