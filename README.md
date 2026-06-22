@@ -6,7 +6,6 @@ This project is based on my working prototype that has been used successfully at
 
 The goal is to keep it practical, buildable, and easy to modify.
 
----
 
 ## Prototype Photos
 
@@ -18,7 +17,6 @@ The goal is to keep it practical, buildable, and easy to modify.
 
 ![OpenKOTH Timer internal wiring](Images/20260213_172516.jpg)
 
----
 
 ## What It Does
 
@@ -28,7 +26,6 @@ Players press their team’s button to capture the objective. The timer tracks c
 
 It is designed to run locally from an ESP32, so it does not need internet access once set up.
 
----
 
 ## Features
 
@@ -43,7 +40,6 @@ It is designed to run locally from an ESP32, so it does not need internet access
 - Designed for field use at hobby events
 - No internet required during gameplay
 
----
 
 ## Current Status
 
@@ -55,7 +51,6 @@ Expect some rough edges and potentially hardware changes on future revisions.
 
 If you build one, feel free to modify it for your own event rules, enclosure, buttons, battery setup, or game style.
 
----
 
 ## Who This Is For
 
@@ -70,7 +65,6 @@ This project is for hobbyists who want to build their own objective timer for ga
 
 You do not need to be an expert programmer, but you should be comfortable with basic wiring, soldering, and flashing an ESP32.
 
----
 
 ## Basic Hardware Needed
 
@@ -90,7 +84,6 @@ Exact parts may change as the project develops, but the prototype uses:
 
 More detailed parts information will be added in the docs folder.
 
----
 
 ## Basic Build Steps
 
@@ -103,7 +96,6 @@ More detailed parts information will be added in the docs folder.
 7. Configure the game.
 8. Start playing.
 
----
 
 ## Firmware
 
