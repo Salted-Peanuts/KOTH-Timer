@@ -1,10 +1,38 @@
-# KOTH-Timer
+# KOTH Timer
 
-A DIY Arduino nano ESP32-based King of the Hill timer for Nerf, foam flinging, and objective based skirmish games.
+A DIY Arduino Nano ESP32-based King of the Hill timer for Nerf, foam flinging, and objective-based skirmish games.
 
-This project is based on my working prototype that has been used successfully at local Nerf events. A few people in the hobby scene asked how to build their own, so this repo exists to make that possible.
+This project is based on a working timer that has been tested successfully at local Nerf events. A few people in the hobby scene asked how to build their own, so this repo exists to make that possible.
 
 The goal is to keep it practical, buildable, and easy to modify.
+
+---
+
+## Current Recommended Version
+
+The current recommended firmware release is:
+
+```text
+v0.3
+```
+
+v0.3 has been tested at an event and is now the recommended version for new builds.
+
+v0.2 is still available for reference as an earlier prototype release.
+
+---
+
+## What It Does
+
+KOTH Timer is a physical objective timer for two-team King of the Hill style games.
+
+Players press their team’s button to capture the objective. The timer tracks control time and shows the game state through:
+
+* Large physical displays
+* Button LED feedback
+* A local referee/admin web interface
+
+The timer runs locally from the ESP32, so it does not need internet access during gameplay.
 
 ---
 
@@ -20,40 +48,71 @@ The goal is to keep it practical, buildable, and easy to modify.
 
 ---
 
-## What It Does
-
-KOTH Timer is a physical objective timer for two-team King of the Hill style games.
-
-Players press their team’s button to capture the objective. The timer tracks control time and shows the game state through the local web interface (via an admin phone) and button LEDs.
-
-It is designed to run locally from an ESP32, so it does not need internet access once set up.
-
----
-
 ## Features
 
-- Two-team King of the Hill timer
-- Physical arcade button controls
-- LED button feedback
-- Local ESP32-hosted web interface
-- Configurable game settings
-- Battery voltage display
-- Pause and reset logic
-- Game-over winner display
-- Designed for field use at hobby events
-- No internet required during gameplay
+* Two-team King of the Hill timer
+* Physical arcade button controls
+* LED button feedback
+* Four TM1637 4-digit display modules
+* Local ESP32-hosted web interface
+* Phone-friendly referee/admin controls
+* Configurable match duration
+* Configurable team colours
+* Battery voltage display
+* Pause and resume controls
+* Reset lockout to prevent accidental resets
+* Game-over winner display
+* Live referee time adjustment during gameplay
+* Open Wi-Fi network by default for quick event setup
+* Optional Wi-Fi password support
+* No internet required during gameplay
 
 ---
 
-## Current Status
+## Referee/Admin Connection
 
-This is an extremely early public release based on a working prototype. I dont yet have a build guide, But have provided shematics and a few images of my prototype for refrence if you want to try and put one together. 
+The timer creates its own local Wi-Fi network.
 
-It has been tested at real Nerf events, but the documentation and firmware is still being improved. Curent build is v0.2 With build v0.3 in the works to make the UI more feature rich and stable for KOTH. There are then plans to add more game modes down the line. If there is enough popularity in this project, I might consider making an app that can use BT instead of local WIFI for connection to the ESP32. 
+```text
+SSID: KOTH-Timer
+Password: none / open network
+```
 
-Expect some rough edges and potentially hardware changes on future revisions.
+After connecting, open:
 
-If you build one, feel free to modify it for your own event rules, enclosure, buttons, battery setup, or game style.
+```text
+http://10.10.10.1
+```
+
+Connection test page:
+
+```text
+http://10.10.10.1/ping
+```
+
+Some phones may warn that the network has no internet. This is normal. Choose the option to stay connected or use the network anyway.
+
+---
+
+## Optional Wi-Fi Password
+
+The Wi-Fi network is open by default so referees can connect quickly during events.
+
+If you want to add a password, edit the firmware near the top of the code.
+
+Find:
+
+```cpp
+static const char* AP_PASS = "";
+```
+
+Change it to a password with at least 8 characters:
+
+```cpp
+static const char* AP_PASS = "kothtimer";
+```
+
+Then upload the firmware again.
 
 ---
 
@@ -61,12 +120,12 @@ If you build one, feel free to modify it for your own event rules, enclosure, bu
 
 This project is for hobbyists who want to build their own objective timer for games such as:
 
-- Nerf events
-- Foam flinging games
-- Gel blaster games where legal
-- Airsoft-style objective games where legal
-- Backyard or club-based capture games
-- Custom scenario games
+* Nerf events
+* Foam flinging games
+* Gel blaster games where legal
+* Airsoft-style objective games where legal
+* Backyard or club-based capture games
+* Custom scenario games
 
 You do not need to be an expert programmer, but you should be comfortable with basic wiring, soldering, and flashing an ESP32.
 
@@ -74,42 +133,106 @@ You do not need to be an expert programmer, but you should be comfortable with b
 
 ## Basic Hardware Needed
 
-Exact parts may change as the project develops, but the prototype uses:
+The current build uses:
 
-- ESP32 development board
-- Arcade buttons
-- LED arcade buttons or separate button LEDs
-- Resistors for LEDs
-- Resistors for battery voltage sensing
-- 18650 single cell battry
-- Wires
-- Enclosure
-- USB cable for flashing
-- Basic soldering tools
-- 3D printed housing (Or other replacment housing)
+* Arduino Nano ESP32
+* 18650 Li-ion cell
+* 18650 battery holder
+* 5 V boost converter
+* Fuse
+* Rocker power switch
+* 2 large arcade buttons with LEDs
+* 4 TM1637 4-digit display modules
+* 5-segment battery indicator
+* Battery display button
+* Resistors
+* Wire
+* Enclosure
+* USB cable for flashing
+* Basic soldering tools
 
-More detailed parts information will be added in the docs folder.
+See the `docs` folder for the BOM, schematic, and full build guide.
 
 ---
 
-## Basic Build Steps
+## Build Guide
 
-1. Gather the parts.
-2. Wire the buttons and LEDs to the ESP32.
-3. Flash the firmware.
-4. Power the unit.
-5. Connect to the ESP32 Wi-Fi network with your phone or laptop.
-6. Open the local web interface.
-7. Configure the game.
-8. Start playing.
+Start here:
+
+docs/build-guide.md
+
+The build guide covers:
+
+* Parts required
+* Tools required
+* Power wiring
+* Arduino Nano ESP32 pinout
+* Button wiring
+* Display wiring
+* Battery indicator wiring
+* Firmware upload
+* Wi-Fi connection
+* Event-day testing
+* Troubleshooting
 
 ---
 
 ## Firmware
 
-The firmware is written for ESP32 using Arduino IDE.
+The firmware is written for the Arduino Nano ESP32 using the Arduino IDE.
 
-The main code can be found in:
+Current recommended firmware:
 
 ```text
-Firmware/v0.2_KOTH_timer.ino
+Firmware/KOTH_Timer_v0_3/KOTH_Timer_v0_3.ino
+```
+
+For Arduino IDE compatibility, the `.ino` file should be inside a folder with the same name as the sketch.
+
+---
+
+## Hardware Files
+
+Hardware documentation is in the `docs` folder.
+
+Current files include:
+
+```text
+docs/BOM.xlsx
+docs/BOM.csv
+docs/Wiring_schematic.pdf
+docs/build-guide.md
+```
+
+---
+
+## Future Development
+
+Planned future work may include:
+
+* Testing and reviewing the first KiCad PCB design
+* Improving hardware documentation
+* Adding more photos and wiring diagrams
+* Adding extra game modes beyond King of the Hill
+* Improving the referee/admin interface based on event feedback
+* Exploring a Bluetooth or app-based version if there is enough interest
+
+The v0.3 firmware is event-tested and is the current recommended release.
+
+Any early PCB design should be treated as untested hardware until it has been manufactured, assembled, and tested.
+
+---
+
+## Project Status
+
+This is a hobby project, not a commercial product.
+
+The current firmware has been tested at an event, but builders should still test their own wiring and setup before using the timer in a game.
+
+If you build one, feel free to modify it for your own event rules, enclosure, buttons, battery setup, or game style.
+
+---
+
+## Licence
+
+This project is released under the MIT Licence.
