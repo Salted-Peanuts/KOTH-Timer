@@ -6,7 +6,6 @@ This project is based on a working timer that has been tested successfully at lo
 
 The goal is to keep it practical, buildable, and easy to modify.
 
----
 
 ## Current Recommended Version
 
@@ -46,7 +45,6 @@ The timer runs locally from the ESP32, so it does not need internet access durin
 
 ![OpenKOTH Timer internal wiring](Images/20260213_172516.jpg)
 
----
 
 ## Features
 
@@ -92,7 +90,6 @@ http://10.10.10.1/ping
 
 Some phones may warn that the network has no internet. This is normal. Choose the option to stay connected or use the network anyway.
 
----
 
 ## Optional Wi-Fi Password
 
@@ -114,7 +111,6 @@ static const char* AP_PASS = "kothtimer";
 
 Then upload the firmware again.
 
----
 
 ## Who This Is For
 
@@ -129,7 +125,6 @@ This project is for hobbyists who want to build their own objective timer for ga
 
 You do not need to be an expert programmer, but you should be comfortable with basic wiring, soldering, and flashing an ESP32.
 
----
 
 ## Basic Hardware Needed
 
@@ -175,7 +170,6 @@ The build guide covers:
 * Event-day testing
 * Troubleshooting
 
----
 
 ## Firmware
 
