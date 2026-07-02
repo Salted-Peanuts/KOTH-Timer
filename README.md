@@ -195,7 +195,7 @@ Current files include:
 docs/BOM.xlsx
 docs/BOM.csv
 docs/Wiring_schematic.pdf
-docs/build-guide.md
+[Build Guide](docs/build-guide.md)
 ```
 
 ---
