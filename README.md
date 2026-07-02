@@ -154,7 +154,7 @@ See the `docs` folder for the BOM, schematic, and full build guide.
 
 Start here:
 
-docs/build-guide.md
+[Build Guide](docs/build-guide.md)
 
 The build guide covers:
 
@@ -195,9 +195,8 @@ Current files include:
 docs/BOM.xlsx
 docs/BOM.csv
 docs/Wiring_schematic.pdf
-[Build Guide](docs/build-guide.md)
+docs/build-guide.md
 ```
-
 ---
 
 ## Future Development
