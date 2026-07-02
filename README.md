@@ -21,7 +21,6 @@ v0.3 has been tested at an event and is now the recommended version for new buil
 
 v0.2 is still available for reference as an earlier prototype release.
 
----
 
 ## What It Does
 
