@@ -8,7 +8,6 @@ This guide is based on **KOTH Timer v0.3**, which has been tested at a real even
 
 > **Important:** This is still a hobby project. Check the schematic, BOM, firmware, and photos before soldering. Builders should test their own wiring carefully before using the timer at an event.
 
----
 
 ## What You Are Building
 
@@ -39,7 +38,6 @@ The game logic is simple:
 * If no button is held, neither timer counts down.
 * The match ends when one team’s timer reaches zero.
 
----
 
 ## Current Status
 
@@ -62,7 +60,6 @@ Main v0.3 improvements include:
 
 The older v0.2 firmware is still available for reference, but new builders should use v0.3.
 
----
 
 ## Files Used
 
@@ -95,7 +92,6 @@ Firmware/
     KOTH_Timer_v0_3.ino
 ```
 
----
 
 ## Parts Required
 
@@ -141,7 +137,6 @@ You will need:
 
 A multimeter is strongly recommended. Do not skip voltage checks.
 
----
 
 ## Power Wiring Overview
 
@@ -172,7 +167,6 @@ Battery indicator GND
 
 > **Li-ion safety:** Use care when working with 18650 cells. Avoid shorts, use a fuse, and do not use damaged cells.
 
----
 
 ## Arduino Nano ESP32 Pinout
 
@@ -195,7 +189,6 @@ Pressed = LOW
 Released = HIGH
 ```
 
----
 
 ### Arcade Button LEDs
 
@@ -297,7 +290,6 @@ Each LED segment should have current limiting.
 
 The battery bar display turns on temporarily when the battery display button is pressed.
 
----
 
 ## Wiring Checklist
 
@@ -315,7 +307,6 @@ Check:
 
 Use a multimeter before plugging in the Arduino.
 
----
 
 ### 2. Buttons
 
@@ -329,7 +320,6 @@ Battery button -> D4 and GND
 
 No external pull-up resistor is needed for these buttons because the firmware uses `INPUT_PULLUP`.
 
----
 
 ### 3. Arcade Button LEDs
 
@@ -361,7 +351,6 @@ Team B display 2 DIO -> D6
 
 If one display does not work, swap it with a known working one to check whether the issue is the display module or the wiring.
 
----
 
 ### 5. Battery Indicator
 
@@ -379,7 +368,6 @@ A5 = green 3
 
 Pressing the battery display button should show the battery level for a few seconds.
 
----
 
 ## Firmware Upload
 
@@ -440,7 +428,6 @@ Upload
 
 After uploading, the ESP32 should start its local Wi-Fi access point.
 
----
 
 ## First Power-On Test
 
@@ -458,7 +445,6 @@ If the displays are blank:
 * Check display orientation
 * Check the firmware uploaded correctly
 
----
 
 ### Check Wi-Fi
 
@@ -491,7 +477,6 @@ If `/ping` loads but the main page does not, the Wi-Fi connection is working and
 
 Some phones may warn that the network has no internet. Choose the option to stay connected or use the network anyway.
 
----
 
 ### Optional: Adding a Wi-Fi Password
 
@@ -522,7 +507,6 @@ Password: kothtimer
 
 The password must be at least 8 characters long. If the password is left blank, the timer will use an open network.
 
----
 
 ### Check Buttons
 
@@ -535,7 +519,6 @@ Then test:
 * Hold both buttons: contested state, no timer should count down.
 * Hold no buttons: idle state, no timer should count down.
 
----
 
 ### Check LED Feedback
 
@@ -546,7 +529,6 @@ During a running game:
 * Contested should light both LEDs.
 * Idle should turn both LEDs off.
 
----
 
 ### Check Battery Display
 
@@ -556,7 +538,6 @@ The 5-segment bar graph should light briefly to show the approximate battery lev
 
 If the displayed battery level is wrong, measure the battery voltage with a multimeter and calibrate the firmware.
 
----
 
 ## Web Interface Use
 
@@ -578,7 +559,6 @@ The reset button is only intended to work when the game is paused or when the ma
 
 The live time adjustment controls are intended for referee/admin corrections during a match. They can be used to fix timing issues without resetting the whole game.
 
----
 
 ## Game Rules
 
@@ -594,7 +574,6 @@ The current firmware uses hold-to-capture logic.
 
 This makes the timer useful for King of the Hill games where teams must physically hold the objective.
 
----
 
 ## Mounting Everything
 
@@ -613,7 +592,6 @@ When laying out the enclosure, consider:
 
 Do not leave bare battery connections exposed.
 
----
 
 ## Final Pre-Game Checklist
 
@@ -634,7 +612,6 @@ Before using the timer at an event:
 * Match duration set correctly
 * Enclosure closed and secure
 
----
 
 ## Troubleshooting
 
@@ -649,7 +626,6 @@ Check:
 * 5 V connection to the Arduino
 * Ground wiring
 
----
 
 ### The Wi-Fi Network Does Not Appear
 
@@ -661,7 +637,6 @@ Check:
 * Try pressing reset on the board
 * Try powering from USB first
 
----
 
 ### The Web Interface Does Not Load
 
@@ -676,7 +651,6 @@ Check:
 * Try another browser
 * Restart the timer
 
----
 
 ### A Team Button Does Not Work
 
@@ -688,7 +662,6 @@ Check:
 * The button is normally open
 * The wire has not broken off the terminal
 
----
 
 ### A Button Works Backwards
 
@@ -696,7 +669,6 @@ The firmware expects the buttons to connect the pin to GND when pressed.
 
 Use the normally open contacts on the arcade button.
 
----
 
 ### A Display Is Blank
 
@@ -710,7 +682,6 @@ Check:
 * Solder joints
 * Try swapping with a known working display
 
----
 
 ### Both Displays for One Team Are Wrong
 
@@ -724,8 +695,6 @@ Team B display 1 -> D11
 Team B display 2 -> D6
 ```
 
----
-
 ### Battery Reading Is Wrong
 
 Check:
@@ -738,7 +707,6 @@ Check:
 
 Use a multimeter to compare the real battery voltage against the web interface reading.
 
----
 
 ### Battery Bar Graph Does Not Light
 
@@ -751,7 +719,6 @@ Check:
 * Pins A1 to A5
 * Ground connection
 
----
 
 ### Timer Does Not Count Down
 
@@ -763,7 +730,6 @@ Check:
 * The button wiring is correct
 * The web interface state is not showing contested or idle
 
----
 
 ### Live Time Adjustment Does Not Work
 
@@ -777,7 +743,6 @@ Check:
 
 The live time adjustment controls are only in the v0.3 web interface.
 
----
 
 ## Notes for Builders
 
@@ -797,7 +762,6 @@ You can modify:
 
 If you improve the design, consider sharing your changes back with the project.
 
----
 
 ## Future Development Plans
 
@@ -814,7 +778,6 @@ Planned future work may include:
 
 The first PCB design may be shared separately as an untested hardware design for people to inspect, review, and manufacture at their own risk. The v0.3 firmware is tested; any early PCB design should be treated as unverified until built and tested.
 
----
 
 ## Safety Notes
 
@@ -827,7 +790,6 @@ The first PCB design may be shared separately as an untested hardware design for
 * Do not use damaged cells.
 * Do not charge the battery unattended unless your charging setup is designed for safe unattended use.
 
----
 
 ## Version
 
