@@ -1,12 +1,12 @@
 # KOTH Timer Build Guide
 
-This guide explains how to build the prototype version of the KOTH Timer.
+This guide explains how to build the current recommended version of the KOTH Timer.
 
 KOTH Timer is a DIY King of the Hill timer for Nerf, foam flinging, and other objective-based hobby games. It uses an Arduino Nano ESP32, two large team buttons, four TM1637 display modules, LED feedback, a battery display, and a local Wi-Fi web interface for controlling the game.
 
-This guide is based on the current v0.2 prototype.
+This guide is based on **KOTH Timer v0.3**, which has been tested at a real event and is now the recommended firmware release.
 
-> **Important:** This is still an early public build. Check the schematic, BOM, firmware, and photos before soldering. Future versions may change the wiring or hardware.
+> **Important:** This is still a hobby project. Check the schematic, BOM, firmware, and photos before soldering. Builders should test their own wiring carefully before using the timer at an event.
 
 ---
 
@@ -41,18 +41,26 @@ The game logic is simple:
 
 ---
 
-## Current Prototype Status
+## Current Status
 
-This build is based on the working v0.2 prototype.
+The current recommended release is **v0.3**.
 
-It has been used successfully at local Nerf events, but the documentation and firmware are still being improved.
+v0.3 has been tested at an event and is the recommended version for new builds.
 
-Known future work:
+Main v0.3 improvements include:
 
-* Improved v0.3 firmware
-* Better web UI
-* More stable KOTH interface
-* Possible extra game modes later
+* Phone-friendly referee/admin web interface
+* More reliable phone connection using `http://10.10.10.1`
+* Open Wi-Fi network by default for quick event setup
+* Optional Wi-Fi password support if the builder wants it
+* Live time adjustment during gameplay
+* Ref/admin can add or remove time from either team without resetting the match
+* Larger touch-friendly controls
+* Cleaner match status display
+* `/ping` test page for connection troubleshooting
+* `/state` fallback endpoint for UI updates
+
+The older v0.2 firmware is still available for reference, but new builders should use v0.3.
 
 ---
 
@@ -62,48 +70,58 @@ Useful files in this repo:
 
 ```text
 Firmware/
-  v0.2_KOTH_timer.ino
+  KOTH_Timer_v0_3/
+    KOTH_Timer_v0_3.ino
 
 docs/
   BOM.csv
   BOM.xlsx
   Wiring_schematic.pdf
+  build-guide.md
 
 Images/
-  20260212_203113.jpg
-  20260212_203205.jpg
-  20260213_172516.jpg
+  Prototype and wiring reference photos
 ```
 
-Use the schematic and prototype photos as the final reference when wiring.
+Use the schematic, BOM, prototype photos, and firmware as the final reference when wiring.
+
+For Arduino IDE compatibility, the `.ino` file should be inside a folder with the same name as the sketch.
+
+Example:
+
+```text
+Firmware/
+  KOTH_Timer_v0_3/
+    KOTH_Timer_v0_3.ino
+```
 
 ---
 
 ## Parts Required
 
-The prototype BOM includes:
+The BOM includes:
 
-|       Qty | Part                           | Notes                            |
-| --------: | ------------------------------ | -------------------------------- |
-|         1 | Arduino Nano ESP32             | Arduino-branded Nano ESP32       |
-|         1 | 18650 Li-ion cell              | Single-cell battery              |
-|         1 | 18650 battery holder           | Holds the battery                |
-|         1 | 5 V step-up converter          | Boosts the 18650 voltage to 5 V  |
-|         1 | 2.5 A to 3 A fuse              | Use with a suitable fuse holder  |
-|         1 | Rocker switch                  | Main power switch                |
-|         2 | Large arcade buttons with LEDs | One for each team                |
-|         4 | TM1637 4-digit display modules | Two displays per team            |
-|         1 | 5-segment LED bar graph        | Battery level display            |
-|         1 | Small push button              | Battery display button           |
-|         2 | 100 kΩ resistors               | Battery voltage divider          |
-|         7 | 220 Ω resistors                | LED current limiting             |
-|         1 | 470 µF electrolytic capacitor  | Power smoothing                  |
-|         1 | 100 nF ceramic capacitor       | Power smoothing/decoupling       |
-| As needed | Prototyping PCB                | For soldering                    |
-| As needed | Wire                           | 22 AWG was used in the prototype |
-| As needed | Heat shrink                    | For insulation                   |
-| As needed | Terminal blocks                | Optional, but useful             |
-|         1 | Enclosure                      | 3D printed or custom housing     |
+|       Qty | Part                           | Notes                                 |
+| --------: | ------------------------------ | ------------------------------------- |
+|         1 | Arduino Nano ESP32             | Arduino-branded Nano ESP32            |
+|         1 | 18650 Li-ion cell              | Single-cell battery                   |
+|         1 | 18650 battery holder           | Holds the battery                     |
+|         1 | 5 V step-up converter          | Boosts the 18650 voltage to 5 V       |
+|         1 | 2.5 A to 3 A fuse              | Use with a suitable fuse holder       |
+|         1 | Rocker switch                  | Main power switch                     |
+|         2 | Large arcade buttons with LEDs | One for each team                     |
+|         4 | TM1637 4-digit display modules | Two displays per team                 |
+|         1 | 5-segment LED bar graph        | Battery level display                 |
+|         1 | Small push button              | Battery display button                |
+|         2 | 100 kΩ resistors               | Battery voltage divider               |
+|         7 | 220 Ω resistors                | LED current limiting                  |
+|         1 | 470 µF electrolytic capacitor  | Power smoothing                       |
+|         1 | 100 nF ceramic capacitor       | Power smoothing/decoupling            |
+| As needed | Prototyping PCB                | For soldering                         |
+| As needed | Wire                           | 22 AWG was used in the original build |
+| As needed | Heat shrink                    | For insulation                        |
+| As needed | Terminal blocks                | Optional, but useful                  |
+|         1 | Enclosure                      | 3D printed or custom housing          |
 
 ---
 
@@ -127,7 +145,7 @@ A multimeter is strongly recommended. Do not skip voltage checks.
 
 ## Power Wiring Overview
 
-The prototype is powered from a single 18650 cell.
+The timer is powered from a single 18650 cell.
 
 Basic power path:
 
@@ -158,7 +176,7 @@ Battery indicator GND
 
 ## Arduino Nano ESP32 Pinout
 
-The v0.2 firmware uses the following pin assignments.
+The v0.3 firmware uses the following pin assignments.
 
 ### Team Buttons
 
@@ -195,13 +213,13 @@ HIGH = LED on
 LOW = LED off
 ```
 
-Use suitable resistors for your LEDs. The prototype BOM lists 220 Ω resistors.
+Use suitable resistors for your LEDs. The BOM lists 220 Ω resistors.
 
 ---
 
 ### TM1637 Displays
 
-The prototype uses four TM1637 4-digit displays.
+The timer uses four TM1637 4-digit displays.
 
 All four displays share the same clock pin, but each display has its own data pin.
 
@@ -233,7 +251,7 @@ The battery voltage is measured through a resistor divider.
 | -------------------------------- | ----------- |
 | Battery voltage divider midpoint | A0          |
 
-The prototype uses:
+The timer uses:
 
 ```text
 R1 = 100 kΩ
@@ -268,7 +286,7 @@ The battery indicator uses five GPIO outputs.
 | Green segment 2 | A4          |
 | Green segment 3 | A5          |
 
-The prototype firmware assumes:
+The firmware assumes:
 
 ```text
 GPIO HIGH = segment on
@@ -371,7 +389,7 @@ The firmware is written for the Arduino Nano ESP32 using the Arduino IDE.
 
 Install Arduino IDE 2.x.
 
-### 2. Install ESP32 board support
+### 2. Install ESP32 Board Support
 
 In Arduino IDE, install the board support needed for the Arduino Nano ESP32.
 
@@ -386,6 +404,7 @@ The firmware uses:
 * WebSockets support
 * TM1637 display support
 * Preferences storage
+* DNS server support for connection handling
 
 If the code fails to compile because a library is missing, install the missing library through:
 
@@ -399,14 +418,14 @@ Search for the missing library name shown in the compile error.
 
 Open the `.ino` file from the `Firmware` folder.
 
-For Arduino IDE compatibility, the sketch may need to be inside a folder with the same name as the `.ino` file.
+For Arduino IDE compatibility, the sketch should be inside a folder with the same name as the `.ino` file.
 
 Example:
 
 ```text
 Firmware/
-  KOTH_Timer_v0_2/
-    KOTH_Timer_v0_2.ino
+  KOTH_Timer_v0_3/
+    KOTH_Timer_v0_3.ino
 ```
 
 ### 5. Upload
@@ -427,7 +446,7 @@ After uploading, the ESP32 should start its local Wi-Fi access point.
 
 Before closing the enclosure, test everything on the bench.
 
-### Check displays
+### Check Displays
 
 On boot, the TM1637 displays should show the starting game time.
 
@@ -443,27 +462,69 @@ If the displays are blank:
 
 ### Check Wi-Fi
 
-The ESP32 creates a Wi-Fi network:
+The ESP32 creates a local Wi-Fi network:
 
 ```text
-KOTH-Timer
+SSID: KOTH-Timer
+Password: none / open network
 ```
 
 Connect to it with a phone or laptop.
 
 There is no internet through this network. That is normal.
 
-Open a browser and try:
+Open a browser and go to:
 
 ```text
-http://192.168.4.1
+http://10.10.10.1
 ```
 
 The KOTH Timer web interface should load.
 
+If the main page does not load, test the connection page:
+
+```text
+http://10.10.10.1/ping
+```
+
+If `/ping` loads but the main page does not, the Wi-Fi connection is working and the issue is likely with the web interface loading or browser caching.
+
+Some phones may warn that the network has no internet. Choose the option to stay connected or use the network anyway.
+
 ---
 
-### Check buttons
+### Optional: Adding a Wi-Fi Password
+
+By default, the KOTH Timer Wi-Fi network is open so referees can connect quickly during events.
+
+If you want to add a password, edit the firmware Wi-Fi settings near the top of the code.
+
+Find:
+
+```cpp
+static const char* AP_PASS = "";
+```
+
+Change it to something with at least 8 characters:
+
+```cpp
+static const char* AP_PASS = "kothtimer";
+```
+
+Then upload the firmware again.
+
+After that, users will need to connect with:
+
+```text
+SSID: KOTH-Timer
+Password: kothtimer
+```
+
+The password must be at least 8 characters long. If the password is left blank, the timer will use an open network.
+
+---
+
+### Check Buttons
 
 Start a test game from the web interface.
 
@@ -476,7 +537,7 @@ Then test:
 
 ---
 
-### Check LED feedback
+### Check LED Feedback
 
 During a running game:
 
@@ -487,7 +548,7 @@ During a running game:
 
 ---
 
-### Check battery display
+### Check Battery Display
 
 Press the battery display button.
 
@@ -511,8 +572,11 @@ The web interface allows the referee/admin to:
 * View battery voltage
 * View current game state
 * See the winner when the match ends
+* Add or remove time from either team during gameplay
 
 The reset button is only intended to work when the game is paused or when the match has finished.
+
+The live time adjustment controls are intended for referee/admin corrections during a match. They can be used to fix timing issues without resetting the whole game.
 
 ---
 
@@ -534,7 +598,7 @@ This makes the timer useful for King of the Hill games where teams must physical
 
 ## Mounting Everything
 
-The prototype uses a custom enclosure, but you can use any suitable housing.
+The original build uses a custom enclosure, but you can use any suitable housing.
 
 When laying out the enclosure, consider:
 
@@ -563,8 +627,10 @@ Before using the timer at an event:
 * Both team LEDs working
 * Battery indicator working
 * Phone/laptop can connect to `KOTH-Timer`
-* Web interface loads
+* Web interface loads at `http://10.10.10.1`
+* `/ping` test page works
 * Start/pause/resume/reset tested
+* Live time adjustment tested
 * Match duration set correctly
 * Enclosure closed and secure
 
@@ -572,7 +638,7 @@ Before using the timer at an event:
 
 ## Troubleshooting
 
-### The ESP32 does not turn on
+### The ESP32 Does Not Turn On
 
 Check:
 
@@ -585,7 +651,7 @@ Check:
 
 ---
 
-### The Wi-Fi network does not appear
+### The Wi-Fi Network Does Not Appear
 
 Check:
 
@@ -597,19 +663,22 @@ Check:
 
 ---
 
-### The web interface does not load
+### The Web Interface Does Not Load
 
 Check:
 
 * Your phone/laptop is connected to `KOTH-Timer`
+* Your phone has chosen to stay connected to the no-internet Wi-Fi network
 * Mobile data is not interfering
-* Try opening `http://192.168.4.1`
+* Disable any VPNs
+* Try opening `http://10.10.10.1`
+* Try opening `http://10.10.10.1/ping`
 * Try another browser
 * Restart the timer
 
 ---
 
-### A team button does not work
+### A Team Button Does Not Work
 
 Check:
 
@@ -621,7 +690,7 @@ Check:
 
 ---
 
-### A button works backwards
+### A Button Works Backwards
 
 The firmware expects the buttons to connect the pin to GND when pressed.
 
@@ -629,7 +698,7 @@ Use the normally open contacts on the arcade button.
 
 ---
 
-### A display is blank
+### A Display Is Blank
 
 Check:
 
@@ -643,7 +712,7 @@ Check:
 
 ---
 
-### Both displays for one team are wrong
+### Both Displays for One Team Are Wrong
 
 Check the data pins for that team:
 
@@ -657,7 +726,7 @@ Team B display 2 -> D6
 
 ---
 
-### Battery reading is wrong
+### Battery Reading Is Wrong
 
 Check:
 
@@ -671,7 +740,7 @@ Use a multimeter to compare the real battery voltage against the web interface r
 
 ---
 
-### Battery bar graph does not light
+### Battery Bar Graph Does Not Light
 
 Check:
 
@@ -684,7 +753,7 @@ Check:
 
 ---
 
-### Timer does not count down
+### Timer Does Not Count Down
 
 Check:
 
@@ -696,9 +765,23 @@ Check:
 
 ---
 
+### Live Time Adjustment Does Not Work
+
+Check:
+
+* You are using the v0.3 firmware
+* The web interface is loaded properly
+* The phone is still connected to the timer Wi-Fi
+* Try refreshing the page
+* Try opening `http://10.10.10.1/ping`
+
+The live time adjustment controls are only in the v0.3 web interface.
+
+---
+
 ## Notes for Builders
 
-This is not a polished commercial product. It is a hobby project based on a working prototype.
+This is not a polished commercial product. It is a hobby project based on a working event-tested build.
 
 Expect to do some testing and troubleshooting.
 
@@ -713,6 +796,23 @@ You can modify:
 * Firmware behaviour
 
 If you improve the design, consider sharing your changes back with the project.
+
+---
+
+## Future Development Plans
+
+v0.3 is the current recommended firmware release.
+
+Planned future work may include:
+
+* Testing and reviewing the first KiCad PCB design
+* Making the hardware documentation clearer for new builders
+* Adding more photos and diagrams to the build guide
+* Adding extra game modes beyond King of the Hill
+* Improving the referee/admin interface further based on event feedback
+* Exploring a Bluetooth or app-based version if there is enough interest
+
+The first PCB design may be shared separately as an untested hardware design for people to inspect, review, and manufacture at their own risk. The v0.3 firmware is tested; any early PCB design should be treated as unverified until built and tested.
 
 ---
 
@@ -734,7 +834,8 @@ If you improve the design, consider sharing your changes back with the project.
 Guide written for:
 
 ```text
-KOTH Timer v0.2 prototype
+KOTH Timer v0.3
 ```
 
-Future firmware or hardware versions may use different wiring.
+v0.3 is the current recommended firmware release.
+
