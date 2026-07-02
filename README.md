@@ -34,7 +34,6 @@ Players press their team’s button to capture the objective. The timer tracks c
 
 The timer runs locally from the ESP32, so it does not need internet access during gameplay.
 
----
 
 ## Prototype Photos
 
@@ -66,7 +65,6 @@ The timer runs locally from the ESP32, so it does not need internet access durin
 * Optional Wi-Fi password support
 * No internet required during gameplay
 
----
 
 ## Referee/Admin Connection
 
@@ -149,7 +147,6 @@ The current build uses:
 
 See the `docs` folder for the BOM, schematic, and full build guide.
 
----
 
 ## Build Guide
 
@@ -198,7 +195,6 @@ docs/BOM.csv
 docs/Wiring_schematic.pdf
 docs/build-guide.md
 ```
----
 
 ## Future Development
 
@@ -215,7 +211,6 @@ The v0.3 firmware is event-tested and is the current recommended release.
 
 Any early PCB design should be treated as untested hardware until it has been manufactured, assembled, and tested.
 
----
 
 ## Project Status
 
@@ -225,7 +220,6 @@ The current firmware has been tested at an event, but builders should still test
 
 If you build one, feel free to modify it for your own event rules, enclosure, buttons, battery setup, or game style.
 
----
 
 ## Related Uses
 
@@ -239,7 +233,6 @@ This project may be useful for:
 - Referee-controlled event timers
 - Local Wi-Fi game control panels
 
----
 
 ## Licence
 
