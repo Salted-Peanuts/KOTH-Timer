@@ -6,7 +6,6 @@ The current recommended firmware release is **v0.3**.
 
 v0.3 has been tested at an event and is now the recommended version for new builds.
 
----
 
 ## Build Guide
 
@@ -31,7 +30,6 @@ The build guide covers:
 * Event testing
 * Troubleshooting
 
----
 
 ## BOM
 
@@ -46,8 +44,6 @@ Use the Excel file if you want the formatted version.
 
 Use the CSV file if you want something easier to view directly on GitHub.
 
----
-
 ## Schematic
 
 The current wiring schematic is available as a PDF:
@@ -58,7 +54,6 @@ docs/Wiring_schematic.pdf
 
 Use the schematic together with the build guide and firmware pinout before soldering.
 
----
 
 ## Firmware Version
 
@@ -70,7 +65,6 @@ Firmware/KOTH_Timer_v0_3/KOTH_Timer_v0_3.ino
 
 The older v0.2 firmware is still available for reference, but new builders should use v0.3.
 
----
 
 ## Wi-Fi/Admin Interface
 
@@ -97,7 +91,6 @@ The timer does not provide internet access. This is normal.
 
 Some phones may warn that the Wi-Fi network has no internet. Choose the option to stay connected or use the network anyway.
 
----
 
 ## Optional Wi-Fi Password
 
@@ -119,7 +112,6 @@ static const char* AP_PASS = "kothtimer";
 
 Then upload the firmware again.
 
----
 
 ## Notes
 
@@ -131,7 +123,6 @@ Some parts may need different resistor values or pin assignments depending on th
 
 Use a multimeter before connecting the Arduino and displays to the battery power system.
 
----
 
 ## Future Hardware
 
