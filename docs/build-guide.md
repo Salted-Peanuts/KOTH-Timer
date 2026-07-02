@@ -119,7 +119,6 @@ The BOM includes:
 | As needed | Terminal blocks                | Optional, but useful                  |
 |         1 | Enclosure                      | 3D printed or custom housing          |
 
----
 
 ## Tools Required
 
@@ -208,7 +207,6 @@ LOW = LED off
 
 Use suitable resistors for your LEDs. The BOM lists 220 Ω resistors.
 
----
 
 ### TM1637 Displays
 
@@ -234,7 +232,6 @@ TM1637 DIO -> display data pin
 
 The two displays for the same team show the same time. This lets the timer be visible from more than one angle.
 
----
 
 ### Battery Voltage Reading
 
@@ -265,7 +262,6 @@ Battery +
 
 The firmware includes battery calibration values. If the displayed battery voltage is wrong, measure the battery with a multimeter and adjust the calibration values in the firmware.
 
----
 
 ### 5-Segment Battery Indicator
 
@@ -332,7 +328,6 @@ D7 -> resistor -> Team B LED -> GND
 
 If your arcade buttons have built-in LEDs, check their voltage and polarity before wiring.
 
----
 
 ### 4. Displays
 
