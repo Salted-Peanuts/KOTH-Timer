@@ -228,6 +228,20 @@ If you build one, feel free to modify it for your own event rules, enclosure, bu
 
 ---
 
+## Related Uses
+
+This project may be useful for:
+
+- Nerf King of the Hill games
+- Foam flinging objective games
+- DIY skirmish game timers
+- Arduino ESP32 game props
+- Capture point timers
+- Referee-controlled event timers
+- Local Wi-Fi game control panels
+
+---
+
 ## Licence
 
 This project is released under the MIT Licence.
