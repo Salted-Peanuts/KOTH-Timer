@@ -181,7 +181,6 @@ Firmware/KOTH_Timer_v0_3/KOTH_Timer_v0_3.ino
 
 For Arduino IDE compatibility, the `.ino` file should be inside a folder with the same name as the sketch.
 
----
 
 ## Hardware Files
 
