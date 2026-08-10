@@ -194,6 +194,50 @@ docs/BOM.csv
 docs/Wiring_schematic.pdf
 docs/build-guide.md
 ```
+PCB Hardware Status
+
+The firmware and hand-wired prototype are working, but the PCB designs should be treated by revision.
+
+PCB revision	Status	Recommendation
+v0.1	Manufactured and partially working	Not recommended for new builds
+v0.2	In manufacturing / not yet tested	Wait for test results before ordering
+PCB v0.1
+
+The first PCB revision was manufactured and the timer is functional through the web UI, but this board has known display reliability issues.
+
+Known v0.1 issue:
+
+Some TM1637 displays may show interference, flicker, incorrect segments, or unstable output.
+
+Likely causes include display power noise, shared clock routing, lack of local display decoupling, and signal integrity issues on the display lines.
+
+The v0.1 PCB files are kept in the repo for reference, review, and comparison, but new builders should not order this revision unless they are comfortable debugging and modifying the board.
+
+PCB v0.2
+
+PCB v0.2 is the next hardware revision and is currently in manufacturing.
+
+v0.2 is intended to improve display reliability and board layout based on lessons from v0.1, including better display power decoupling and cleaner display signal routing.
+
+Until v0.2 has been assembled and tested, it should be treated as untested hardware.
+
+The currently recommended build remains the tested v0.3 firmware with the original hand-wired/prototype hardware approach.
+
+Supported By PCBWay
+
+PCB manufacturing for the newer KOTH Timer PCB revisions has been financially supported by PCBWay.
+
+PCBWay are helping support this open-source project by providing PCB manufacturing support while allowing the design files, firmware, and documentation to remain fully open source.
+
+Their support helps make it easier to test real hardware revisions, improve the PCB design, and share the results back with other builders.
+
+You can check out PCBWay’s PCB manufacturing and assembly services here:
+
+PCBWay
+
+Thanks to PCBWay for supporting open-source hardware creators and helping this project move from a hand-wired prototype toward a cleaner PCB-based build.
+
+Note: PCBWay supported manufacturing for this project, but the design, testing notes, known issues, and recommendations in this repo are written independently. Untested PCB revisions should still be treated as experimental until they are built and verified.
 
 ## Future Development
 
