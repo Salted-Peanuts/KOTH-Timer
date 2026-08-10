@@ -194,7 +194,7 @@ docs/BOM.csv
 docs/Wiring_schematic.pdf
 docs/build-guide.md
 ```
-PCB Hardware Status
+## PCB Hardware Status
 
 The firmware and hand-wired prototype are working, but the PCB designs should be treated by revision.
 
@@ -205,7 +205,7 @@ PCB v0.1
 
 The first PCB revision was manufactured and the timer is functional through the web UI, but this board has known display reliability issues.
 
-Known v0.1 issue:
+### Known v0.1 issue:
 
 Some TM1637 displays may show interference, flicker, incorrect segments, or unstable output.
 
@@ -213,7 +213,7 @@ Likely causes include display power noise, shared clock routing, lack of local d
 
 The v0.1 PCB files are kept in the repo for reference, review, and comparison, but new builders should not order this revision unless they are comfortable debugging and modifying the board.
 
-PCB v0.2
+### PCB v0.2
 
 PCB v0.2 is the next hardware revision and is currently in manufacturing.
 
@@ -223,7 +223,7 @@ Until v0.2 has been assembled and tested, it should be treated as untested hardw
 
 The currently recommended build remains the tested v0.3 firmware with the original hand-wired/prototype hardware approach.
 
-Supported By PCBWay
+## Supported By PCBWay
 
 PCB manufacturing for the newer KOTH Timer PCB revisions has been financially supported by PCBWay.
 
