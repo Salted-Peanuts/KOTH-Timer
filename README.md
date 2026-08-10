@@ -233,7 +233,7 @@ Their support helps make it easier to test real hardware revisions, improve the 
 
 You can check out PCBWay’s PCB manufacturing and assembly services here:
 
-PCBWay
+[PCBWay](https://www.pcbway.com/)
 
 Thanks to PCBWay for supporting open-source hardware creators and helping this project move from a hand-wired prototype toward a cleaner PCB-based build.
 
