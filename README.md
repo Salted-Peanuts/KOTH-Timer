@@ -227,7 +227,7 @@ The currently recommended build remains the tested v0.3 firmware with the origin
 
 PCB manufacturing for the newer KOTH Timer PCB revisions has been financially donated by PCBWay.
 
-PCBWay are helping support this open-source project by providing me with free PCB prototyping while in development. They are also belivers in allowing the design files, firmware, and documentation to remain fully open source.
+PCBWay are helping support this open-source project by providing me with free PCB prototype manufacturing while in development. They are also belivers in allowing the design files, firmware, and documentation to remain fully open source.
 
 Their support helps make it easier to test real hardware revisions, improve the PCB design, and share the results back with other builders.
 
