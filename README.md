@@ -39,11 +39,11 @@ The timer runs locally from the ESP32, so it does not need internet access durin
 
 ### Finished Prototype
 
-![OpenKOTH Timer finished prototype](Images/20260212_203113.jpg)
+![OpenKOTH Timer finished prototype](Images/Prototype_ref_1.jpg)
 
 ### Inside Wiring
 
-![OpenKOTH Timer internal wiring](Images/20260213_172516.jpg)
+![OpenKOTH Timer internal wiring](Images/Prototype_ref_3.jpg)
 
 
 ## Features
