@@ -1,8 +1,8 @@
-# KOTH Timer
+# OpenKOTH
 
 A DIY Arduino Nano ESP32 King of the Hill timer for Nerf, foam flinging, skirmish games, and objective-based events.
 
-KOTH Timer is an open-source physical game timer with arcade buttons, TM1637 displays, battery monitoring, and a local phone-friendly referee/admin web interface. It is designed for two-team King of the Hill games where players physically hold a button to capture the objective.
+OpenKOTH is an open-source physical game timer with arcade buttons, TM1637 displays, battery monitoring, and a local phone-friendly referee/admin web interface. It is designed for two-team King of the Hill games where players physically hold a button to capture the objective.
 
 This project is based on a working timer that has been tested successfully at local Nerf events. A few people in the hobby scene asked how to build their own, so this repo exists to make that possible.
 
@@ -24,7 +24,7 @@ v0.2 is still available for reference as an earlier prototype release.
 
 ## What It Does
 
-KOTH Timer is a physical objective timer for two-team King of the Hill style games.
+OpenKOTH is a physical objective timer for two-team King of the Hill style games.
 
 Players press their team’s button to capture the objective. The timer tracks control time and shows the game state through:
 
