@@ -71,7 +71,7 @@ Main v0.3.1 improvements include:
 
 The older v0.2 firmware is still available for reference, but new builders should use v0.3.1.
 
-##Supported By PCBWay
+## Supported By PCBWay
 
 PCB manufacturing for newer KOTH Timer PCB revisions has been supported by PCBWay. Their support helped make it possible to test real hardware revisions while keeping the project open source.
 
