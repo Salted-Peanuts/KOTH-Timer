@@ -57,8 +57,11 @@ The timer runs locally from the ESP32, so it does not need internet access durin
 
 ### Inside Wiring
 
-![KOTH-Timer Timer internal wiring](Images/Prototype_ref_3.jpg)
+![KOTH-Timer Timer internal wiring](Images/PCB2.jpg)
 
+### Custom PCB
+
+![KOTH-Timer Timer custom PCB](Images/PCB3.jpg)
 
 ## Features
 
