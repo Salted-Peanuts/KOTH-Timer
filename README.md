@@ -31,12 +31,13 @@ PCB v0.2 has been manufactured, assembled, and tested with no known faults. It i
 
 ```text
 Older versions remain available for reference, But should NOT be used:
-```
+
 
 | Version       | Status                                                                    |
 | ------------- | ------------------------------------------------------------------------- |
 | Firmware v0.3 | Event-tested release, replaced by v0.3.1 bug-fix update                   |
 | PCB v0.1      | Manufactured, functional through the web UI, but has known display issues |
+```
 
 ## What It Does
 
