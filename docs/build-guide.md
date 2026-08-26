@@ -76,7 +76,7 @@ The older v0.2 firmware is still available for reference, but new builders shoul
 PCB manufacturing for newer KOTH Timer PCB revisions has been supported by PCBWay. Their support helped make it possible to test real hardware revisions while keeping the project open source.
 
 
-## BUILD GUIDE STATUS:
+## Build Guide Status:
 
 This Build guide is in place for use ONLY if you plan to build the timer using prototype boards instead of the PCB. There is currently no updated build guide for the manufactured PCB. However, I designed the PCB to be as self explanatory (with a bit of context) as possible. It relies on headers/terminals for most major components so it is PNP for the most part. 
 
