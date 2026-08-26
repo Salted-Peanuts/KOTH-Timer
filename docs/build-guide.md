@@ -41,11 +41,22 @@ The game logic is simple:
 
 ## Current Status
 
-The current recommended release is **v0.3**.
+The current recommended firmware release is **v0.3.1**.
 
-v0.3 has been tested at an event and is the recommended version for new builds.
+v0.3.1 keeps the tested v0.3 phone/referee UI and adds small UI input fixes for the setup controls.
 
-Main v0.3 improvements include:
+The current recommended PCB revision is **PCB v0.2**.
+
+PCB v0.2 has been manufactured, assembled, and tested with no known faults.
+
+New builders should use:
+
+```text
+Firmware/KOTH_Timer_v0_3_1/KOTH_Timer_v0_3_1.ino
+PCB/v0.2-tested/
+```
+
+Main v0.3.1 improvements include:
 
 * Phone-friendly referee/admin web interface
 * More reliable phone connection using `http://10.10.10.1`
@@ -58,39 +69,12 @@ Main v0.3 improvements include:
 * `/ping` test page for connection troubleshooting
 * `/state` fallback endpoint for UI updates
 
-The older v0.2 firmware is still available for reference, but new builders should use v0.3.
+The older v0.2 firmware is still available for reference, but new builders should use v0.3.1.
 
 
-## Files Used
+## BUILD GUIDE STATUS:
 
-Useful files in this repo:
-
-```text
-Firmware/
-  KOTH_Timer_v0_3/
-    KOTH_Timer_v0_3.ino
-
-docs/
-  BOM.csv
-  BOM.xlsx
-  Wiring_schematic.pdf
-  build-guide.md
-
-Images/
-  Prototype and wiring reference photos
-```
-
-Use the schematic, BOM, prototype photos, and firmware as the final reference when wiring.
-
-For Arduino IDE compatibility, the `.ino` file should be inside a folder with the same name as the sketch.
-
-Example:
-
-```text
-Firmware/
-  KOTH_Timer_v0_3/
-    KOTH_Timer_v0_3.ino
-```
+This Build guide is in place for use ONLY if you plan to build the timer using prototype boards instead of the PCB. There is currently no updated build guide for the manufactured PCB. However, I designed the PCB to be as self explanatory (with a bit of context) as possible. It relies on headers/terminals for most major components so it is PNP for the most part. 
 
 
 ## Parts Required
