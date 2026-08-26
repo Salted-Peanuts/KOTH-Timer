@@ -29,7 +29,9 @@ v0.2
 
 PCB v0.2 has been manufactured, assembled, and tested with no known faults. It is the recommended PCB revision for new builds.
 
-Older versions remain available for reference, But should be used:
+```text
+Older versions remain available for reference, But should NOT be used:
+```
 
 | Version       | Status                                                                    |
 | ------------- | ------------------------------------------------------------------------- |
