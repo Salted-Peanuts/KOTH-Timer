@@ -2,63 +2,62 @@
 
 This folder contains PCB design files for the KOTH Timer.
 
-The firmware and original prototype build are working, but PCB revisions should be treated separately. Check the status of each PCB revision before ordering or manufacturing boards.
-
+Check the status of each PCB revision before ordering or manufacturing boards.
 
 ## PCB Revision Status
 
-| Revision | Status                                                | Use                                             |
-| -------- | ----------------------------------------------------- | ----------------------------------------------- |
-| `v0.1`   | Manufactured, partially working, known display issues | Reference only / not recommended for new builds |
-| `v0.2`   | In manufacturing, not yet tested                      | Experimental / wait for test results            |
-
+| Revision | Status | Use |
+|---|---|---|
+| `v0.1` | Manufactured, functionally usable through the web UI, known display issues | Reference only / not recommended for new builds |
+| `v0.2` | Manufactured, assembled, and tested with no known faults | Recommended PCB revision |
 
 ## PCB v0.1
 
 PCB v0.1 was the first manufactured PCB revision.
 
-It is functionally usable through the timer’s web UI, but it has known display reliability issues.
+It is functionally usable through the timer’s web UI, but it has known TM1637 display reliability issues.
 
 Known issue:
 
-* Some TM1637 displays may show interference, flicker, incorrect segments, or unstable output.
+- Some TM1637 displays may show interference, flicker, incorrect segments, or unstable output.
 
 Possible contributing factors include:
 
-* Shared TM1637 clock routing
-* Not enough local decoupling near the display headers
-* Display power noise
-* Signal integrity issues on CLK/DIO traces
-* Long display wiring or cable effects
+- Shared TM1637 clock routing
+- Not enough local decoupling near the display headers
+- Display power noise
+- Signal integrity issues on CLK/DIO traces
+- Long display wiring or cable effects
 
 This revision is kept for reference and comparison, but it is not recommended for new builders.
 
-
 ## PCB v0.2
 
-PCB v0.2 is the next hardware revision.
+PCB v0.2 is the current recommended PCB revision.
 
-It is currently in manufacturing and has not yet been assembled or tested.
+It has been manufactured, assembled, and tested with no known faults.
 
-v0.2 is intended to address lessons from v0.1, especially around display reliability, display signal routing, and local display power decoupling.
+This revision improves on v0.1, especially around:
 
-Do not treat v0.2 as confirmed working until test results are added to this repo.
-
+- TM1637 display reliability
+- Local display power decoupling
+- Cleaner display signal routing
+- Improved PCB layout
+- Reduced display interference issues
 
 ## Recommendation
 
 For new builders:
 
-* Use the current tested v0.3 firmware.
-* Follow the main build guide.
-* Do not order a PCB revision unless its README says it has been tested.
-* Treat early PCB files as experimental hardware.
-
+- Use the current recommended firmware.
+- Use PCB v0.2 if building from a PCB.
+- Use PCB v0.1 only for reference or debugging.
+- Check the main build guide before ordering parts or assembling the board.
 
 ## Supported By PCBWay
 
 PCB manufacturing for newer KOTH Timer PCB revisions has been supported by PCBWay.
 
-Their support helps make it possible to test real PCB revisions and keep the project open source.
+Their support helped make it possible to test real PCB revisions and keep the project open source.
 
-Project files, known issues, testing notes, and recommendations remain documented openly so other builders can inspect and improve the design.
+Project files, known issues, testing notes, and recommendations remain documented openly so other builders can inspect, build, and improve the design.
