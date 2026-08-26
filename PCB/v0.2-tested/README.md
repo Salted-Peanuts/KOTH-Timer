@@ -1,35 +1,42 @@
-# KOTH Timer PCB v0.2 - Untested
+# KOTH Timer PCB v0.2 - Tested
 
 This folder contains the second PCB revision for the KOTH Timer.
 
 ## Status
 
-**In manufacturing / not yet tested.**
+**Manufactured, assembled, and tested with no known faults.**
 
-PCB v0.2 has not yet been assembled or validated.
+PCB v0.2 is the current recommended PCB revision for new builds.
 
-It is intended to improve on PCB v0.1, especially around display reliability, display signal routing, and local display power decoupling.
+## What Changed From v0.1
 
-## Important Notes
+PCB v0.2 was redesigned after testing PCB v0.1.
 
-This PCB may still contain mistakes.
+The v0.1 board was functionally usable through the web UI, but some TM1637 displays showed reliability issues.
 
-Before ordering or assembling:
+PCB v0.2 improves the design with better attention to:
 
-- Check all wiring against the schematic.
-- Check Arduino Nano ESP32 pin assignments against the v0.3 firmware.
-- Check TM1637 display CLK/DIO routing.
-- Check local display capacitors.
-- Check battery polarity and power routing.
-- Check fuse and switch routing.
-- Check connector pin order.
-- Check display header pinout against your actual TM1637 modules.
+- Display power decoupling
+- TM1637 CLK/DIO routing
+- Display signal reliability
+- Ground and power layout
+- PCB revision clarity
 
 ## Recommendation
 
-Do not treat this PCB as confirmed working until it has been assembled and tested.
+Use this revision for new PCB-based KOTH Timer builds.
 
-If you manufacture it, inspect the board carefully before installing components or connecting a battery.
+## Before Ordering
+
+Even though PCB v0.2 has been tested successfully, builders should still check:
+
+- Arduino Nano ESP32 pin assignments
+- TM1637 display header pinout
+- Battery polarity
+- Fuse and switch wiring
+- Display module pin order
+- BOM compatibility
+- Firmware version
 
 ## Version
 
@@ -37,3 +44,14 @@ PCB version:
 
 ```text
 v0.2
+```
+Status:
+
+```text
+Tested and working
+```
+Recommended for new builds:
+
+```text
+Yes
+```
