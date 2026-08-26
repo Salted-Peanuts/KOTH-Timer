@@ -9,18 +9,32 @@ This project is based on a working timer that has been tested successfully at lo
 The goal is to keep it practical, buildable, and easy to modify.
 
 
-## Current Recommended Version
+## Current Recommended Versions
 
 The current recommended firmware release is:
 
 ```text
-v0.3
+v0.3.1
 ```
 
-v0.3 has been tested at an event and is now the recommended version for new builds.
+v0.3.1 is the recommended firmware for new builds.
 
-v0.2 is still available for reference as an earlier prototype release.
+It keeps the tested v0.3 phone/referee UI and adds small UI input fixes so team colours and match duration can be edited more reliably from the web interface.
 
+Recommended PCB revision:
+
+```text
+v0.2
+```
+
+PCB v0.2 has been manufactured, assembled, and tested with no known faults. It is the recommended PCB revision for new builds.
+
+Older versions remain available for reference:
+
+| Version       | Status                                                                    |
+| ------------- | ------------------------------------------------------------------------- |
+| Firmware v0.3 | Event-tested release, replaced by v0.3.1 bug-fix update                   |
+| PCB v0.1      | Manufactured, functional through the web UI, but has known display issues |
 
 ## What It Does
 
@@ -176,7 +190,7 @@ The firmware is written for the Arduino Nano ESP32 using the Arduino IDE.
 Current recommended firmware:
 
 ```text
-Firmware/KOTH_Timer_v0_3/KOTH_Timer_v0_3.ino
+Firmware/KOTH_Timer_v0_3_1/KOTH_Timer_v0_3_1.ino
 ```
 
 For Arduino IDE compatibility, the `.ino` file should be inside a folder with the same name as the sketch.
@@ -196,48 +210,44 @@ docs/build-guide.md
 ```
 ## PCB Hardware Status
 
-The firmware and hand-wired prototype are working, but the PCB designs should be treated by revision.
+The KOTH Timer now has a tested PCB revision.
 
-PCB revision	Status	Recommendation
-v0.1	Manufactured and partially working	Not recommended for new builds
-v0.2	In manufacturing / not yet tested	Wait for test results before ordering
-PCB v0.1
+| PCB revision | Status | Recommendation |
+|---|---|---|
+| `v0.1` | Manufactured and functionally usable through the web UI, but has known TM1637 display reliability issues | Reference only / not recommended for new builds |
+| `v0.2` | Manufactured, assembled, and tested with no known faults | Recommended PCB revision |
 
-The first PCB revision was manufactured and the timer is functional through the web UI, but this board has known display reliability issues.
+### PCB v0.1
 
-### Known v0.1 issue:
+PCB v0.1 was the first manufactured PCB revision.
 
-Some TM1637 displays may show interference, flicker, incorrect segments, or unstable output.
+It is functional through the web UI, but some TM1637 displays may show interference, flicker, incorrect segments, or unstable output.
 
-Likely causes include display power noise, shared clock routing, lack of local display decoupling, and signal integrity issues on the display lines.
-
-The v0.1 PCB files are kept in the repo for reference, review, and comparison, but new builders should not order this revision unless they are comfortable debugging and modifying the board.
+The v0.1 files are kept in the repo for reference, troubleshooting, and comparison, but new builders should use PCB v0.2 instead.
 
 ### PCB v0.2
 
-PCB v0.2 is the next hardware revision and is currently in manufacturing.
+PCB v0.2 is the current recommended PCB revision.
 
-v0.2 is intended to improve display reliability and board layout based on lessons from v0.1, including better display power decoupling and cleaner display signal routing.
+It was redesigned based on lessons from v0.1, with improvements around display reliability, local display decoupling, and cleaner TM1637 signal routing.
 
-Until v0.2 has been assembled and tested, it should be treated as untested hardware.
-
-The currently recommended build remains the tested v0.3 firmware with the original hand-wired/prototype hardware approach.
+PCB v0.2 has been manufactured, assembled, and tested with no known faults.
 
 ## Supported By PCBWay
 
-PCB manufacturing for the newer KOTH-Timer PCB revisions has been financially donated by PCBWay.
+PCB manufacturing for newer KOTH Timer PCB revisions has been supported by **PCBWay**.
 
-PCBWay are helping support this open-source project by providing me with free PCB prototype manufacturing while in development. They are also belivers in allowing the design files, firmware, and documentation to remain fully open source.
+PCBWay helped support this open-source hardware project by providing PCB manufacturing support while allowing the firmware, design files, known issues, and documentation to remain open source.
 
-Their support helps make it easier to test real hardware revisions, improve the PCB design, and share the results back with other builders.
+Their support made it easier to test real PCB revisions, improve the board design, and share the results back with other builders.
 
 You can check out PCBWay’s PCB manufacturing and assembly services here:
 
 [PCBWay](https://pcbway.com/g/EGJ27l)
 
-Thanks to PCBWay for supporting open-source hardware creators and helping this project move from a hand-wired prototype toward a cleaner PCB-based build.
+Thanks to PCBWay for supporting open-source hardware creators and helping this project move from a hand-wired prototype to a tested PCB-based build.
 
-Note: PCBWay provided the PCB manufacturing for this project, but the design, testing notes, known issues, and recommendations in this repo are written independently. Untested PCB revisions should still be treated as experimental until they are built and verified.
+Note: PCBWay supported manufacturing for this project, but the design notes, testing results, known issues, and recommendations in this repository are written independently.
 
 ## Future Development
 
