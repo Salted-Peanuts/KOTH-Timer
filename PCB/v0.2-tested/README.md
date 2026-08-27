@@ -20,6 +20,7 @@ PCB v0.2 improves the design with better attention to:
 - TM1637 CLK/DIO routing
 - Display signal reliability
 - Ground and power layout
+- Dev Pinout for easier future module development 
 - PCB revision clarity
 
 ## Recommendation
@@ -32,7 +33,7 @@ Even though PCB v0.2 has been tested successfully, builders should still check:
 
 - Arduino Nano ESP32 pin assignments
 - TM1637 display header pinout
-- Battery polarity
+- Battery/Capacitor polarity
 - Fuse and switch wiring
 - Display module pin order
 - BOM compatibility
