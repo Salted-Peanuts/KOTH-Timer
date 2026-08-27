@@ -29,6 +29,11 @@ v0.2
 
 PCB v0.2 has been manufactured, assembled, and tested with no known faults. It is the recommended PCB revision for new builds.
 
+The tested KOTH Timer PCB v0.2 project is available on PCBWay for convenience if you choose to use them:
+
+[Order / view the KOTH Timer PCB v0.2 project on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
+
+
 ```text
 Older versions remain available for reference, But should NOT be used:
 
