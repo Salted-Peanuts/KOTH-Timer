@@ -91,7 +91,7 @@ The BOM includes:
 |         1 | 18650 Li-ion cell              | Single-cell battery                   |
 |         1 | 18650 battery holder           | Holds the battery                     |
 |         1 | 5 V step-up converter          | Boosts the 18650 voltage to 5 V       |
-|         1 | 2.5 A to 3 A fuse              | Use with a suitable fuse holder       |
+|         1 | 1 A fuse                       | Use with a suitable fuse holder       |
 |         1 | Rocker switch                  | Main power switch                     |
 |         2 | Large arcade buttons with LEDs | One for each team                     |
 |         4 | TM1637 4-digit display modules | Two displays per team                 |
