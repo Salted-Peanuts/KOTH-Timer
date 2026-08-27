@@ -60,4 +60,8 @@ PCB manufacturing for newer KOTH Timer PCB revisions has been supported by PCBWa
 
 Their support helped make it possible to test real PCB revisions and keep the project open source.
 
+The tested KOTH Timer PCB v0.2 project is available on PCBWay here:
+
+[Order / view the KOTH Timer PCB v0.2 project on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
+
 Project files, known issues, testing notes, and recommendations remain documented openly so other builders can inspect, build, and improve the design.
