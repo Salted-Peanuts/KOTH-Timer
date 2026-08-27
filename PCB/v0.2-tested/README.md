@@ -39,6 +39,14 @@ Even though PCB v0.2 has been tested successfully, builders should still check:
 - BOM compatibility
 - Firmware version
 
+## PCBWay Project Link
+
+This tested PCB revision is also available as a PCBWay shared project:
+
+[Order / view the KOTH Timer PCB v0.2 project on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
+
+This link is useful for builders who want to order the tested PCB without manually uploading the Gerber files.
+
 ## Version
 
 PCB version:
