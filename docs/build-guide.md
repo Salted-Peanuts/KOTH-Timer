@@ -9,6 +9,18 @@ This guide is based on **KOTH Timer v0.3**, which has been tested at a real even
 > **Important:** This is still a hobby project. Check the schematic, BOM, firmware, and photos before soldering. Builders should test their own wiring carefully before using the timer at an event.
 
 
+## Build Guide Status:
+
+This Build guide is in place for use ONLY if you plan to build the timer using prototype boards instead of the PCB. There is currently no updated build guide for the manufactured PCB. However, I designed the PCB to be as self explanatory (with a bit of context) as possible. It relies on headers/terminals for most major components so it is PNP for the most part. 
+
+## PCBWay Project Link
+
+This tested PCB revision is also available as a PCBWay shared project:
+
+[Order / view the KOTH Timer PCB v0.2 project on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
+
+This link is useful for builders who want to order the tested PCB without manually uploading the Gerber files.
+
 ## What You Are Building
 
 The timer has two teams.
@@ -70,16 +82,6 @@ Main v0.3.1 improvements include:
 * `/state` fallback endpoint for UI updates
 
 The older v0.2 firmware is still available for reference, but new builders should use v0.3.1.
-
-## Supported By PCBWay
-
-PCB manufacturing for newer KOTH Timer PCB revisions has been supported by PCBWay. Their support helped make it possible to test real hardware revisions while keeping the project open source.
-
-
-## Build Guide Status:
-
-This Build guide is in place for use ONLY if you plan to build the timer using prototype boards instead of the PCB. There is currently no updated build guide for the manufactured PCB. However, I designed the PCB to be as self explanatory (with a bit of context) as possible. It relies on headers/terminals for most major components so it is PNP for the most part. 
-
 
 ## Parts Required
 
