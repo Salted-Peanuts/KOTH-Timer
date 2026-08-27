@@ -251,6 +251,10 @@ You can check out PCBWay’s PCB manufacturing and assembly services here:
 
 [PCBWay](https://pcbway.com/g/EGJ27l)
 
+The tested KOTH Timer PCB v0.2 project is available on PCBWay here:
+
+[Order / view the KOTH Timer PCB v0.2 project on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
+
 Thanks to PCBWay for supporting open-source hardware creators and helping this project move from a hand-wired prototype to a tested PCB-based build.
 
 Note: PCBWay supported manufacturing for this project, but the design notes, testing results, known issues, and recommendations in this repository are written independently.
