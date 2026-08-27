@@ -2,10 +2,17 @@
 
 This folder contains the main hardware and build documentation for the KOTH Timer.
 
-The current recommended firmware release is **v0.3**.
+The current recommended firmware release is **v0.3.1**.
 
-v0.3 has been tested at an event and is now the recommended version for new builds.
+v0.3.1 has been tested and is now the recommended version for new builds.
 
+## PCBWay Project Link
+
+This tested PCB revision is available as a PCBWay shared project:
+
+[Order / view the KOTH Timer PCB v0.2 project on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
+
+This link is useful for builders who want to order the tested PCB without manually uploading the Gerber files.
 
 ## Build Guide
 
@@ -60,7 +67,7 @@ Use the schematic together with the build guide and firmware pinout before solde
 The current recommended firmware is:
 
 ```text
-Firmware/KOTH_Timer_v0_3/KOTH_Timer_v0_3.ino
+v0.3.1
 ```
 
 The older v0.2 firmware is still available for reference, but new builders should use v0.3.
@@ -122,12 +129,3 @@ Check all wiring carefully before powering the device.
 Some parts may need different resistor values or pin assignments depending on the exact components used.
 
 Use a multimeter before connecting the Arduino and displays to the battery power system.
-
-
-## Future Hardware
-
-A KiCad PCB design may be added separately as an untested hardware design.
-
-Until the PCB has been manufactured and tested, it should be treated as experimental.
-
-The v0.3 firmware is tested. Early PCB files should be reviewed carefully before ordering or assembly.
