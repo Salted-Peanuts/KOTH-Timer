@@ -34,15 +34,12 @@ The tested KOTH Timer PCB v0.2 project is available on PCBWay for convenience if
 [Order / view the KOTH Timer PCB v0.2 project on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
 
 
-```text
-Older versions remain available for reference, But should NOT be used:
-
+Older versions remain available for reference but are not recommended for new builds:
 
 | Version       | Status                                                                    |
 | ------------- | ------------------------------------------------------------------------- |
 | Firmware v0.3 | Event-tested release, replaced by v0.3.1 bug-fix update                   |
 | PCB v0.1      | Manufactured, functional through the web UI, but has known display issues |
-```
 
 ## What It Does
 
@@ -268,16 +265,15 @@ Note: PCBWay supported manufacturing for this project, but the design notes, tes
 
 Planned future work may include:
 
-* Testing and reviewing the first KiCad PCB design
 * Improving hardware documentation
 * Adding more photos and wiring diagrams
 * Adding extra game modes beyond King of the Hill
 * Improving the referee/admin interface based on event feedback
 * Exploring a Bluetooth or app-based version if there is enough interest
 
-The v0.3 firmware is event-tested and is the current recommended release.
+The v0.3.1 firmware is the current recommended release. It is based on the event-tested v0.3 firmware and includes additional web-interface input fixes.
 
-Any early PCB design should be treated as untested hardware until it has been manufactured, assembled, and tested.
+PCB v0.2 has been manufactured, assembled, and tested with no known faults and is the current recommended PCB revision.
 
 
 ## Project Status
