@@ -4,7 +4,7 @@ This guide explains how to build the current recommended version of the KOTH Tim
 
 KOTH Timer is a DIY King of the Hill timer for Nerf, foam flinging, and other objective-based hobby games. It uses an Arduino Nano ESP32, two large team buttons, four TM1637 display modules, LED feedback, a battery display, and a local Wi-Fi web interface for controlling the game.
 
-This guide is based on **KOTH Timer v0.3**, which has been tested at a real event and is now the recommended firmware release.
+This guide is based on **KOTH Timer v0.3.1**, which keeps the event-tested v0.3 gameplay and referee UI while adding fixes for the web-interface setup controls.
 
 > **Important:** This is still a hobby project. Check the schematic, BOM, firmware, and photos before soldering. Builders should test their own wiring carefully before using the timer at an event.
 
@@ -159,7 +159,7 @@ Battery indicator GND
 
 ## Arduino Nano ESP32 Pinout
 
-The v0.3 firmware uses the following pin assignments.
+The v0.3.1 firmware uses the following pin assignments.
 
 ### Team Buttons
 
@@ -397,8 +397,8 @@ Example:
 
 ```text
 Firmware/
-  KOTH_Timer_v0_3/
-    KOTH_Timer_v0_3.ino
+  KOTH_Timer_v0_3_1/
+    KOTH_Timer_v0_3_1.ino
 ```
 
 ### 5. Upload
@@ -720,13 +720,13 @@ Check:
 
 Check:
 
-* You are using the v0.3 firmware
+* You are using the v0.3.1 firmware
 * The web interface is loaded properly
 * The phone is still connected to the timer Wi-Fi
 * Try refreshing the page
 * Try opening `http://10.10.10.1/ping`
 
-The live time adjustment controls are only in the v0.3 web interface.
+The live time adjustment controls are included in the v0.3.1 web interface.
 
 
 ## Notes for Builders
@@ -750,18 +750,18 @@ If you improve the design, consider sharing your changes back with the project.
 
 ## Future Development Plans
 
-v0.3 is the current recommended firmware release.
+v0.3.1 is the current recommended firmware release.
 
 Planned future work may include:
 
-* Testing and reviewing the first KiCad PCB design
+* Improving the PCB assembly documentation
 * Making the hardware documentation clearer for new builders
 * Adding more photos and diagrams to the build guide
 * Adding extra game modes beyond King of the Hill
 * Improving the referee/admin interface further based on event feedback
 * Exploring a Bluetooth or app-based version if there is enough interest
 
-The first PCB design may be shared separately as an untested hardware design for people to inspect, review, and manufacture at their own risk. The v0.3 firmware is tested; any early PCB design should be treated as unverified until built and tested.
+PCB v0.2 has been manufactured, assembled, and tested with no known faults. It is the recommended PCB revision for new PCB-based builds.
 
 
 ## Safety Notes
@@ -781,8 +781,8 @@ The first PCB design may be shared separately as an untested hardware design for
 Guide written for:
 
 ```text
-KOTH Timer v0.3
+KOTH Timer v0.3.1
 ```
 
-v0.3 is the current recommended firmware release.
+v0.3.1 is the current recommended firmware release.
 
