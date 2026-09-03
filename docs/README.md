@@ -70,7 +70,11 @@ The current recommended firmware is:
 v0.3.1
 ```
 
-The older v0.2 firmware is still available for reference, but new builders should use v0.3.
+The older v0.2 and v0.3 firmware releases remain available for reference, but new builders should use v0.3.1:
+
+```text
+Firmware/KOTH_Timer_v0_3_1/KOTH_Timer_v0_3_1.ino
+```
 
 
 ## Wi-Fi/Admin Interface
