@@ -1,4 +1,4 @@
-# KOTH Timer PCB v0.2 - Tested
+# KOTH Timer PCB v0.2 - Tested (Working)
 
 This folder contains the second PCB revision for the KOTH Timer.
 
