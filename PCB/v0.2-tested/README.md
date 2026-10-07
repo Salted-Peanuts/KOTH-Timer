@@ -1,66 +1,54 @@
-# KOTH Timer PCB v0.2 - Tested (Working)
+# KOTH Timer PCB v0.2 — tested hardware revision
 
-This folder contains the second PCB revision for the KOTH Timer.
+This folder contains the second manufactured PCB revision for KOTH Timer.
 
 ## Status
 
-**Manufactured, assembled, and tested with no known faults.**
+**Manufactured, assembled and tested successfully.**
 
-PCB v0.2 is the current recommended PCB revision for new builds.
+PCB v0.2 remains the current tested PCB revision while the next PCB revision is being developed.
 
-## What Changed From v0.1
+> [!IMPORTANT]
+> PCB v0.2 was designed before the firmware v0.4.0 battery-divider and buzzer changes.
+>
+> For firmware v0.4.0, fit **10 kΩ at R1 and R2**, not the original 100 kΩ values shown in the historical v0.2 design files.
 
-PCB v0.2 was redesigned after testing PCB v0.1.
+## Firmware v0.4.0 compatibility
 
-The v0.1 board was functionally usable through the web UI, but some TM1637 displays showed reliability issues.
+PCB v0.2 can be used with firmware v0.4.0 with two considerations:
 
-PCB v0.2 improves the design with better attention to:
+1. **Battery divider — required:** substitute 10 kΩ resistors at R1 and R2.
+2. **Buzzer — optional:** connect a 3.3–5 V active buzzer externally using D13, 3.3 V and GND if audible feedback is wanted.
 
-- Display power decoupling
-- TM1637 CLK/DIO routing
-- Display signal reliability
-- Ground and power layout
-- Dev Pinout for easier future module development 
-- PCB revision clarity
+The timer firmware still works normally with **no buzzer connected**.
 
-## Recommendation
+## Why the KiCad files still show 100 kΩ
 
-Use this revision for new PCB-based KOTH Timer builds.
+The files in this directory are the historical record of the actual v0.2 board that was manufactured and tested.
 
-## Before Ordering
+They are intentionally not being rewritten to make the newer 10 kΩ divider look like part of the original tested revision. The required v0.4 substitution is documented here and in the current BOM/build guide instead.
 
-Even though PCB v0.2 has been tested successfully, builders should still check:
+## What changed from v0.1
 
-- Arduino Nano ESP32 pin assignments
-- TM1637 display header pinout
-- Battery/Capacitor polarity
-- Fuse and switch wiring
-- Display module pin order
-- BOM compatibility
-- Firmware version
+v0.2 was redesigned after testing PCB v0.1, with improvements around:
 
-## PCBWay Project Link
+- display power decoupling;
+- TM1637 CLK/DIO routing;
+- display signal reliability;
+- ground and power layout;
+- development breakout access;
+- PCB revision clarity.
 
-This tested PCB revision is also available as a PCBWay shared project:
+## Updated PCB
+
+A newer PCB revision is currently being worked on. Its goal is to integrate the v0.4-era hardware changes more cleanly rather than requiring the v0.2 substitutions above.
+
+Until that board is manufactured and tested, v0.2 remains the current **tested** PCB revision.
+
+## PCBWay project
+
+The v0.2 board is available as a PCBWay shared project:
 
 [Order / view the KOTH Timer PCB v0.2 project on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
 
-This link is useful for builders who want to order the tested PCB without manually uploading the Gerber files.
-
-## Version
-
-PCB version:
-
-```text
-v0.2
-```
-Status:
-
-```text
-Tested and working
-```
-Recommended for new builds:
-
-```text
-Yes
-```
+That page reflects the older v0.2 hardware/release material. Cross-check it against the current repository documentation before ordering parts for firmware v0.4.0.
