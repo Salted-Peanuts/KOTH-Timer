@@ -1,135 +1,83 @@
-## KOTH Timer Documentation
+# KOTH Timer documentation
 
-This folder contains the main hardware and build documentation for the KOTH Timer.
+This folder contains the current build, hardware and release documentation for KOTH Timer.
 
-The current recommended firmware release is **v0.3.1**.
+## Current release
 
-v0.3.1 has been tested and is now the recommended version for new builds.
-
-## PCBWay Project Link
-
-This tested PCB revision is available as a PCBWay shared project:
-
-[Order / view the KOTH Timer PCB v0.2 project on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
-
-This link is useful for builders who want to order the tested PCB without manually uploading the Gerber files.
-
-## Build Guide
-
-Start here:
+Recommended firmware:
 
 ```text
-docs/build-guide.md
+v0.4.0
+Firmware/KOTH_Timer_v0_4_0/KOTH_Timer_v0_4_0.ino
 ```
 
-The build guide covers:
+Current tested PCB:
 
-* Required parts
-* Required tools
-* Wiring overview
-* Arduino Nano ESP32 pinout
-* Power wiring
-* Button wiring
-* Display wiring
-* Battery indicator wiring
-* Firmware upload
-* Wi-Fi/admin page connection
-* Event testing
-* Troubleshooting
+```text
+PCB/v0.2-tested/
+```
 
+An updated PCB revision is currently being developed.
+
+## Read this before upgrading from v0.3.x
+
+Firmware v0.4.0 uses a **10 kΩ / 10 kΩ battery divider** instead of the previous **100 kΩ / 100 kΩ** values.
+
+The active buzzer added in v0.4.0 is **optional**. The firmware runs normally with no buzzer connected.
+
+See:
+
+- [Hardware upgrade notes](hardware-upgrade-v0.4.0.md)
+- [v0.4.0 release notes](release-notes-v0.4.0.md)
+- [Build guide](build-guide.md)
 
 ## BOM
 
-The bill of materials is available in two formats:
+Current builder BOM:
 
 ```text
 docs/BOM.xlsx
 docs/BOM.csv
 ```
 
-Use the Excel file if you want the formatted version.
+Important corrections in the reviewed v0.4 BOM:
 
-Use the CSV file if you want something easier to view directly on GitHub.
+- R1/R2 are now **10 kΩ**.
+- The old 220 Ω purchase URL accidentally pointed to a **220 kΩ** Jaycar part; it has been corrected.
+- The active buzzer is listed as **optional**.
+- PCB v0.2 compatibility notes are included.
+
+### Legacy PCB assembly BOM
+
+`docs/KOTH-Timer__PCB-BOM.xlsx` is retained as a historical PCB v0.2 assembly/manufacturing reference. It reflects the older board as originally manufactured and should **not** be treated as the current v0.4 builder BOM.
+
+When assembling PCB v0.2 for firmware v0.4.0, substitute **10 kΩ at R1/R2** and add the optional buzzer externally if wanted.
 
 ## Schematic
 
-The current wiring schematic is available as a PDF:
+The existing wiring schematic is:
 
 ```text
 docs/Wiring_schematic.pdf
 ```
 
-Use the schematic together with the build guide and firmware pinout before soldering.
+It predates the v0.4 hardware changes. Cross-check it with the v0.4 hardware-upgrade notes, especially the R1/R2 resistor values and optional D13 buzzer.
 
-
-## Firmware Version
-
-The current recommended firmware is:
-
-```text
-v0.3.1
-```
-
-The older v0.2 and v0.3 firmware releases remain available for reference, but new builders should use v0.3.1:
-
-```text
-Firmware/KOTH_Timer_v0_3_1/KOTH_Timer_v0_3_1.ino
-```
-
-
-## Wi-Fi/Admin Interface
-
-By default, the timer creates an open Wi-Fi network:
+## Wi-Fi/admin interface
 
 ```text
 SSID: KOTH-Timer
 Password: none / open network
+Admin page: http://10.10.10.1/
+Connection test: http://10.10.10.1/ping
 ```
 
-After connecting, open:
+Automatic captive-portal/browser opening is intentionally removed in v0.4.0. Connect to the Wi-Fi and open the admin address manually.
 
-```text
-http://10.10.10.1
-```
+## PCBWay v0.2 reference
 
-Connection test page:
+The tested PCB v0.2 shared project remains available here:
 
-```text
-http://10.10.10.1/ping
-```
+https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html
 
-The timer does not provide internet access. This is normal.
-
-Some phones may warn that the Wi-Fi network has no internet. Choose the option to stay connected or use the network anyway.
-
-
-## Optional Wi-Fi Password
-
-The Wi-Fi network is open by default for quick event setup.
-
-To add a password, edit the firmware.
-
-Find:
-
-```cpp
-static const char* AP_PASS = "";
-```
-
-Change it to a password with at least 8 characters:
-
-```cpp
-static const char* AP_PASS = "kothtimer";
-```
-
-Then upload the firmware again.
-
-
-## Notes
-
-This hardware is based on the tested prototype build.
-
-Check all wiring carefully before powering the device.
-
-Some parts may need different resistor values or pin assignments depending on the exact components used.
-
-Use a multimeter before connecting the Arduino and displays to the battery power system.
+That page represents the older v0.2 hardware/release material. Use this repository's current BOM and upgrade notes when running firmware v0.4.0.
