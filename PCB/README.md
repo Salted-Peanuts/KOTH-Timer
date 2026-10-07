@@ -1,67 +1,64 @@
-# KOTH Timer PCB Files
+# KOTH Timer PCB files
 
-This folder contains PCB design files for the KOTH Timer.
+This folder contains the PCB design history for KOTH Timer.
 
-Check the status of each PCB revision before ordering or manufacturing boards.
-
-## PCB Revision Status
+## Revision status
 
 | Revision | Status | Use |
 |---|---|---|
-| `v0.1` | Manufactured, functionally usable through the web UI, known display issues | Reference only / not recommended for new builds |
-| `v0.2` | Manufactured, assembled, and tested with no known faults | Recommended PCB revision |
+| `v0.1` | Manufactured; known TM1637 display reliability issues | Reference only |
+| `v0.2` | Manufactured, assembled and tested with no known PCB faults | Current tested PCB |
+| Next revision | In development | Will integrate newer v0.4 hardware changes |
+
+## Important firmware v0.4.0 compatibility note
+
+PCB v0.2 predates the current v0.4.0 battery-divider and buzzer changes.
+
+It remains usable, but for firmware v0.4.0:
+
+- fit **10 kΩ at R1 and R2** instead of the original 100 kΩ values;
+- optionally connect a **3.3–5 V active buzzer** to **D13, 3.3 V and GND**;
+- no buzzer is required for normal timer operation.
+
+The original v0.2 KiCad/Gerber files are deliberately kept as the record of the tested board. They are not being edited in-place to imply that untested changes were part of that revision.
+
+An updated PCB revision is currently being developed to incorporate the newer hardware changes directly.
 
 ## PCB v0.1
 
-PCB v0.1 was the first manufactured PCB revision.
+PCB v0.1 was the first manufactured revision. It can operate through the web UI, but some TM1637 displays showed interference, flicker, incorrect segments or unstable output.
 
-It is functionally usable through the timer’s web UI, but it has known TM1637 display reliability issues.
-
-Known issue:
-
-- Some TM1637 displays may show interference, flicker, incorrect segments, or unstable output.
-
-Possible contributing factors include:
-
-- Shared TM1637 clock routing
-- Not enough local decoupling near the display headers
-- Display power noise
-- Signal integrity issues on CLK/DIO traces
-- Long display wiring or cable effects
-
-This revision is kept for reference and comparison, but it is not recommended for new builders.
+It remains in the repository for reference and troubleshooting only.
 
 ## PCB v0.2
 
-PCB v0.2 is the current recommended PCB revision.
+PCB v0.2 addressed the display problems seen on v0.1, including improvements to:
 
-It has been manufactured, assembled, and tested with no known faults.
+- local display decoupling;
+- TM1637 signal routing;
+- ground/power layout;
+- display reliability;
+- development breakout access.
 
-This revision improves on v0.1, especially around:
+The manufactured v0.2 board was assembled and tested successfully.
 
-- TM1637 display reliability
-- Local display power decoupling
-- Cleaner display signal routing
-- Improved PCB layout
-- Reduced display interference issues
+## Before ordering or assembling v0.2
 
-## Recommendation
+Check:
 
-For new builders:
+- the current firmware release;
+- the [v0.4 hardware upgrade notes](../docs/hardware-upgrade-v0.4.0.md);
+- R1/R2 values (10 kΩ for v0.4);
+- Arduino Nano ESP32 pin assignments;
+- TM1637 display header pin order;
+- battery/capacitor polarity;
+- fuse and switch wiring;
+- whether you want the optional external buzzer.
 
-- Use the current recommended firmware.
-- Use PCB v0.2 if building from a PCB.
-- Use PCB v0.1 only for reference or debugging.
-- Check the main build guide before ordering parts or assembling the board.
+## PCBWay
 
-## Supported By PCBWay
+The tested PCB v0.2 is published on PCBWay:
 
-PCB manufacturing for newer KOTH Timer PCB revisions has been supported by PCBWay.
+[Order / view PCB v0.2 on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
 
-Their support helped make it possible to test real PCB revisions and keep the project open source.
-
-The tested KOTH Timer PCB v0.2 project is available on PCBWay here:
-
-[Order / view the KOTH Timer PCB v0.2 project on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
-
-Project files, known issues, testing notes, and recommendations remain documented openly so other builders can inspect, build, and improve the design.
+The PCBWay page reflects the older v0.2 hardware/release material. Use the current repository documentation when pairing it with firmware v0.4.0.
