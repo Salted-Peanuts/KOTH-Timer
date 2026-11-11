@@ -43,8 +43,6 @@ The buzzer added in v0.4.0 is **optional**. The timer works normally without one
 
 See [v0.4.0 hardware changes](docs/hardware-upgrade-v0.4.0.md) for the upgrade details.
 
----
-
 ## How it works
 
 Each team has its own countdown timer.
@@ -83,8 +81,6 @@ http://10.10.10.1/ping
 The KOTH-Timer network has no internet access. If a phone or laptop warns about this, stay connected to the network.
 
 Automatic browser opening was removed in v0.4.0 because it was inconsistent between devices. The admin address is now opened manually.
-
----
 
 ## v0.4.0 changes
 
@@ -128,8 +124,6 @@ The game starts at the beginning of the long beep.
 
 If no buzzer is connected, all normal timer functions still work; the audible feedback is simply absent.
 
----
-
 ## Hardware
 
 The current build uses:
@@ -171,8 +165,6 @@ If audible feedback is wanted, the easiest option on PCB v0.2 is to use the **DE
 
 The original v0.2 KiCad and Gerber files have been left unchanged because they represent the board that was actually manufactured and tested.
 
----
-
 ## Build files and documentation
 
 - [Build guide](docs/build-guide.md)
@@ -211,8 +203,6 @@ Wi-Fi, WebServer and Preferences are supplied by the Arduino Nano ESP32 board pa
 ### PCB
 
 ![KOTH-Timer custom PCB](Images/PCB3.jpg)
-
----
 
 ## PCBWay
 
