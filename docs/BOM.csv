@@ -1,22 +1,22 @@
 Reference,Qty,Part / Value,Purpose / Notes,v0.4 Status,Example source
-A1,1,Arduino Nano ESP32,"Arduino-branded Nano ESP32 / NORA-W106. Firmware pin labels are written for this board.",Required,https://core-electronics.com.au/arduino-nano-esp32.html
-BT1,1,18650 Li-ion cell,"Single-cell battery. Use a suitable, undamaged cell.",Required,https://www.jaycar.com.au/18650-samsung-3500mah-3-7v-flat-top-li-ion-rechargeable-battery/p/SB2630
+A1,1,Arduino Nano ESP32,Arduino-branded Nano ESP32 / NORA-W106. Firmware pin labels are written for this board.,Required,https://core-electronics.com.au/arduino-nano-esp32.html
+BT1,1,18650 Li-ion cell,Single-cell battery. Use a suitable undamaged cell.,Required,https://www.jaycar.com.au/18650-samsung-3500mah-3-7v-flat-top-li-ion-rechargeable-battery/p/SB2630
 ,1,18650 battery holder,Holder for the single 18650 cell.,Required,https://www.amazon.com.au/dp/B0CQ73GFVY
 U1,1,5 V step-up converter,Boosts the single-cell battery rail to 5 V for the timer.,Required,https://www.amazon.com.au/dp/B0CWXM62Y5
-F1,1,2.5-3 A fuse + holder,"Main battery protection. Use wiring/connectors appropriately rated for the chosen fuse.",Required,https://www.aliexpress.com/item/1005007846817140.html
+F1,1,2.5–3 A fuse + holder,Main battery protection. Size power wiring appropriately for the fuse/current.,Required,https://www.aliexpress.com/item/1005007846817140.html
 SW1,1,Rocker power switch,Main on/off switch.,Required,https://www.aliexpress.com/item/4001108045600.html
 "SW2, SW3",2,Large arcade push buttons,One team button per side. Current build uses illuminated arcade buttons.,Required,https://www.aliexpress.com/item/33029152680.html
-"D1, D2",2,Arcade button LEDs,"Often integrated into the arcade buttons. Driven by D5 and D7 through current-limiting resistors.",Required if illuminated buttons are used,https://www.aliexpress.com/item/33029152680.html
+"D1, D2",2,Arcade button LEDs,Usually integrated into the arcade buttons. Driven from D5 and D7 through current-limiting resistors.,Required if illuminated buttons are used,https://www.aliexpress.com/item/33029152680.html
 TM1637,4,TM1637 4-digit displays,Two displays per team.,Required,https://www.aliexpress.com/item/1005001582129952.html
 SW4,1,Momentary push button,Battery-level display button.,Required,https://www.jaycar.com.au/spst-pcb-mount-tactile-switch-round/p/SP0609
-D3-D7,1,5-segment LED bar graph,"Battery indicator. Current build uses 3x green, 1x yellow and 1x red.",Required for physical battery bar,https://www.aliexpress.com/item/1005010479786364.html
-"R1, R2",2,10 kOhm resistors,"Battery-voltage divider to A0. Replaces the old 100 kOhm / 100 kOhm values.",REQUIRED CHANGE for v0.4 battery calibration,https://www.jaycar.com.au/10k-ohm-0-5-watt-metal-film-resistors-pack-of-8/p/RR0596
-R3-R9,7,220 Ohm resistors,"LED current limiting. Corrected source link: old BOM URL RR0628 is 220 kOhm; RR0556 is 220 Ohm.",Required where shown by schematic,https://www.jaycar.com.au/220-ohm-0-5-watt-metal-film-resistors-pack-of-8/p/RR0556
-C1,1,470 uF electrolytic capacitor,Power smoothing. Observe polarity.,Required,https://www.jaycar.com.au/470uf-16vdc-low-esr-electrolytic-capacitor/p/RE6314
+D3–D7,1,5-segment LED bar graph,"Battery indicator. Current build uses 3× green, 1× yellow and 1× red.",Required for physical battery bar,https://www.aliexpress.com/item/1005010479786364.html
+"R1, R2",2,10 kΩ resistors,Battery-voltage divider to A0. Replaces the 100 kΩ / 100 kΩ values used by earlier builds.,Required for v0.4 battery calibration,https://www.jaycar.com.au/10k-ohm-0-5-watt-metal-film-resistors-pack-of-8/p/RR0596
+R3–R9,7,220 Ω resistors,LED current limiting. Earlier BOM link incorrectly pointed to a 220 kΩ part.,Required where shown by schematic,https://www.jaycar.com.au/220-ohm-0-5-watt-metal-film-resistors-pack-of-8/p/RR0556
+C1,1,470 µF electrolytic capacitor,Power smoothing. Observe polarity.,Required,https://www.jaycar.com.au/470uf-16vdc-low-esr-electrolytic-capacitor/p/RE6314
 C2,1,100 nF ceramic capacitor,Power decoupling.,Required,https://www.jaycar.com.au/100nf-50vdc-ceramic-capacitors-pack-of-2/p/RC5360
-BZ1,1,Keyestudio Active Buzzer Alarm Module (KS0018),"Optional active buzzer used in the reference build. VCC->3.3 V; GND->GND; SIG->D13. Firmware works normally with no buzzer connected.",Optional - used in reference build,https://www.keyestudio.com/products/keyestudio-active-buzzer-alarm-module-for-arduino
-,As needed,Wire,"22 AWG was used in the original build. Size power wiring appropriately for the fuse/current.",Required,
+BZ1,1,Keyestudio Active Buzzer Alarm Module,"Optional audible feedback. This is the module used on the reference build. VCC→3.3 V, GND→GND, SIG→D13. Firmware works normally without it.",Optional / tested on reference build,https://www.keyestudio.com/products/keyestudio-active-buzzer-alarm-module-for-arduino
+,As needed,Wire,22 AWG was used in the original build. Size power wiring appropriately for the fuse/current.,Required,
 ,As needed,Heat shrink / insulation,For exposed solder joints and connections.,Required,
 ,As needed,Terminal blocks / headers,Useful for modular wiring and PCB connections.,Build-dependent,
 ,1,Enclosure,3D-printed or custom enclosure.,Required,
-,As needed,Prototype board OR PCB v0.2,"PCB v0.2 remains usable with v0.4 after changing R1/R2 to 10 kOhm. Buzzer can be wired externally via D13/3.3 V/GND. A revised PCB is in development.",Build-dependent,https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html
+,As needed,Prototype board OR PCB v0.2,"PCB v0.2 remains usable with v0.4 after fitting 10 kΩ at R1/R2. The optional buzzer can be wired through the development breakout. A revised PCB is in development.",Build-dependent,https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html
