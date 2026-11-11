@@ -167,7 +167,7 @@ PCB v0.2 remains usable with v0.4.0.
 
 Use 10 kΩ resistors at R1 and R2 instead of the original 100 kΩ values shown in the v0.2 design files.
 
-If audible feedback is wanted, the active buzzer can be connected through D13, 3.3 V and GND on the development breakout.
+If audible feedback is wanted, the easiest option on PCB v0.2 is to use the **DEV pinout**. It exposes D13, 3.3 V and GND, so the buzzer can be added without soldering directly to the Nano ESP32.
 
 The original v0.2 KiCad and Gerber files have been left unchanged because they represent the board that was actually manufactured and tested.
 
