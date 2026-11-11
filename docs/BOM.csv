@@ -14,7 +14,7 @@ D3-D7,1,5-segment LED bar graph,"Battery indicator. Current build uses 3x green,
 R3-R9,7,220 Ohm resistors,"LED current limiting. Corrected source link: old BOM URL RR0628 is 220 kOhm; RR0556 is 220 Ohm.",Required where shown by schematic,https://www.jaycar.com.au/220-ohm-0-5-watt-metal-film-resistors-pack-of-8/p/RR0556
 C1,1,470 uF electrolytic capacitor,Power smoothing. Observe polarity.,Required,https://www.jaycar.com.au/470uf-16vdc-low-esr-electrolytic-capacitor/p/RE6314
 C2,1,100 nF ceramic capacitor,Power decoupling.,Required,https://www.jaycar.com.au/100nf-50vdc-ceramic-capacitors-pack-of-2/p/RC5360
-BZ1,1,3.3-5 V active buzzer module,"Optional audio feedback. VCC->3.3 V; GND->GND; SIG->D13. Firmware works normally with no buzzer connected.",Optional,https://docs.keyestudio.com/projects/KS0349/en/latest/KS0349.html
+BZ1,1,Keyestudio Active Buzzer Alarm Module (KS0018),"Optional active buzzer used in the reference build. VCC->3.3 V; GND->GND; SIG->D13. Firmware works normally with no buzzer connected.",Optional - used in reference build,https://www.keyestudio.com/products/keyestudio-active-buzzer-alarm-module-for-arduino
 ,As needed,Wire,"22 AWG was used in the original build. Size power wiring appropriately for the fuse/current.",Required,
 ,As needed,Heat shrink / insulation,For exposed solder joints and connections.,Required,
 ,As needed,Terminal blocks / headers,Useful for modular wiring and PCB connections.,Build-dependent,
