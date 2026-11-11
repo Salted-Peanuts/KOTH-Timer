@@ -1,6 +1,6 @@
 # KOTH-Timer
 
-A DIY Arduino Nano ESP32 King of the Hill timer for Nerf and other objective-based games.
+A DIY Arduino Nano ESP32 King of the Hill timer. Built for Nerf and other objective-based skirmish games.
 
 I originally built this timer for local Nerf events. It has since grown into a documented open-source build with physical team controls, four timer displays, battery monitoring, a local referee page and a tested PCB.
 
