@@ -1,788 +1,648 @@
 # KOTH Timer Build Guide
 
-This guide explains how to build the current recommended version of the KOTH Timer.
+This guide covers the current standalone KOTH Timer build for **firmware v0.4.0**.
 
-KOTH Timer is a DIY King of the Hill timer for Nerf, foam flinging, and other objective-based hobby games. It uses an Arduino Nano ESP32, two large team buttons, four TM1637 display modules, LED feedback, a battery display, and a local Wi-Fi web interface for controlling the game.
+KOTH Timer is a two-team King of the Hill timer built around an Arduino Nano ESP32, two large arcade buttons, four TM1637 displays, battery monitoring, and a local referee/admin webpage.
 
-This guide is based on **KOTH Timer v0.3.1**, which keeps the event-tested v0.3 gameplay and referee UI while adding fixes for the web-interface setup controls.
+The timer does not require internet access during gameplay.
 
-> **Important:** This is still a hobby project. Check the schematic, BOM, firmware, and photos before soldering. Builders should test their own wiring carefully before using the timer at an event.
+> [!IMPORTANT]
+> Firmware v0.4.0 uses a **10 kΩ / 10 kΩ battery divider**.
+>
+> Earlier documentation and PCB v0.2 show **100 kΩ / 100 kΩ** at R1/R2. If you are using v0.4.0, fit **10 kΩ at R1 and R2** before relying on battery voltage or low-battery protection.
+>
+> The active buzzer is **optional**. The firmware still works normally with no buzzer connected.
 
+For an existing build, also read [v0.4.0 hardware upgrade notes](hardware-upgrade-v0.4.0.md).
 
-## Build Guide Status:
+## Build-guide scope
 
-This Build guide is in place for use ONLY if you plan to build the timer using prototype boards instead of the PCB. There is currently no updated build guide for the manufactured PCB. However, I designed the PCB to be as self explanatory (with a bit of context) as possible. It relies on headers/terminals for most major components so it is PNP for the most part. 
+There are currently two practical ways to build the timer:
 
-## PCBWay Project Link
+1. **Prototype / hand-wired build** using the pinout in this guide.
+2. **PCB v0.2 build** using the tested PCB files, with the v0.4 R1/R2 substitution and optional external buzzer.
 
-This tested PCB revision is also available as a PCBWay shared project:
+PCB v0.2 is the current tested PCB revision.
 
-[Order / view the KOTH Timer PCB v0.2 project on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
+An **updated PCB revision is currently being developed** to integrate the newer v0.4 hardware changes more cleanly. It is not yet the recommended board because it has not yet replaced the tested v0.2 hardware.
 
-This link is useful for builders who want to order the tested PCB without manually uploading the Gerber files.
-
-## What You Are Building
-
-The timer has two teams.
-
-Each team has:
-
-* One large arcade button
-* One LED output for button feedback
-* Two 4-digit TM1637 display modules showing that team’s remaining time
-
-The timer also has:
-
-* An Arduino Nano ESP32 controller
-* A single 18650 battery power system
-* A 5 V boost converter
-* A rocker power switch
-* A fuse
-* A 5-segment battery indicator
-* A small battery-check button
-* A local Wi-Fi web interface hosted by the ESP32
-
-The game logic is simple:
-
-* If Team A holds their button, Team A’s timer counts down.
-* If Team B holds their button, Team B’s timer counts down.
-* If both buttons are held, the point is contested and neither timer counts down.
-* If no button is held, neither timer counts down.
-* The match ends when one team’s timer reaches zero.
-
-
-## Current Status
-
-The current recommended firmware release is **v0.3.1**.
-
-v0.3.1 keeps the tested v0.3 phone/referee UI and adds small UI input fixes for the setup controls.
-
-The current recommended PCB revision is **PCB v0.2**.
-
-PCB v0.2 has been manufactured, assembled, and tested with no known faults.
-
-New builders should use:
+## Current recommended versions
 
 ```text
-Firmware/KOTH_Timer_v0_3_1/KOTH_Timer_v0_3_1.ino
+Firmware: v0.4.0
+PCB:      v0.2-tested
+```
+
+Firmware path:
+
+```text
+Firmware/KOTH_Timer_v0_4_0/KOTH_Timer_v0_4_0.ino
+```
+
+PCB path:
+
+```text
 PCB/v0.2-tested/
 ```
 
-Main v0.3.1 improvements include:
+The tested PCB v0.2 is also available as a PCBWay shared project:
 
-* Phone-friendly referee/admin web interface
-* More reliable phone connection using `http://10.10.10.1`
-* Open Wi-Fi network by default for quick event setup
-* Optional Wi-Fi password support if the builder wants it
-* Live time adjustment during gameplay
-* Ref/admin can add or remove time from either team without resetting the match
-* Larger touch-friendly controls
-* Cleaner match status display
-* `/ping` test page for connection troubleshooting
-* `/state` fallback endpoint for UI updates
+[Order / view PCB v0.2 on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
 
-The older v0.2 firmware is still available for reference, but new builders should use v0.3.1.
+That page reflects the older v0.2 hardware/release material. When using firmware v0.4.0, follow this repository's current BOM and upgrade notes.
 
-## Parts Required
+## What you are building
 
-The BOM includes:
+Each team has:
 
-|       Qty | Part                           | Notes                                 |
-| --------: | ------------------------------ | ------------------------------------- |
-|         1 | Arduino Nano ESP32             | Arduino-branded Nano ESP32            |
-|         1 | 18650 Li-ion cell              | Single-cell battery                   |
-|         1 | 18650 battery holder           | Holds the battery                     |
-|         1 | 5 V step-up converter          | Boosts the 18650 voltage to 5 V       |
-|         1 | 1 A fuse                       | Use with a suitable fuse holder       |
-|         1 | Rocker switch                  | Main power switch                     |
-|         2 | Large arcade buttons with LEDs | One for each team                     |
-|         4 | TM1637 4-digit display modules | Two displays per team                 |
-|         1 | 5-segment LED bar graph        | Battery level display                 |
-|         1 | Small push button              | Battery display button                |
-|         2 | 100 kΩ resistors               | Battery voltage divider               |
-|         7 | 220 Ω resistors                | LED current limiting                  |
-|         1 | 470 µF electrolytic capacitor  | Power smoothing                       |
-|         1 | 100 nF ceramic capacitor       | Power smoothing/decoupling            |
-| As needed | Prototyping PCB                | For soldering                         |
-| As needed | Wire                           | 22 AWG was used in the original build |
-| As needed | Heat shrink                    | For insulation                        |
-| As needed | Terminal blocks                | Optional, but useful                  |
-|         1 | Enclosure                      | 3D printed or custom housing          |
+- one large arcade button;
+- one button LED;
+- two TM1637 4-digit displays showing that team's remaining time.
 
+The timer also has:
 
-## Tools Required
+- Arduino Nano ESP32;
+- single 18650 battery;
+- 5 V boost converter;
+- fuse;
+- main power switch;
+- five-segment battery indicator;
+- battery-check button;
+- local Wi-Fi referee/admin page;
+- optional active buzzer.
 
-You will need:
+## Game behaviour
 
-* Soldering iron
-* Solder
-* Wire cutters
-* Wire strippers
-* Heat shrink or electrical tape
-* Small screwdrivers
-* Multimeter
-* USB cable for the Arduino Nano ESP32
-* Computer with Arduino IDE installed
+During a running match:
 
-A multimeter is strongly recommended. Do not skip voltage checks.
+- only Team A held -> Team A counts down;
+- only Team B held -> Team B counts down;
+- both held -> contested, no scoring;
+- neither held -> no scoring;
+- a team wins when its timer reaches zero.
 
+The match can be started from the webpage or physically by holding both team buttons for 5 seconds.
 
-## Power Wiring Overview
+## Parts required
 
-The timer is powered from a single 18650 cell.
-
-Basic power path:
+Use the reviewed BOM as the primary parts reference:
 
 ```text
-18650 battery
+docs/BOM.xlsx
+docs/BOM.csv
+```
+
+Main parts:
+
+| Qty | Part | Notes |
+|---:|---|---|
+| 1 | Arduino Nano ESP32 | Arduino-branded Nano ESP32 / NORA-W106 |
+| 1 | 18650 Li-ion cell | Single-cell battery |
+| 1 | 18650 holder | Match your cell style |
+| 1 | 5 V boost converter | Powers the 5 V timer rail |
+| 1 | 2.5–3 A fuse + holder | Current BOM value; use suitably rated wiring |
+| 1 | Main rocker switch | Device power |
+| 2 | Large arcade buttons | One per team |
+| 2 | Arcade button LEDs | Often integrated into the buttons |
+| 4 | TM1637 4-digit displays | Two per team |
+| 1 | Five-segment LED bar | Battery indicator |
+| 1 | Battery-check push button | Momentary |
+| 2 | **10 kΩ resistors** | R1/R2 battery divider |
+| 7 | 220 Ω resistors | LED current limiting |
+| 1 | 470 µF electrolytic capacitor | Power smoothing |
+| 1 | 100 nF ceramic capacitor | Decoupling |
+| 1 | 3.3–5 V active buzzer | **Optional** |
+| as needed | Wire / heat shrink / terminals | Build dependent |
+| 1 | Enclosure | 3D printed or custom |
+
+### BOM correction from older versions
+
+The old BOM linked the 220 Ω resistor row to Jaycar part **RR0628**, which is actually **220 kΩ**.
+
+The corrected 220 Ω example part is **RR0556**.
+
+The current BOM files have been corrected.
+
+## Tools
+
+Recommended:
+
+- soldering iron and solder;
+- wire cutters/strippers;
+- small screwdrivers;
+- multimeter;
+- USB cable for the Arduino Nano ESP32;
+- computer with Arduino IDE 2.x.
+
+A multimeter is strongly recommended, especially for the battery-divider and boost-converter checks.
+
+## Power system
+
+The timer uses a single 18650 cell and a 5 V boost converter.
+
+Typical power path:
+
+```text
+18650
   -> fuse
-  -> rocker power switch
+  -> main switch
   -> 5 V boost converter
-  -> Arduino Nano ESP32 VIN / 5 V rail
+  -> 5 V timer rail
 ```
 
-All grounds must be connected together.
+All grounds must be common.
+
+Do not connect a raw 18650 cell directly to a 5 V rail.
+
+### Battery-sense rail
+
+The A0 divider must measure the **raw single-cell battery voltage**, not the boosted 5 V output.
+
+The tested build measures from the protected battery side of the power system. Follow the current schematic/layout for your build and verify the measured point with a multimeter.
+
+## Arduino Nano ESP32 pinout
+
+### Team buttons
+
+The buttons switch to GND and use the ESP32 internal pull-ups.
+
+| Function | Pin | Wiring |
+|---|---|---|
+| Team A button | D2 | D2 -> button -> GND |
+| Team B button | D3 | D3 -> button -> GND |
+| Battery display button | D4 | D4 -> button -> GND |
+
+Logic:
 
 ```text
-Battery GND
-Boost converter GND
-Arduino GND
-Display GND
-Button LED GND
-Battery indicator GND
-```
-
-> **Important:** Do not connect the 18650 battery directly to the Arduino 5 V or VIN pin without the boost converter/power circuit.
-
-> **Li-ion safety:** Use care when working with 18650 cells. Avoid shorts, use a fuse, and do not use damaged cells.
-
-
-## Arduino Nano ESP32 Pinout
-
-The v0.3.1 firmware uses the following pin assignments.
-
-### Team Buttons
-
-The team buttons are wired to ground and use the ESP32 internal pull-up resistors.
-
-| Function               | Arduino Pin | Wiring                    |
-| ---------------------- | ----------- | ------------------------- |
-| Team A button          | D2          | Button between D2 and GND |
-| Team B button          | D3          | Button between D3 and GND |
-| Battery display button | D4          | Button between D4 and GND |
-
-Button logic:
-
-```text
-Pressed = LOW
+Pressed  = LOW
 Released = HIGH
 ```
 
+### Arcade button LEDs
 
-### Arcade Button LEDs
+| Function | Pin |
+|---|---|
+| Team A LED | D5 |
+| Team B LED | D7 |
 
-The arcade button LEDs are driven from GPIO pins.
-
-| Function          | Arduino Pin | Wiring                       |
-| ----------------- | ----------- | ---------------------------- |
-| Team A button LED | D5          | D5 -> resistor -> LED -> GND |
-| Team B button LED | D7          | D7 -> resistor -> LED -> GND |
-
-LED logic:
+Typical wiring:
 
 ```text
-HIGH = LED on
-LOW = LED off
+GPIO -> 220 Ω -> LED -> GND
 ```
 
-Use suitable resistors for your LEDs. The BOM lists 220 Ω resistors.
+Check the voltage/current requirements of the exact arcade-button LED you use.
 
+### TM1637 displays
 
-### TM1637 Displays
+All four displays share one clock line and have separate data lines.
 
-The timer uses four TM1637 4-digit displays.
+| Display | CLK | DIO |
+|---|---|---|
+| Team A display 1 | D8 | D9 |
+| Team A display 2 | D8 | D10 |
+| Team B display 1 | D8 | D11 |
+| Team B display 2 | D8 | D6 |
 
-All four displays share the same clock pin, but each display has its own data pin.
-
-| Display          | Clock Pin | Data Pin |
-| ---------------- | --------- | -------- |
-| Team A display 1 | D8        | D9       |
-| Team A display 2 | D8        | D10      |
-| Team B display 1 | D8        | D11      |
-| Team B display 2 | D8        | D6       |
-
-Typical TM1637 wiring:
+Typical module wiring:
 
 ```text
-TM1637 VCC -> 5 V / VIN rail
-TM1637 GND -> GND
-TM1637 CLK -> D8
-TM1637 DIO -> display data pin
+VCC -> 5 V rail
+GND -> GND
+CLK -> D8
+DIO -> assigned data pin
 ```
 
-The two displays for the same team show the same time. This lets the timer be visible from more than one angle.
+D6 is intentionally used for Team B display 2. D12 was avoided after reliability problems during development.
 
+### Battery voltage divider
 
-### Battery Voltage Reading
-
-The battery voltage is measured through a resistor divider.
-
-| Function                         | Arduino Pin |
-| -------------------------------- | ----------- |
-| Battery voltage divider midpoint | A0          |
-
-The timer uses:
+Firmware v0.4.0 uses:
 
 ```text
-R1 = 100 kΩ
-R2 = 100 kΩ
+R1 = 10 kΩ
+R2 = 10 kΩ
 ```
 
-Basic divider:
+Wiring:
 
 ```text
-Battery +
-  -> R1
-  -> A0
-  -> R2
-  -> GND
+raw battery +
+     |
+   R1 10 kΩ
+     |
+     +---- A0
+     |
+   R2 10 kΩ
+     |
+    GND
 ```
 
-> **Important:** Do not connect the battery directly to A0. The battery voltage must go through the resistor divider.
+Do **not** connect the battery directly to A0.
 
-The firmware includes battery calibration values. If the displayed battery voltage is wrong, measure the battery with a multimeter and adjust the calibration values in the firmware.
+The previous 100 kΩ / 100 kΩ divider was replaced because its high source impedance allowed the ADC input/loading to shift the midpoint enough to make battery readings unreliable.
 
+### Five-segment battery indicator
 
-### 5-Segment Battery Indicator
+| Segment | Pin |
+|---|---|
+| Red | A1 |
+| Yellow | A2 |
+| Green 1 | A3 |
+| Green 2 | A4 |
+| Green 3 | A5 |
 
-The battery indicator uses five GPIO outputs.
+The current firmware assumes each segment is active-high.
 
-| Segment         | Arduino Pin |
-| --------------- | ----------- |
-| Red segment     | A1          |
-| Yellow segment  | A2          |
-| Green segment 1 | A3          |
-| Green segment 2 | A4          |
-| Green segment 3 | A5          |
+Use current-limiting resistors as shown by the BOM/schematic.
 
-The firmware assumes:
+### Optional active buzzer
+
+Firmware v0.4.0 supports an active 3-pin buzzer:
 
 ```text
-GPIO HIGH = segment on
-GPIO LOW = segment off
+VCC -> 3.3 V
+GND -> GND
+SIG -> D13
 ```
 
-Each LED segment should have current limiting.
+The tested type is a simple 3.3–5 V active buzzer module.
 
-The battery bar display turns on temporarily when the battery display button is pressed.
+The buzzer is **not required**.
 
+If D13 is left unconnected:
 
-## Wiring Checklist
+- the game still runs normally;
+- the webpage still works;
+- displays/buttons/LEDs still work;
+- battery protection still works;
+- only the audible feedback is missing.
 
-Before soldering everything permanently, build and test in sections.
+When fitted, the buzzer provides:
 
-### 1. Power System
+- scoring chirps;
+- manual-start countdown;
+- victory sound;
+- critical-battery warning.
 
-Check:
+## PCB v0.2 builds
 
-* Fuse is installed
-* Rocker switch controls power
-* Boost converter outputs 5 V
-* Arduino powers up from the 5 V supply
-* Ground is common everywhere
+PCB v0.2 remains the current tested PCB.
 
-Use a multimeter before plugging in the Arduino.
+For firmware v0.4.0:
 
+1. fit **10 kΩ** at R1;
+2. fit **10 kΩ** at R2;
+3. optionally connect the active buzzer externally using D13/3.3 V/GND.
 
-### 2. Buttons
+The historical v0.2 KiCad and Gerber files are intentionally left unchanged so they accurately represent the board that was manufactured and tested.
 
-Wire:
+Do not assume the old 100 kΩ values in those files are the current v0.4 recommendation.
 
-```text
-Team A button -> D2 and GND
-Team B button -> D3 and GND
-Battery button -> D4 and GND
-```
+## Wiring checklist
 
-No external pull-up resistor is needed for these buttons because the firmware uses `INPUT_PULLUP`.
+Before first power-up:
 
+- confirm the boost converter output is 5 V;
+- confirm battery polarity;
+- confirm capacitor polarity;
+- confirm all grounds are common;
+- confirm R1/R2 are 10 kΩ for v0.4;
+- confirm A0 is connected only to the divider midpoint;
+- confirm TM1637 CLK/DIO wiring;
+- confirm LED resistor values;
+- confirm fuse and power wiring;
+- if fitted, confirm buzzer VCC/GND/SIG orientation.
 
-### 3. Arcade Button LEDs
-
-Wire:
-
-```text
-D5 -> resistor -> Team A LED -> GND
-D7 -> resistor -> Team B LED -> GND
-```
-
-If your arcade buttons have built-in LEDs, check their voltage and polarity before wiring.
-
-
-### 4. Displays
-
-Wire all TM1637 modules to power and ground.
-
-Then connect:
-
-```text
-All display CLK pins -> D8
-
-Team A display 1 DIO -> D9
-Team A display 2 DIO -> D10
-Team B display 1 DIO -> D11
-Team B display 2 DIO -> D6
-```
-
-If one display does not work, swap it with a known working one to check whether the issue is the display module or the wiring.
-
-
-### 5. Battery Indicator
-
-Wire the 5-segment bar graph using the schematic.
-
-Firmware pin order:
-
-```text
-A1 = red
-A2 = yellow
-A3 = green 1
-A4 = green 2
-A5 = green 3
-```
-
-Pressing the battery display button should show the battery level for a few seconds.
-
-
-## Firmware Upload
-
-The firmware is written for the Arduino Nano ESP32 using the Arduino IDE.
+## Firmware upload
 
 ### 1. Install Arduino IDE
 
-Install Arduino IDE 2.x.
+Use Arduino IDE 2.x.
 
-### 2. Install ESP32 Board Support
+### 2. Select the correct board
 
-In Arduino IDE, install the board support needed for the Arduino Nano ESP32.
+Select:
 
-Select the Arduino Nano ESP32 board before compiling.
+```text
+Arduino Nano ESP32
+```
 
-### 3. Install Required Libraries
+The code uses Arduino Nano pin labels such as D2, D8 and D13.
+
+### 3. Required libraries
 
 The firmware uses:
 
-* Wi-Fi support for the ESP32
-* Web server support
-* WebSockets support
-* TM1637 display support
-* Preferences storage
-* DNS server support for connection handling
+- WiFi;
+- WebServer;
+- Preferences;
+- WebSocketsServer;
+- TM1637Display.
 
-If the code fails to compile because a library is missing, install the missing library through:
+WiFi, WebServer and Preferences are provided by the Arduino Nano ESP32 board package.
 
-```text
-Arduino IDE -> Library Manager
-```
+Install the external WebSockets and TM1637Display libraries through Arduino Library Manager if they are not already installed.
 
-Search for the missing library name shown in the compile error.
+The v0.4.0 firmware no longer uses DNSServer because captive-portal/automatic webpage launching was removed.
 
-### 4. Open the Firmware
+### 4. Open the firmware
 
-Open the `.ino` file from the `Firmware` folder.
-
-For Arduino IDE compatibility, the sketch should be inside a folder with the same name as the `.ino` file.
-
-Example:
+Use:
 
 ```text
-Firmware/
-  KOTH_Timer_v0_3_1/
-    KOTH_Timer_v0_3_1.ino
+Firmware/KOTH_Timer_v0_4_0/KOTH_Timer_v0_4_0.ino
 ```
+
+Arduino IDE expects the sketch folder and `.ino` file to share the same base name.
 
 ### 5. Upload
 
-Connect the Arduino Nano ESP32 over USB.
+Connect the Nano ESP32 over USB and upload the sketch.
 
-Then click:
+After boot, the device creates its own Wi-Fi network.
 
-```text
-Upload
-```
+## Referee/admin webpage
 
-After uploading, the ESP32 should start its local Wi-Fi access point.
-
-
-## First Power-On Test
-
-Before closing the enclosure, test everything on the bench.
-
-### Check Displays
-
-On boot, the TM1637 displays should show the starting game time.
-
-If the displays are blank:
-
-* Check 5 V and GND
-* Check D8 clock wiring
-* Check each display’s DIO pin
-* Check display orientation
-* Check the firmware uploaded correctly
-
-
-### Check Wi-Fi
-
-The ESP32 creates a local Wi-Fi network:
+Connect to:
 
 ```text
 SSID: KOTH-Timer
 Password: none / open network
 ```
 
-Connect to it with a phone or laptop.
-
-There is no internet through this network. That is normal.
-
-Open a browser and go to:
+Then manually open:
 
 ```text
-http://10.10.10.1
+http://10.10.10.1/
 ```
 
-The KOTH Timer web interface should load.
-
-If the main page does not load, test the connection page:
+Connection test:
 
 ```text
 http://10.10.10.1/ping
 ```
 
-If `/ping` loads but the main page does not, the Wi-Fi connection is working and the issue is likely with the web interface loading or browser caching.
+### Why the page does not open automatically
 
-Some phones may warn that the network has no internet. Choose the option to stay connected or use the network anyway.
+Development builds experimented with captive-portal/automatic browser launching.
 
+Behaviour varied between Windows, Android and iOS, so that code was removed for v0.4.0.
 
-### Optional: Adding a Wi-Fi Password
+The supported connection method is deliberately simple:
 
-By default, the KOTH Timer Wi-Fi network is open so referees can connect quickly during events.
+```text
+join KOTH-Timer Wi-Fi
+        ↓
+open http://10.10.10.1/
+```
 
-If you want to add a password, edit the firmware Wi-Fi settings near the top of the code.
+If the phone/laptop says the Wi-Fi has no internet, choose the option to remain connected.
 
-Find:
+## Optional Wi-Fi password
+
+The AP is open by default.
+
+In the firmware:
 
 ```cpp
 static const char* AP_PASS = "";
 ```
 
-Change it to something with at least 8 characters:
+To use a password, set a WPA-compatible password of at least eight characters and re-upload the firmware.
 
-```cpp
-static const char* AP_PASS = "kothtimer";
-```
+## First power-on test
 
-Then upload the firmware again.
+### Displays
 
-After that, users will need to connect with:
+At boot, all four TM1637 modules should show the configured starting time.
 
-```text
-SSID: KOTH-Timer
-Password: kothtimer
-```
+If a display is blank or incorrect, check:
 
-The password must be at least 8 characters long. If the password is left blank, the timer will use an open network.
+- 5 V and GND;
+- D8 shared CLK;
+- the display's individual DIO pin;
+- display-module pin order;
+- cable/connectors.
 
+### Buttons
 
-### Check Buttons
+Before gameplay, verify:
 
-Start a test game from the web interface.
+- Team A button changes state correctly;
+- Team B button changes state correctly;
+- both held is detected as contested;
+- battery button activates the battery bar.
 
-Then test:
-
-* Hold Team A button: Team A timer should count down.
-* Hold Team B button: Team B timer should count down.
-* Hold both buttons: contested state, no timer should count down.
-* Hold no buttons: idle state, no timer should count down.
-
-
-### Check LED Feedback
+### LEDs
 
 During a running game:
 
-* Team A capturing should light Team A LED.
-* Team B capturing should light Team B LED.
-* Contested should light both LEDs.
-* Idle should turn both LEDs off.
+- Team A capture -> Team A LED on;
+- Team B capture -> Team B LED on;
+- contested -> both LEDs on;
+- idle -> both off.
 
+### Manual physical start
 
-### Check Battery Display
+With the game stopped:
 
-Press the battery display button.
+1. hold both team buttons;
+2. keep holding for 5 seconds;
+3. the match start sequence begins.
 
-The 5-segment bar graph should light briefly to show the approximate battery level.
+With a buzzer fitted, the sound is:
 
-If the displayed battery level is wrong, measure the battery voltage with a multimeter and calibrate the firmware.
+```text
+short beep
+pause
+short beep
+pause
+LONG beep = GO
+```
 
+The match goes live at the start of the long beep.
 
-## Web Interface Use
+Without a buzzer, the same physical hold still starts the match; it is simply silent.
 
-The web interface allows the referee/admin to:
+### Battery reading
 
-* Start the game
-* Pause the game
-* Resume the game
-* Reset the game
-* Set match duration
-* Set team colours
-* Identify teams
-* View battery voltage
-* View current game state
-* See the winner when the match ends
-* Add or remove time from either team during gameplay
+Open the webpage and compare its voltage with a multimeter measured at the battery **under load**.
 
-The reset button is only intended to work when the game is paused or when the match has finished.
+The current calibration was established from two measured points using the ESP32's own ADC reading.
 
-The live time adjustment controls are intended for referee/admin corrections during a match. They can be used to fix timing issues without resetting the whole game.
+If your hardware differs materially, recalibrate rather than blindly changing the low-battery threshold.
 
+### Battery bar
 
-## Game Rules
+Current thresholds:
 
-The current firmware uses hold-to-capture logic.
+```text
+5 bars: >= 4.05 V
+4 bars: 3.90 V to < 4.05 V
+3 bars: 3.75 V to < 3.90 V
+2 bars: 3.60 V to < 3.75 V
+1 bar : 3.45 V to < 3.60 V
+<3.45 V: flashing red/final bar
+```
 
-| Button State         | Result                          |
-| -------------------- | ------------------------------- |
-| Team A held only     | Team A timer counts down        |
-| Team B held only     | Team B timer counts down        |
-| Both buttons held    | Contested, no timer counts down |
-| No buttons held      | Idle, no timer counts down      |
-| A timer reaches zero | Match ends                      |
+## Critical low-battery behaviour
 
-This makes the timer useful for King of the Hill games where teams must physically hold the objective.
+The firmware enters the critical state below:
 
+```text
+3.40 V
+```
 
-## Mounting Everything
+It clears only above:
 
-The original build uses a custom enclosure, but you can use any suitable housing.
+```text
+3.45 V
+```
 
-When laying out the enclosure, consider:
+This hysteresis prevents rapid on/off switching around the threshold.
 
-* Buttons should be large and easy to hit during games.
-* Displays should be visible from a distance.
-* The power switch should be protected from accidental bumps.
-* The USB port should still be accessible if possible.
-* The battery should be secure and not able to rattle around.
-* Wires should be strain-relieved.
-* Solder joints should be insulated.
-* The fuse should be accessible.
+During critical battery:
 
-Do not leave bare battery connections exposed.
+- all four displays flash `LO:LO`;
+- the optional buzzer repeats a low-battery alarm;
+- a running match is frozen;
+- game state is saved to NVS.
 
+The protection uses repeated instantaneous averaged readings for the critical decision rather than waiting for the slower UI smoothing filter.
 
-## Final Pre-Game Checklist
+## Battery-swap recovery test
 
-Before using the timer at an event:
+This is an important v0.4.0 test.
 
-* Battery fully charged
-* Fuse installed
-* Power switch working
-* Displays visible
-* Both team buttons working
-* Both team LEDs working
-* Battery indicator working
-* Phone/laptop can connect to `KOTH-Timer`
-* Web interface loads at `http://10.10.10.1`
-* `/ping` test page works
-* Start/pause/resume/reset tested
-* Live time adjustment tested
-* Match duration set correctly
-* Enclosure closed and secure
+1. Start a game.
+2. Let both teams accumulate some state.
+3. Reduce/replace the battery so the timer enters critical low battery.
+4. Confirm gameplay freezes.
+5. Power the timer off.
+6. Replace the battery.
+7. Power it back on.
+8. Confirm the saved scores return.
+9. Confirm the game is **paused**.
+10. Press Resume from the admin page when ready.
 
+The firmware deliberately never auto-resumes after a battery swap.
+
+## Winner behaviour
+
+At game end:
+
+- the winning team's displays run a spinner animation;
+- then blink `00:00`;
+- the animation repeats until reset;
+- the losing team remains steady on its final remaining time;
+- a draw animates both teams.
+
+With a buzzer fitted, the winner also gets the victory sound.
+
+## Referee time correction
+
+The admin webpage can add or subtract time from either team during gameplay.
+
+This is intended for referee corrections without resetting the match.
+
+## Final pre-game checklist
+
+Before an event:
+
+- fully charge/test the 18650;
+- verify battery voltage against a multimeter;
+- confirm R1/R2 are 10 kΩ;
+- confirm all four displays;
+- confirm both team buttons;
+- confirm both button LEDs;
+- confirm battery button/bar;
+- test the physical 5-second start;
+- if fitted, test all buzzer sounds;
+- verify `http://10.10.10.1/`;
+- test Pause/Resume/Reset;
+- test referee time adjustment;
+- test one complete match to a winner;
+- test low-battery freeze/recovery after any hardware/firmware change.
 
 ## Troubleshooting
 
-### The ESP32 Does Not Turn On
+### Wi-Fi appears but the webpage does not load
 
-Check:
-
-* Battery voltage
-* Fuse
-* Rocker switch
-* Boost converter output
-* 5 V connection to the Arduino
-* Ground wiring
-
-
-### The Wi-Fi Network Does Not Appear
-
-Check:
-
-* Firmware uploaded correctly
-* Correct board selected in Arduino IDE
-* Arduino is actually powered
-* Try pressing reset on the board
-* Try powering from USB first
-
-
-### The Web Interface Does Not Load
-
-Check:
-
-* Your phone/laptop is connected to `KOTH-Timer`
-* Your phone has chosen to stay connected to the no-internet Wi-Fi network
-* Mobile data is not interfering
-* Disable any VPNs
-* Try opening `http://10.10.10.1`
-* Try opening `http://10.10.10.1/ping`
-* Try another browser
-* Restart the timer
-
-
-### A Team Button Does Not Work
-
-Check:
-
-* One side of the button goes to the correct GPIO
-* The other side goes to GND
-* You used D2 for Team A and D3 for Team B
-* The button is normally open
-* The wire has not broken off the terminal
-
-
-### A Button Works Backwards
-
-The firmware expects the buttons to connect the pin to GND when pressed.
-
-Use the normally open contacts on the arcade button.
-
-
-### A Display Is Blank
-
-Check:
-
-* VCC
-* GND
-* CLK wire to D8
-* DIO wire to the correct pin
-* Display module orientation
-* Solder joints
-* Try swapping with a known working display
-
-
-### Both Displays for One Team Are Wrong
-
-Check the data pins for that team:
+Manually enter:
 
 ```text
-Team A display 1 -> D9
-Team A display 2 -> D10
-
-Team B display 1 -> D11
-Team B display 2 -> D6
+http://10.10.10.1/
 ```
 
-### Battery Reading Is Wrong
+Then try:
 
-Check:
+```text
+http://10.10.10.1/ping
+```
 
-* The resistor divider is wired correctly
-* R1 and R2 are both 100 kΩ
-* The divider midpoint goes to A0
-* Battery ground and Arduino ground are common
-* The firmware calibration value matches your real measured battery voltage
+Do not wait for an automatic captive-portal popup; v0.4.0 intentionally does not use one.
 
-Use a multimeter to compare the real battery voltage against the web interface reading.
+### Battery voltage is wrong
 
+Check in this order:
 
-### Battery Bar Graph Does Not Light
+1. R1 and R2 are both 10 kΩ.
+2. A0 is connected to the divider midpoint.
+3. The divider measures the raw single-cell battery rail, not 5 V.
+4. Measure actual battery voltage under load.
+5. Open `http://10.10.10.1/state` and compare `ba0` / `bv` with your meter.
 
-Check:
+The firmware calibration should be changed only after confirming the hardware points above.
 
-* Battery display button wiring
-* Bar graph common pin wiring
-* Segment polarity
-* Current-limiting resistors
-* Pins A1 to A5
-* Ground connection
+### Battery warning appears too early/late
 
+Do not change the 3.40 V threshold first.
 
-### Timer Does Not Count Down
+First verify that the webpage battery voltage agrees with a multimeter under load. A calibration/wiring problem should be corrected at the measurement stage.
 
-Check:
+### Buzzer does not sound
 
-* Game has been started from the web interface
-* Game is not paused
-* Only one team button is being held
-* The button wiring is correct
-* The web interface state is not showing contested or idle
+The buzzer is optional.
 
+If fitted, check:
 
-### Live Time Adjustment Does Not Work
+- it is an **active** buzzer module;
+- VCC is on 3.3 V;
+- GND is common;
+- SIG is on D13;
+- module polarity/pin order.
 
-Check:
+A missing buzzer does not indicate a firmware fault if the rest of the timer operates correctly.
 
-* You are using the v0.3.1 firmware
-* The web interface is loaded properly
-* The phone is still connected to the timer Wi-Fi
-* Try refreshing the page
-* Try opening `http://10.10.10.1/ping`
+### One TM1637 display is unstable
 
-The live time adjustment controls are included in the v0.3.1 web interface.
+Check the exact display module, power/ground, cable length and DIO connection.
 
+PCB v0.1 had known display reliability problems. PCB v0.2 is the recommended tested board.
 
-## Notes for Builders
+## Safety
 
-This is not a polished commercial product. It is a hobby project based on a working event-tested build.
+This is a hobby project.
 
-Expect to do some testing and troubleshooting.
+Use appropriate care with Li-ion cells:
 
-You can modify:
-
-* Team colours
-* Enclosure design
-* Button style
-* Display colours
-* Battery setup
-* Match rules
-* Firmware behaviour
-
-If you improve the design, consider sharing your changes back with the project.
-
-
-## Future Development Plans
-
-v0.3.1 is the current recommended firmware release.
-
-Planned future work may include:
-
-* Improving the PCB assembly documentation
-* Making the hardware documentation clearer for new builders
-* Adding more photos and diagrams to the build guide
-* Adding extra game modes beyond King of the Hill
-* Improving the referee/admin interface further based on event feedback
-* Exploring a Bluetooth or app-based version if there is enough interest
-
-PCB v0.2 has been manufactured, assembled, and tested with no known faults. It is the recommended PCB revision for new PCB-based builds.
-
-
-## Safety Notes
-
-* Be careful with Li-ion batteries.
-* Use a fuse.
-* Do not short the battery.
-* Insulate exposed solder joints.
-* Do not leave loose wires inside the enclosure.
-* Check polarity before powering the device.
-* Do not use damaged cells.
-* Do not charge the battery unattended unless your charging setup is designed for safe unattended use.
-
+- do not use damaged cells;
+- avoid shorts;
+- use a fuse;
+- insulate exposed conductors;
+- verify polarity before power-up;
+- use wiring/connectors appropriate for the expected current.
 
 ## Version
 
-Guide written for:
+This guide is aligned to:
 
 ```text
-KOTH Timer v0.3.1
+KOTH Timer firmware v0.4.0
+PCB v0.2-tested (with R1/R2 = 10 kΩ for v0.4)
+Optional active buzzer on D13
 ```
 
-v0.3.1 is the current recommended firmware release.
-
+An updated PCB revision is currently being developed.

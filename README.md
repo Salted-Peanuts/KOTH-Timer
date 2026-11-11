@@ -1,303 +1,210 @@
 # KOTH-Timer
 
-A DIY Arduino Nano ESP32 King of the Hill timer for Nerf, foam flinging, skirmish games, and objective-based events.
+A DIY Arduino Nano ESP32 King of the Hill timer for Nerf and other objective-based games.
 
-KOTH-Timer is an open-source physical game timer with arcade buttons, TM1637 displays, battery monitoring, and a local phone-friendly referee/admin web interface. It is designed for two-team King of the Hill games where players physically hold a button to capture the objective.
+This started as a timer I built for local Nerf events. The project now has a tested PCB, four physical displays, two large team buttons, battery monitoring and a local referee webpage.
 
-This project is based on a working timer that has been tested successfully at local Nerf events. A few people in the hobby scene asked how to build their own, so this repo exists to make that possible.
+## Current version
 
-The goal is to keep it practical, buildable, and easy to modify.
-
-
-## Current Recommended Versions
-
-The current recommended firmware release is:
+**Firmware:** `v0.4.0`
 
 ```text
-v0.3.1
+Firmware/KOTH_Timer_v0_4_0/KOTH_Timer_v0_4_0.ino
 ```
 
-v0.3.1 is the recommended firmware for new builds.
-
-It keeps the tested v0.3 phone/referee UI and adds small UI input fixes so team colours and match duration can be edited more reliably from the web interface.
-
-Recommended PCB revision:
+**PCB:** `v0.2-tested`
 
 ```text
-v0.2
+PCB/v0.2-tested/
 ```
 
-PCB v0.2 has been manufactured, assembled, and tested with no known faults. It is the recommended PCB revision for new builds.
+PCB v0.2 is still the current tested board. A revised PCB is being worked on to fold the newer v0.4 hardware changes into the board itself.
 
-The tested KOTH Timer PCB v0.2 project is available on PCBWay for convenience if you choose to use them:
+### Before using v0.4.0
 
-[Order / view the KOTH Timer PCB v0.2 project on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
+The battery divider changed from **100 kΩ / 100 kΩ** to **10 kΩ / 10 kΩ**.
 
+If you are upgrading an older timer or assembling PCB v0.2 for v0.4.0, fit:
 
-Older versions remain available for reference but are not recommended for new builds:
+```text
+R1 = 10 kΩ
+R2 = 10 kΩ
+```
 
-| Version       | Status                                                                    |
-| ------------- | ------------------------------------------------------------------------- |
-| Firmware v0.3 | Event-tested release, replaced by v0.3.1 bug-fix update                   |
-| PCB v0.1      | Manufactured, functional through the web UI, but has known display issues |
+The buzzer is **optional**. v0.4.0 works normally with no buzzer connected.
 
-## What It Does
+See [v0.4.0 hardware upgrade notes](docs/hardware-upgrade-v0.4.0.md) if you are upgrading an existing build.
 
-KOTH-Timer is a physical objective timer for two-team King of the Hill style games.
+## How the game works
 
-Players press their team’s button to capture the objective. The timer tracks control time and shows the game state through:
+Each team has its own countdown timer.
 
-* Large physical displays
-* Button LED feedback
-* A local referee/admin web interface
+- Hold only Team A's button: Team A counts down.
+- Hold only Team B's button: Team B counts down.
+- Hold both buttons: contested, no scoring.
+- Hold neither button: no scoring.
+- First team to reach zero wins.
 
-The timer runs locally from the ESP32, so it does not need internet access during gameplay.
+The timer can be controlled from the referee webpage. In v0.4.0, a match can also be started from the physical buttons by holding both team buttons for 5 seconds.
 
+## v0.4.0 changes
 
-## Prototype Photos
+- 5-second physical match start
+- optional active buzzer on D13
+- start, scoring, victory and low-battery sounds when a buzzer is fitted
+- new winner animation
+- 10 kΩ / 10 kΩ battery divider and revised calibration
+- revised 5-segment battery gauge
+- low-battery `LO:LO` warning below 3.40 V
+- automatic match freeze and save on critical battery
+- paused match recovery after a battery swap/reboot
+- cleaned-up referee webpage behaviour
+- captive portal removed; connect manually to the admin page
 
-### Finished Prototype
+Full notes: [v0.4.0 release notes](docs/release-notes-v0.4.0.md)
 
-![KOTH-Timer Timer finished prototype](Images/Prototype_ref_1.jpg)
+## Referee webpage
 
-### Inside Wiring
-
-![KOTH-Timer Timer internal wiring](Images/PCB2.jpg)
-
-### Custom PCB
-
-![KOTH-Timer Timer custom PCB](Images/PCB3.jpg)
-
-## Features
-
-* Two-team King of the Hill timer
-* Physical arcade button controls
-* LED button feedback
-* Four TM1637 4-digit display modules
-* Local ESP32-hosted web interface
-* Phone-friendly referee/admin controls
-* Configurable match duration
-* Configurable team colours
-* Battery voltage display
-* Pause and resume controls
-* Reset lockout to prevent accidental resets
-* Game-over winner display
-* Live referee time adjustment during gameplay
-* Open Wi-Fi network by default for quick event setup
-* Optional Wi-Fi password support
-* No internet required during gameplay
-
-
-## Referee/Admin Connection
-
-The timer creates its own local Wi-Fi network.
+The timer creates its own Wi-Fi network:
 
 ```text
 SSID: KOTH-Timer
-Password: none / open network
+Password: none
 ```
 
-After connecting, open:
+Then open:
 
 ```text
-http://10.10.10.1
+http://10.10.10.1/
 ```
 
-Connection test page:
+Connection test:
 
 ```text
 http://10.10.10.1/ping
 ```
 
-Some phones may warn that the network has no internet. This is normal. Choose the option to stay connected or use the network anyway.
+The timer does not provide internet access. If your phone or laptop warns about that, stay connected to the KOTH-Timer network.
 
+Automatic browser opening was removed from v0.4.0 because it was inconsistent across devices.
 
-## Optional Wi-Fi Password
+## Optional buzzer
 
-The Wi-Fi network is open by default so referees can connect quickly during events.
-
-If you want to add a password, edit the firmware near the top of the code.
-
-Find:
-
-```cpp
-static const char* AP_PASS = "";
-```
-
-Change it to a password with at least 8 characters:
-
-```cpp
-static const char* AP_PASS = "kothtimer";
-```
-
-Then upload the firmware again.
-
-
-## Who This Is For
-
-This project is for hobbyists who want to build their own objective timer for games such as:
-
-* Nerf events
-* Foam flinging games
-* Gel blaster games where legal
-* Airsoft-style objective games where legal
-* Backyard or club-based capture games
-* Custom scenario games
-
-You do not need to be an expert programmer, but you should be comfortable with basic wiring, soldering, and flashing an ESP32.
-
-
-## Basic Hardware Needed
-
-The current build uses:
-
-* Arduino Nano ESP32
-* 18650 Li-ion cell
-* 18650 battery holder
-* 5 V boost converter
-* Fuse
-* Rocker power switch
-* 2 large arcade buttons with LEDs
-* 4 TM1637 4-digit display modules
-* 5-segment battery indicator
-* Battery display button
-* Resistors
-* Wire
-* Enclosure
-* USB cable for flashing
-* Basic soldering tools
-
-See the `docs` folder for the BOM, schematic, and full build guide.
-
-
-## Build Guide
-
-Start here:
-
-[Build Guide](docs/build-guide.md)
-
-The build guide covers:
-
-* Parts required
-* Tools required
-* Power wiring
-* Arduino Nano ESP32 pinout
-* Button wiring
-* Display wiring
-* Battery indicator wiring
-* Firmware upload
-* Wi-Fi connection
-* Event-day testing
-* Troubleshooting
-
-
-## Firmware
-
-The firmware is written for the Arduino Nano ESP32 using the Arduino IDE.
-
-Current recommended firmware:
+v0.4.0 supports a 3.3–5 V active buzzer:
 
 ```text
-Firmware/KOTH_Timer_v0_3_1/KOTH_Timer_v0_3_1.ino
+VCC -> 3.3 V
+GND -> GND
+SIG -> D13
 ```
 
-For Arduino IDE compatibility, the `.ino` file should be inside a folder with the same name as the sketch.
-
-
-## Hardware Files
-
-Hardware documentation is in the `docs` folder.
-
-Current files include:
+With a buzzer fitted, the physical start sequence is:
 
 ```text
-docs/BOM.xlsx
+BEEP ... BEEP ... BEEEEEEP
+                    ^
+                    GO
+```
+
+The game goes live at the start of the long beep.
+
+No buzzer is required for normal operation.
+
+## Hardware
+
+Current build:
+
+- Arduino Nano ESP32
+- single 18650 cell
+- 5 V boost converter
+- fuse and power switch
+- 2 illuminated arcade buttons
+- 4 TM1637 4-digit displays
+- 5-segment battery indicator
+- battery-check button
+- 2 × 10 kΩ battery-divider resistors
+- 220 Ω LED resistors
+- optional active buzzer
+- prototype wiring or PCB v0.2
+
+Current BOM:
+
+```text
 docs/BOM.csv
-docs/Wiring_schematic.pdf
-docs/build-guide.md
+docs/BOM.xlsx
 ```
-## PCB Hardware Status
 
-The KOTH Timer now has a tested PCB revision.
+## PCB status
 
-| PCB revision | Status | Recommendation |
-|---|---|---|
-| `v0.1` | Manufactured and functionally usable through the web UI, but has known TM1637 display reliability issues | Reference only / not recommended for new builds |
-| `v0.2` | Manufactured, assembled, and tested with no known faults | Recommended PCB revision |
+| Revision | Status |
+|---|---|
+| v0.1 | First manufactured board. Known TM1637 display issues. Reference only. |
+| v0.2 | Manufactured, assembled and tested. Current recommended PCB. |
+| Next revision | In development. Will include the v0.4-era hardware changes. |
 
-### PCB v0.1
+### Using PCB v0.2 with v0.4.0
 
-PCB v0.1 was the first manufactured PCB revision.
+PCB v0.2 is still usable.
 
-It is functional through the web UI, but some TM1637 displays may show interference, flicker, incorrect segments, or unstable output.
+For v0.4.0:
 
-The v0.1 files are kept in the repo for reference, troubleshooting, and comparison, but new builders should use PCB v0.2 instead.
+- use 10 kΩ at R1 and R2 instead of the original 100 kΩ values
+- optionally connect the active buzzer to D13, 3.3 V and GND
 
-### PCB v0.2
+The original v0.2 KiCad and Gerber files are left unchanged because they represent the board that was actually manufactured and tested.
 
-PCB v0.2 is the current recommended PCB revision.
+## PCBWay
 
-It was redesigned based on lessons from v0.1, with improvements around display reliability, local display decoupling, and cleaner TM1637 signal routing.
+PCB v0.2 is available as a shared PCBWay project:
 
-PCB v0.2 has been manufactured, assembled, and tested with no known faults.
+[View KOTH Timer PCB v0.2 on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
 
-## Supported By PCBWay
+That page shows the original v0.2 hardware. If you are running firmware v0.4.0, use the current BOM and the upgrade notes in this repo.
 
-PCB manufacturing for newer KOTH Timer PCB revisions has been supported by **PCBWay**.
-
-PCBWay helped support this open-source hardware project by providing PCB manufacturing support while allowing the firmware, design files, known issues, and documentation to remain open source.
-
-Their support made it easier to test real PCB revisions, improve the board design, and share the results back with other builders.
-
-You can check out PCBWay’s PCB manufacturing and assembly services here:
+PCB manufacturing for this project has been supported by **PCBWay**.
 
 [PCBWay](https://pcbway.com/g/EGJ27l)
 
-The tested KOTH Timer PCB v0.2 project is available on PCBWay here:
+## Docs
 
-[Order / view the KOTH Timer PCB v0.2 project on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
+- [Build guide](docs/build-guide.md)
+- [v0.4.0 hardware changes](docs/hardware-upgrade-v0.4.0.md)
+- [v0.4.0 release notes](docs/release-notes-v0.4.0.md)
+- [Documentation index](docs/README.md)
 
-Thanks to PCBWay for supporting open-source hardware creators and helping this project move from a hand-wired prototype to a tested PCB-based build.
+## Photos
 
-Note: PCBWay supported manufacturing for this project, but the design notes, testing results, known issues, and recommendations in this repository are written independently.
+### Finished prototype
 
-## Future Development
+![KOTH-Timer finished prototype](Images/Prototype_ref_1.jpg)
 
-Planned future work may include:
+### Inside wiring
 
-* Improving hardware documentation
-* Adding more photos and wiring diagrams
-* Adding extra game modes beyond King of the Hill
-* Improving the referee/admin interface based on event feedback
-* Exploring a Bluetooth or app-based version if there is enough interest
+![KOTH-Timer internal wiring](Images/PCB2.jpg)
 
-The v0.3.1 firmware is the current recommended release. It is based on the event-tested v0.3 firmware and includes additional web-interface input fixes.
+### PCB
 
-PCB v0.2 has been manufactured, assembled, and tested with no known faults and is the current recommended PCB revision.
+![KOTH-Timer custom PCB](Images/PCB3.jpg)
 
+## Firmware
 
-## Project Status
+The firmware is written for the Arduino Nano ESP32 using Arduino IDE.
 
-This is a hobby project, not a commercial product.
+Keep the sketch in a folder with the same name:
 
-The current firmware has been tested at an event, but builders should still test their own wiring and setup before using the timer in a game.
+```text
+Firmware/
+  KOTH_Timer_v0_4_0/
+    KOTH_Timer_v0_4_0.ino
+```
 
-If you build one, feel free to modify it for your own event rules, enclosure, buttons, battery setup, or game style.
+External libraries:
 
+- WebSockets
+- TM1637Display
 
-## Related Uses
-
-This project may be useful for:
-
-- Nerf King of the Hill games
-- Foam flinging objective games
-- DIY skirmish game timers
-- Arduino ESP32 game props
-- Capture point timers
-- Referee-controlled event timers
-- Local Wi-Fi game control panels
-
+Wi-Fi, WebServer and Preferences come from the Arduino Nano ESP32 board package.
 
 ## Licence
 
-This project is released under the MIT Licence.
+MIT Licence.
