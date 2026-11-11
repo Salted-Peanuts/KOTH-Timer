@@ -224,6 +224,8 @@ That page shows the original v0.2 hardware. For firmware v0.4.0, use the current
 
 PCB manufacturing for this project has been supported by [PCBWay](https://pcbway.com/g/EGJ27l).
 
+They have been a huge help in this project. I've been very impressed by the quality of the PCBs and by the customer service. I highly recommend anyone building this for themselves to check out PCBWay's manufacturing services.  
+
 ## Licence
 
 MIT Licence.
