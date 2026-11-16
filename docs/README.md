@@ -40,7 +40,9 @@ For v0.4.0:
 
 ## Schematic
 
-For current builds, use the [PCB v0.2.1 schematic](../PCB/v0.2.1/KOTH_v0.2.1.pdf) (R1/R2 = 10 kΩ). Its matching editable source is [KOTH_v0.2.1.kicad_sch](../PCB/v0.2.1/KOTH_v0.2.1.kicad_sch).
+For current builds, use the [cleaned-up PCB v0.2.1 schematic](../PCB/v0.2.1/KOTH_v0.2.1.pdf) (R1/R2 = 10 kΩ). Its KiCad 9 layout is now organised into labelled sections to help builders trace the power/battery sensing, team inputs, display connections and Nano ESP32 pins. Its matching editable source is [KOTH_v0.2.1.kicad_sch](../PCB/v0.2.1/KOTH_v0.2.1.kicad_sch).
+
+An identical [documentation copy of the schematic PDF](KOTH_v0.2.1_schematic.pdf) is also available here; the canonical editable design and fabrication files live under `PCB/v0.2.1/`.
 
 The older `docs/Wiring_schematic.pdf` was removed from the current documentation to avoid conflicting instructions. It remains recoverable in Git history, and the original manufactured v0.2 KiCad files are retained in `PCB/v0.2-tested/`. The optional external buzzer is covered in the [build guide](build-guide.md).
 
