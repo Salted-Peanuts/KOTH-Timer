@@ -45,11 +45,11 @@ v0.2 improved:
 - display reliability
 - development breakout access
 
-## Next PCB
+## Next PCB revision
 
-A new revision is being worked on with the v0.4 hardware changes included on the board.
+The newer [PCB v0.2.1](../v0.2.1/) is now the **recommended source and fabrication revision** for new builds. It specifies 10 kΩ resistors for R1/R2 and updates the silkscreen, while retaining the v0.2 track/via routing. The optional buzzer still connects externally via the DEV header.
 
-Until it has been manufactured and tested, v0.2 remains the known-good PCB.
+**PCB v0.2 remains the manufactured and field-tested reference.** v0.2.1 has not been separately manufactured. This folder is preserved unchanged as a historical hardware source package except for README guidance.
 
 ## PCBWay
 
