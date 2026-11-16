@@ -36,7 +36,7 @@ For v0.4.0:
 - the active buzzer on D13 is optional
 - PCB v0.2 is still usable with those changes
 
-`docs/BOM.csv` includes all PCB v0.2.1 passives (R10–R13, C3–C8 as well as R1/R2). The matching replacement `docs/BOM.xlsx` must be uploaded as a binary file before this hardware pull request is merged. The archive-specific PCBWay BOM is included inside the v0.2.1 Gerber ZIP. Older component references should be treated as historical.
+`docs/BOM.csv` includes all PCB v0.2.1 passives (R10–R13, C3–C8 as well as R1/R2). The matching Excel builder BOM, [`docs/BOM.xlsx`](BOM.xlsx), has also been uploaded and matches the v0.2.1 component update. The archive-specific PCBWay BOM is included inside the v0.2.1 Gerber ZIP. Older component references should be treated as historical.
 
 ## Schematic
 
