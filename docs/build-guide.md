@@ -17,20 +17,19 @@ For an existing build, also read [v0.4.0 hardware upgrade notes](hardware-upgrad
 
 ## Build-guide scope
 
-There are currently two practical ways to build the timer:
+There are three practical ways to build the timer:
 
 1. **Prototype / hand-wired build** using the pinout in this guide.
-2. **PCB v0.2 build** using the tested PCB files, with the v0.4 R1/R2 substitution and optional external buzzer.
+2. **PCB v0.2.1 build (recommended for new builds)** using the four-layer PCB files, corrected R1/R2 values (10 kΩ each) and optional external buzzer via the existing DEV breakout.
+3. **Existing manufactured PCB v0.2 build** with 10 kΩ substitutions at R1/R2 and optional external buzzer.
 
-PCB v0.2 is the current tested PCB revision.
-
-An **updated PCB revision is currently being developed** to integrate the newer v0.4 hardware changes more cleanly. It is not yet the recommended board because it has not yet replaced the tested v0.2 hardware.
+The v0.2 design was manufactured and tested. v0.2.1 retains its circuitry and routing, updating schematic/BOM specifications and silkscreen; v0.2.1 has not been separately manufactured. Verify your fabrication package before ordering.
 
 ## Current recommended versions
 
 ```text
 Firmware: v0.4.0
-PCB:      v0.2-tested
+PCB:      v0.2.1 (recommended; same routing as field-tested v0.2)
 ```
 
 Firmware path:
@@ -42,14 +41,14 @@ Firmware/KOTH_Timer_v0_4_0/KOTH_Timer_v0_4_0.ino
 PCB path:
 
 ```text
-PCB/v0.2-tested/
+PCB/v0.2.1/
 ```
 
-The tested PCB v0.2 is also available as a PCBWay shared project:
+The older, manufactured PCB v0.2 is also available as a PCBWay shared project:
 
 [Order / view PCB v0.2 on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
 
-That page reflects the older v0.2 hardware/release material. When using firmware v0.4.0, follow this repository's current BOM and upgrade notes.
+That PCBWay page may still distribute older v0.2 Gerbers until manually updated. Check the files' revision before ordering. Use this repository's current BOM and upgrade notes with firmware v0.4.0.
 
 ## What you are building
 
@@ -108,9 +107,11 @@ Main parts:
 | 1 | Five-segment LED bar | Battery indicator |
 | 1 | Battery-check push button | Momentary |
 | 2 | **10 kΩ resistors** | R1/R2 battery divider |
-| 7 | 220 Ω resistors | LED current limiting |
-| 1 | 470 µF electrolytic capacitor | Power smoothing |
-| 1 | 100 nF ceramic capacitor | Decoupling |
+| 7 | 220 Ω resistors | R3–R9, LED current limiting |
+| 4 | 100 Ω resistors | R10–R13, TM1637 clock-line series resistors |
+| 1 | 470 µF electrolytic capacitor | C1, power smoothing |
+| 5 | 100 nF ceramic capacitors | C2–C6, Nano/display decoupling on PCB |
+| 2 | 100 µF electrolytic capacitors | C7/C8, additional display supply smoothing |
 | 1 | 3.3–5 V active buzzer | **Optional** |
 | as needed | Wire / heat shrink / terminals | Build dependent |
 | 1 | Enclosure | 3D printed or custom |
@@ -286,9 +287,11 @@ When fitted, the buzzer provides:
 - victory sound;
 - critical-battery warning.
 
-## PCB v0.2 builds
+## PCB v0.2.1 and historical v0.2 builds
 
-PCB v0.2 remains the current tested PCB.
+**New builds:** use `PCB/v0.2.1/` with R1/R2 = 10 kΩ and the complete parts list including C2–C6 (five 100 nF), C7/C8 (two 100 µF) and R10–R13 (four 100 Ω). This is a **four-layer PCB**; specify four copper layers when ordering. The buzzer is an optional external module on DEV header pins D13, 3.3 V and GND.
+
+**Existing v0.2 builds:** the manufactured and tested v0.2 PCB remains compatible with v0.4.0 using these substitutions.
 
 For firmware v0.4.0:
 
@@ -620,7 +623,7 @@ A missing buzzer does not indicate a firmware fault if the rest of the timer ope
 
 Check the exact display module, power/ground, cable length and DIO connection.
 
-PCB v0.1 had known display reliability problems. PCB v0.2 is the recommended tested board.
+PCB v0.1 had known display reliability problems. PCB v0.2 is the manufactured and tested baseline. PCB v0.2.1 is recommended for new builds.
 
 ## Safety
 
@@ -641,8 +644,8 @@ This guide is aligned to:
 
 ```text
 KOTH Timer firmware v0.4.0
-PCB v0.2-tested (with R1/R2 = 10 kΩ for v0.4)
-Optional active buzzer on D13
+PCB v0.2.1 (four-layer, R1/R2 = 10 kΩ; same routing as tested v0.2)
+Optional active buzzer via DEV header on D13
 ```
 
-An updated PCB revision is currently being developed.
+The historical v0.2 PCB can also be used with v0.4.0 when the correct resistor values are fitted.
