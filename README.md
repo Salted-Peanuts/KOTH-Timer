@@ -29,6 +29,8 @@ PCB/v0.2.1/
 
 PCB v0.2.1 is the recommended **four-layer** fabrication/source revision for new builds. [Download its Gerber ZIP](PCB/v0.2.1/KOTH_v0.2.1_GERBER.zip) or [view the updated schematic PDF](PCB/v0.2.1/KOTH_v0.2.1.pdf). It uses the same v0.2 PCB circuitry and routing, with corrected 10 kΩ battery-divider specifications and revised silkscreen. The original PCB v0.2 was manufactured and tested; v0.2.1 has not separately been manufactured. See the [hardware revision notes](PCB/v0.2.1/README.md).
 
+**Cleaner schematic:** The v0.2.1 KiCad 9 schematic was reorganised into labelled sections for power and battery monitoring, the two teams' controls, TM1637 displays, the Nano ESP32 connections and the DEV breakout. This is a readability/documentation improvement, not an intended circuit redesign. Builders should use the [v0.2.1 schematic](PCB/v0.2.1/KOTH_v0.2.1.pdf) rather than the historical v0.2 schematic.
+
 ### v0.4.0 hardware note
 
 v0.4.0 changes the battery divider from the original 100 kΩ / 100 kΩ pair to:
