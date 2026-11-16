@@ -7,13 +7,13 @@ v0.4.0
 Firmware/KOTH_Timer_v0_4_0/KOTH_Timer_v0_4_0.ino
 ```
 
-Current tested PCB:
+Recommended PCB for new builds:
 
 ```text
-PCB/v0.2-tested/
+PCB/v0.2.1/
 ```
 
-A revised PCB is being worked on.
+Manufactured and field-tested reference: `PCB/v0.2-tested/`. PCB v0.2.1 is a four-layer minor source and silkscreen update using the same tested routing, but has not been separately manufactured.
 
 ## Start here
 
@@ -36,7 +36,7 @@ For v0.4.0:
 - the active buzzer on D13 is optional
 - PCB v0.2 is still usable with those changes
 
-`docs/KOTH-Timer__PCB-BOM.xlsx` is kept as a reference for the original PCB v0.2 assembly and still reflects that older board.
+The builder BOM in `docs/BOM.csv` and `docs/BOM.xlsx` includes all PCB v0.2.1 passives (R10–R13, C3–C8 as well as R1/R2). The archive-specific PCBWay BOM is included inside the v0.2.1 Gerber ZIP. Older component references should be treated as historical.
 
 ## Schematic
 
@@ -44,7 +44,7 @@ For v0.4.0:
 docs/Wiring_schematic.pdf
 ```
 
-The schematic predates the v0.4 resistor and buzzer changes, so check it against the hardware-upgrade notes.
+**Historical:** `docs/Wiring_schematic.pdf` predates the ADC update. For current builders use `PCB/v0.2.1/KOTH_v0.2.1.pdf`, which specifies 10 kΩ at R1/R2. The optional external buzzer is documented in the build guide.
 
 ## Wi-Fi
 
@@ -59,8 +59,8 @@ The network has no internet access. Automatic captive-portal opening is not used
 
 ## PCBWay
 
-The tested v0.2 board is also available here:
+The previously manufactured v0.2 board is also available here:
 
 https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html
 
-That page reflects the original v0.2 hardware. Use the current BOM and v0.4 upgrade notes when pairing it with v0.4.0 firmware.
+Verify the revision of the Gerbers offered by PCBWay before ordering; its page may still show the original v0.2 materials until manually updated. GitHub `PCB/v0.2.1/` is the recommended current source.
