@@ -11,7 +11,8 @@ The timer runs entirely on the ESP32 and does not need an internet connection du
 | | Current version |
 |---|---|
 | Firmware | **v0.4.0** |
-| Tested PCB | **v0.2** |
+| Recommended PCB | **v0.2.1** (minor update based on tested v0.2) |
+| Manufactured/tested PCB | **v0.2** |
 | Admin page | **http://10.10.10.1/** |
 
 Firmware:
@@ -23,10 +24,10 @@ Firmware/KOTH_Timer_v0_4_0/KOTH_Timer_v0_4_0.ino
 PCB files:
 
 ```text
-PCB/v0.2-tested/
+PCB/v0.2.1/
 ```
 
-PCB v0.2 is still the current tested board. A revised PCB is being worked on to incorporate the v0.4 hardware changes directly.
+PCB v0.2.1 is the recommended **four-layer** fabrication/source revision for new builds. It uses the same v0.2 PCB circuitry and routing, with corrected 10 kΩ battery-divider specifications and revised silkscreen. The original PCB v0.2 was manufactured and tested; v0.2.1 has not separately been manufactured. See the [hardware revision notes](PCB/v0.2.1/README.md).
 
 ### v0.4.0 hardware note
 
@@ -139,7 +140,7 @@ The current build uses:
 - 2 × 10 kΩ battery-divider resistors
 - 220 Ω LED current-limiting resistors
 - optional active buzzer
-- prototype wiring or PCB v0.2
+- prototype wiring or PCB v0.2.1 (four-layer)
 - enclosure
 
 The current BOM is available in both formats:
@@ -152,10 +153,14 @@ The current BOM is available in both formats:
 | Revision | Status |
 |---|---|
 | **v0.1** | First manufactured board. Kept for reference; has known TM1637 display reliability issues. |
-| **v0.2** | Manufactured, assembled and tested. Current recommended PCB. |
-| **Next revision** | In development. Intended to incorporate the v0.4 resistor and buzzer changes directly. |
+| **v0.2** | Manufactured, assembled and tested. Historical reference design; use 10 kΩ R1/R2 with firmware v0.4.0. |
+| **v0.2.1** | Recommended for new builds. Four-layer v0.2 design with corrected R1/R2 values in schematic, updated silkscreen and fabrication package. Same external DEV-header buzzer option. Not separately manufactured. |
 
-### Using PCB v0.2 with firmware v0.4.0
+### PCB v0.2.1 and older PCB v0.2 with firmware v0.4.0
+
+For **v0.2.1**, install R1/R2 = 10 kΩ as already specified in the new schematic/BOM. C2–C6 (100 nF), C7/C8 (100 µF) and R10–R13 (100 Ω) are also part of this four-layer design; use the full revised BOM.
+
+For the older board:
 
 PCB v0.2 remains usable with v0.4.0.
 
@@ -200,13 +205,15 @@ Wi-Fi, WebServer and Preferences are supplied by the Arduino Nano ESP32 board pa
 
 ![KOTH-Timer internal wiring](Images/PCB2.jpg)
 
-### PCB
+### PCB v0.2 (manufactured reference)
 
-![KOTH-Timer custom PCB](Images/PCB3.jpg)
+![KOTH-Timer custom PCB v0.2](Images/PCB3.jpg)
+
+The new v0.2.1 files are a minor source/fabrication update; existing build photos show the previously manufactured v0.2 PCB.
 
 ## PCBWay
 
-PCB v0.2 is also available as a shared PCBWay project:
+The PCBWay shared project currently documents the originally manufactured **v0.2** PCB (verify the revision of its downloadable Gerbers before ordering):
 
 [View KOTH Timer PCB v0.2 on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
 
@@ -218,4 +225,8 @@ They have been a huge help in this project. I've been very impressed by the qual
 
 ## Licence
 
-MIT Licence.
+- **Firmware v0.4.0 and existing repository content:** MIT, as previously published. See [LICENSE](LICENSE).
+- **New PCB v0.2.1 hardware design files:** [CERN-OHL-S-2.0](PCB/v0.2.1/LICENSE), strongly reciprocal, with the version-specific [hardware notice](PCB/v0.2.1/README.md).
+- **Older v0.1/v0.2 PCB files:** retain their previous published terms.
+
+The firmware licence is not being changed as part of this hardware revision.
