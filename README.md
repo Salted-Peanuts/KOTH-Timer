@@ -146,7 +146,7 @@ The current build uses:
 The current BOM is available in both formats:
 
 - [BOM.csv](docs/BOM.csv)
-- [BOM.xlsx](docs/BOM.xlsx)
+- [BOM.xlsx](docs/BOM.xlsx) — spreadsheet replacement pending upload on this draft hardware update
 
 ## PCB revisions
 
