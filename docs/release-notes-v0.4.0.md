@@ -1,3 +1,5 @@
+> **Historical hardware status:** PCB v0.2.1 supersedes v0.2 as the recommended source/fabrication revision; this v0.4.0 release note otherwise remains unchanged.
+
 # KOTH Timer v0.4.0
 
 v0.4.0 is a bigger update than v0.3.1. It adds a physical start sequence, optional buzzer support, better battery handling and match recovery after a low-battery shutdown.
