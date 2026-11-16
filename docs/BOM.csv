@@ -1,5 +1,6 @@
 Reference,Qty,Part / Value,Purpose / Notes,v0.4 Status,Example source
 A1,1,Arduino Nano ESP32,Arduino-branded Nano ESP32 / NORA-W106. Firmware pin labels are written for this board.,Required,https://core-electronics.com.au/arduino-nano-esp32.html
+J1,1,2×5 (10-pin) 2.54 mm pin header,DEV breakout connector for buzzer or expansion. Match PCB footprint and assembly style.,Recommended for PCB v0.2.1,
 BT1,1,18650 Li-ion cell,Single-cell battery. Use a suitable undamaged cell.,Required,https://www.jaycar.com.au/18650-samsung-3500mah-3-7v-flat-top-li-ion-rechargeable-battery/p/SB2630
 ,1,18650 battery holder,Holder for the single 18650 cell.,Required,https://www.amazon.com.au/dp/B0CQ73GFVY
 U1,1,5 V step-up converter,Boosts the single-cell battery rail to 5 V for the timer.,Required,https://www.amazon.com.au/dp/B0CWXM62Y5
