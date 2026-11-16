@@ -7,6 +7,7 @@ PCB v0.2.1 is a minor update based on the manufactured and tested v0.2 design.
 - Corrected the battery-divider values in the schematic: **R1 = 10 kΩ** and **R2 = 10 kΩ**.
 - Updated the board silkscreen and revision identification.
 - No intended circuit-topology or copper-routing changes.
+- Reorganised the KiCad schematic into clearly labelled functional blocks, making the power/battery ADC, team buttons, display connections, battery indicator and Nano ESP32/DEV pinout easier to follow. This is a documentation/layout clean-up rather than a circuit redesign.
 
 The 10 kΩ / 10 kΩ divider has been verified on existing hardware with firmware v0.4.0. The v0.2.1 fabrication files have not been separately manufactured or physically tested.
 
