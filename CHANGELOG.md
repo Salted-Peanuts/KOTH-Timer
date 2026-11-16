@@ -1,5 +1,14 @@
 # Changelog
 
+## PCB hardware v0.2.1 (minor revision; firmware remains v0.4.0)
+
+- Recommended four-layer PCB source/manufacturing update, derived from manufactured and tested v0.2 routing and circuit.
+- Corrected battery divider R1/R2 to 10 kΩ in the schematic/BOM, matching firmware v0.4.0 ADC calibration.
+- Updated silkscreen to identify PCB v0.2.1 and clarified the schematic layout.
+- Updated builder BOM coverage for C2–C6, C7/C8, and R10–R13.
+- New PCB v0.2.1 source files distributed under CERN-OHL-S-2.0; firmware v0.4.0 and historical PCB files retain original MIT terms.
+- No separate v0.2.1 manufacturing/field test claimed; buzzer remains optional through the existing DEV header.
+
 ## v0.4.0
 
 ### Added
