@@ -27,7 +27,7 @@ PCB files:
 PCB/v0.2.1/
 ```
 
-PCB v0.2.1 is the recommended **four-layer** fabrication/source revision for new builds. It uses the same v0.2 PCB circuitry and routing, with corrected 10 kΩ battery-divider specifications and revised silkscreen. The original PCB v0.2 was manufactured and tested; v0.2.1 has not separately been manufactured. See the [hardware revision notes](PCB/v0.2.1/README.md).
+PCB v0.2.1 is the recommended **four-layer** fabrication/source revision for new builds. [Download its Gerber ZIP](PCB/v0.2.1/KOTH_v0.2.1_GERBER.zip) or [view the updated schematic PDF](PCB/v0.2.1/KOTH_v0.2.1.pdf). It uses the same v0.2 PCB circuitry and routing, with corrected 10 kΩ battery-divider specifications and revised silkscreen. The original PCB v0.2 was manufactured and tested; v0.2.1 has not separately been manufactured. See the [hardware revision notes](PCB/v0.2.1/README.md).
 
 ### v0.4.0 hardware note
 
@@ -146,7 +146,7 @@ The current build uses:
 The current BOM is available in both formats:
 
 - [BOM.csv](docs/BOM.csv)
-- [BOM.xlsx](docs/BOM.xlsx) — spreadsheet replacement pending upload on this draft hardware update
+- [BOM.xlsx](docs/BOM.xlsx)
 
 ## PCB revisions
 
@@ -201,9 +201,15 @@ Wi-Fi, WebServer and Preferences are supplied by the Arduino Nano ESP32 board pa
 
 ![KOTH-Timer finished prototype](Images/Prototype_ref_1.jpg)
 
-### Internals
+### Internals — manufactured PCB v0.2
 
 ![KOTH-Timer internal wiring](Images/PCB2.jpg)
+
+Additional reference photographs:
+
+![PCB v0.2 internals overview](Images/KOTH-v0.2-Internals-Overview.jpg)
+
+![PCB v0.2 internals close-up](Images/KOTH-v0.2-Internals-Closeup.jpg)
 
 ### PCB v0.2 (manufactured reference)
 
