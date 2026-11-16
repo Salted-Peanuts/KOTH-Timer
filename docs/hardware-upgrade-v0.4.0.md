@@ -1,6 +1,6 @@
 # v0.4.0 hardware changes
 
-This is for anyone upgrading an older KOTH Timer or assembling PCB v0.2 for firmware v0.4.0.
+This is for anyone upgrading an older KOTH Timer, assembling the manufactured PCB v0.2, or building the recommended four-layer PCB v0.2.1 for firmware v0.4.0.
 
 ## Battery divider
 
@@ -47,7 +47,7 @@ PCB v0.2 exposes D13, 3.3 V and GND on the development breakout, so the buzzer c
 
 ## PCB v0.2
 
-PCB v0.2 is still the current tested PCB.
+PCB v0.2 is the manufactured/tested baseline, while PCB v0.2.1 is recommended for new fabrication.
 
 For v0.4.0:
 
@@ -59,7 +59,13 @@ Buzzer = optional
 
 The existing v0.2 KiCad/Gerber files are left as-is because they document the board that was actually manufactured and tested.
 
-A revised PCB is being worked on with the resistor change and buzzer connection built in. It won't replace v0.2 as the recommended board until it has been made and tested.
+The recommended source/manufacturing revision **PCB v0.2.1** now specifies 10 kΩ for R1 and R2 in its schematic and BOM and has revised silkscreen. It retains the same circuitry and routing as manufactured/tested v0.2, but has not been separately manufactured.
+
+The active buzzer **is not built onto v0.2.1**; attach it externally via the existing DEV breakout.
+
+## PCB v0.2.1 fabrication notes
+
+The manufacturing package is **four-layer**, including F.Cu, In1.Cu, In2.Cu and B.Cu, with Excellon drill files. For PCB v0.2.1, also fit C2–C6 (five 100 nF), C7/C8 (two 100 µF) and R10–R13 (four 100 Ω) in addition to the existing builder BOM entries. For the complete assembly-specific component information see the PCBWay BOM bundled in the Gerber ZIP.
 
 ## Battery protection
 
