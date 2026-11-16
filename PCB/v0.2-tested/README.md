@@ -1,8 +1,10 @@
+> **Current hardware recommendation:** PCB v0.2.1 is now preferred for new builds. This folder preserves the original manufactured/tested v0.2 revision and its historical fabrication outputs. For firmware v0.4.0 on v0.2, fit 10 kΩ at both R1 and R2.
+
 # KOTH Timer PCB v0.2
 
 **Status: manufactured, assembled and tested.**
 
-v0.2 is still the recommended PCB while the next revision is being developed.
+The following text describes this historical v0.2 release. PCB v0.2.1 is now recommended for new builds.
 
 ## Using v0.2 with firmware v0.4.0
 
