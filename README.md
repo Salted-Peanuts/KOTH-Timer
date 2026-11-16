@@ -205,7 +205,7 @@ Wi-Fi, WebServer and Preferences are supplied by the Arduino Nano ESP32 board pa
 
 ![KOTH-Timer internal wiring](Images/PCB2.jpg)
 
-Additional reference photographs:
+Additional reference photographs with buzzer installed:
 
 ![PCB v0.2 internals overview](Images/KOTH-v0.2-Internals-Overview.jpg)
 
