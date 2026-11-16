@@ -1,3 +1,5 @@
+> **Current hardware recommendation:** PCB v0.2.1 is now preferred for new builds.
+
 # KOTH Timer PCB v0.1 - Known Display Issues
 
 This folder contains the first manufactured PCB design for the KOTH Timer.

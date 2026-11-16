@@ -1,3 +1,5 @@
+> **Historical hardware status:** PCB v0.2.1 supersedes v0.2 as the recommended source/fabrication revision; this v0.4.0 release note otherwise remains unchanged.
+
 # KOTH Timer v0.4.0
 
 v0.4.0 is a bigger update than v0.3.1. It adds a physical start sequence, optional buzzer support, better battery handling and match recovery after a low-battery shutdown.
@@ -101,7 +103,7 @@ PCB v0.2 still works with v0.4.0.
 
 Use 10 kΩ at R1/R2 and add the buzzer externally only if you want audio.
 
-A revised PCB is being developed with these changes built in. Until that board has been manufactured and tested, v0.2 remains the current tested PCB.
+At the time firmware v0.4.0 was released, PCB v0.2 was the current manufactured/tested PCB. The later **PCB v0.2.1 minor revision** now documents R1/R2 = 10 kΩ directly and is recommended for new fabrication; it has not itself been separately manufactured. The buzzer remains an optional external connection.
 
 ## BOM corrections
 
