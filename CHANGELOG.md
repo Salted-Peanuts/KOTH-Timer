@@ -37,7 +37,7 @@ PCB v0.2 remains the current tested board.
 
 For v0.4.0, fit 10 kΩ at R1/R2. The buzzer is optional and can be connected externally.
 
-A revised PCB is in development.
+That statement records the firmware v0.4.0 release-era status. The subsequent PCB-only update is documented above under PCB v0.2.1.
 
 ## v0.3.1
 
