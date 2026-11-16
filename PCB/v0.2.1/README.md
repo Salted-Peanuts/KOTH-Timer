@@ -24,7 +24,11 @@ KiCad 9 source files:
 - `KOTH_v0.2.1.kicad_sch`
 - `KOTH_v0.2.1.kicad_pcb`
 
-Release documents/fabrication outputs: `KOTH_v0.2.1.pdf` and `KOTH_v0.2.1_GERBER.zip` (Gerbers, drills, and PCBWay auxiliary BOM/placement data).
+Release documents/fabrication outputs:
+
+- [KOTH_v0.2.1.pdf](KOTH_v0.2.1.pdf) — current schematic PDF
+- [KOTH_v0.2.1_GERBER.zip](KOTH_v0.2.1_GERBER.zip) — four-layer Gerbers, drills and PCBWay auxiliary BOM/placement data
+- [Builder BOM (CSV)](../../docs/BOM.csv) / [Builder BOM (Excel)](../../docs/BOM.xlsx) — community parts list and notes
 
 **Four-layer stack:** F.Cu / In1.Cu / In2.Cu / B.Cu. The Gerber archive contains the Excellon plated/non-plated drills, front/back masks and silkscreens, board outline, and the four copper layers.
 
