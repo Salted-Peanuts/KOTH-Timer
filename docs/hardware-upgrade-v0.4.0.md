@@ -1,6 +1,6 @@
 # v0.4.0 hardware changes
 
-This is for anyone upgrading an older KOTH Timer, assembling the manufactured PCB v0.2, or building the recommended four-layer PCB v0.2.1 for firmware v0.4.0.
+This is for anyone upgrading an older KOTH Timer, assembling the manufactured PCB v0.2, or building the recommended PCB v0.2.1 for firmware v0.4.0.
 
 ## Battery divider
 
