@@ -134,7 +134,7 @@ The current build uses:
 - Arduino Nano ESP32
 - single 18650 Li-ion cell and holder
 - 5 V boost converter
-- fuse and main power switch
+- 1 A fast-blow glass cartridge fuse (6.3 × 32 mm) and main power switch
 - 2 illuminated arcade team buttons
 - 4 TM1637 4-digit displays
 - 5-segment battery indicator
@@ -142,10 +142,10 @@ The current build uses:
 - 2 × 10 kΩ battery-divider resistors
 - 220 Ω LED current-limiting resistors
 - optional active buzzer
-- prototype wiring or PCB v0.2.1 (four-layer)
+- prototype wiring or PCB v0.2.1
 - enclosure
 
-The current BOM is available in both formats:
+The current **builder BOM** (including the corrected 1 A fast-blow fuse and all off-board parts) is available in both formats:
 
 - [BOM.csv](docs/BOM.csv)
 - [BOM.xlsx](docs/BOM.xlsx)
@@ -156,11 +156,11 @@ The current BOM is available in both formats:
 |---|---|
 | **v0.1** | First manufactured board. Kept for reference; has known TM1637 display reliability issues. |
 | **v0.2** | Manufactured, assembled and tested. Historical reference design; use 10 kΩ R1/R2 with firmware v0.4.0. |
-| **v0.2.1** | Recommended for new builds. Four-layer v0.2 design with corrected R1/R2 values in schematic, updated silkscreen and fabrication package. Same external DEV-header buzzer option. Not separately manufactured. |
+| **v0.2.1** | Recommended for new builds. Revised R1/R2 values, cleaned-up schematic, updated silkscreen and a 1 A fast-blow fuse specification (November documentation correction). Not separately manufactured. |
 
 ### PCB v0.2.1 and older PCB v0.2 with firmware v0.4.0
 
-For **v0.2.1**, install R1/R2 = 10 kΩ as already specified in the new schematic/BOM. C2–C6 (100 nF), C7/C8 (100 µF) and R10–R13 (100 Ω) are also part of this four-layer design; use the full revised BOM.
+For **v0.2.1**, fit a **1 A fast-blow glass fuse (6.3 × 32 mm)** in the compatible fuse clips and install R1/R2 = 10 kΩ as already specified in the new schematic/BOM. C2–C6 (100 nF), C7/C8 (100 µF) and R10–R13 (100 Ω) are also part of this four-layer design; use the full revised BOM.
 
 For the older board:
 
@@ -217,7 +217,7 @@ Additional reference photographs with buzzer installed:
 
 ![KOTH-Timer custom PCB v0.2](Images/PCB3.jpg)
 
-The new v0.2.1 files are a minor source/fabrication update; existing build photos show the previously manufactured v0.2 PCB.
+The v0.2.1 design files are a minor update; existing build photos show the previously manufactured v0.2 PCB. The November 2026 source-file correction specifies a **1 A fast-blow fuse**; the separate GitHub hardware release tag may still reference the original download until its assets are updated.
 
 ## PCBWay
 
