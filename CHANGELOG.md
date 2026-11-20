@@ -5,7 +5,7 @@
 - Updated F1 specification to **1 A fast-blow glass cartridge, 6.3 × 32 mm**, with matching holder, replacing earlier 2.5–3 A documentation.
 - Aligned the KiCad source, schematic PDF, Gerber archive's auxiliary BOM, and community builder BOM; preserved the existing copper and drill geometry.
 - Clarified the distinction between the complete builder BOM and PCBWay's generated assembly-only BOM.
-- User confirmed ERC and DRC pass in KiCad. Electrical current and fuse inrush suitability still require physical verification.
+- User confirmed ERC and DRC pass in KiCad, and reports successful use of a 1 A fast-blow fuse in their working timer.
 - Kept the existing PCB revision number (v0.2.1); the earlier published GitHub release tag remains a historical snapshot until its downloadable assets are updated.
 
 ## PCB hardware v0.2.1 (minor revision; firmware remains v0.4.0)
