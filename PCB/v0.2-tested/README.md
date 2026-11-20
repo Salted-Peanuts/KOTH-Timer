@@ -53,6 +53,6 @@ The newer [PCB v0.2.1](../v0.2.1/) is now the **recommended source and fabricati
 
 ## PCBWay
 
-[View KOTH Timer PCB v0.2 on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
+[View the KOTH-Timer shared project on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html).
 
-That page shows the original v0.2 hardware, so use the current repo BOM when building for firmware v0.4.0.
+This directory preserves the actual manufactured v0.2 files as a historical reference. The **recommended PCB for new builds is [v0.2.1](../v0.2.1/)**. PCBWay's public downloads may be updated to v0.2.1; verify which revision is being supplied before ordering.
