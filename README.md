@@ -221,11 +221,11 @@ The v0.2.1 design files are a minor update; existing build photos show the previ
 
 ## PCBWay
 
-The PCBWay shared project currently documents the originally manufactured **v0.2** PCB (verify the revision of its downloadable Gerbers before ordering):
+The [KOTH-Timer shared project on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html) is the existing manufacturing/project page.
 
-[View KOTH Timer PCB v0.2 on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
+**Current recommended PCB revision: v0.2.1.** The complete [v0.2.1 KiCad source, schematic and Gerber files](PCB/v0.2.1/) are maintained here on GitHub. The older [v0.2 design](PCB/v0.2-tested/) remains the manufactured and field-tested reference.
 
-That page shows the original v0.2 hardware. For firmware v0.4.0, use the current BOM and the v0.4 hardware notes in this repository.
+The PCBWay project is being updated to v0.2.1. **Until its downloads have been confirmed as updated, check the revision of the files PCBWay actually supplies before ordering.** PCBWay support has agreed to manually apply the CERN-OHL-S-2.0 hardware licence for the new revision.
 
 PCB manufacturing for this project has been supported by [PCBWay](https://pcbway.com/g/EGJ27l).
 
