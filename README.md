@@ -27,7 +27,7 @@ PCB files:
 PCB/v0.2.1/
 ```
 
-PCB v0.2.1 is the recommended **four-layer** fabrication/source revision for new builds. [Download its Gerber ZIP](PCB/v0.2.1/KOTH_v0.2.1_GERBER.zip) or [view the updated schematic PDF](PCB/v0.2.1/KOTH_v0.2.1.pdf). It uses the same v0.2 PCB circuitry and routing, with corrected 10 kΩ battery-divider specifications and revised silkscreen. The original PCB v0.2 was manufactured and tested; v0.2.1 has not separately been manufactured. See the [hardware revision notes](PCB/v0.2.1/README.md).
+PCB v0.2.1 is the recommended fabrication/source revision for new builds. [Download its Gerber ZIP](PCB/v0.2.1/KOTH_v0.2.1_GERBER.zip) or [view the updated schematic PDF](PCB/v0.2.1/KOTH_v0.2.1.pdf). It uses the same v0.2 PCB circuitry and routing, with corrected 10 kΩ battery-divider specifications and revised silkscreen. The original PCB v0.2 was manufactured and tested; v0.2.1 has not separately been manufactured. See the [hardware revision notes](PCB/v0.2.1/README.md).
 
 **Cleaner schematic:** The v0.2.1 KiCad 9 schematic was reorganised into labelled sections for power and battery monitoring, the two teams' controls, TM1637 displays, the Nano ESP32 connections and the DEV breakout. This is a readability/documentation improvement, not an intended circuit redesign. Builders should use the [v0.2.1 schematic](PCB/v0.2.1/KOTH_v0.2.1.pdf) rather than the historical v0.2 schematic.
 
@@ -160,7 +160,7 @@ The current **builder BOM** (including the corrected 1 A fast-blow fuse and all 
 
 ### PCB v0.2.1 and older PCB v0.2 with firmware v0.4.0
 
-For **v0.2.1**, fit a **1 A fast-blow glass fuse (6.3 × 32 mm)** in the compatible fuse clips and install R1/R2 = 10 kΩ as already specified in the new schematic/BOM. C2–C6 (100 nF), C7/C8 (100 µF) and R10–R13 (100 Ω) are also part of this four-layer design; use the full revised BOM.
+For **v0.2.1**, fit a **1 A fast-blow glass fuse (6.3 × 32 mm)** in the compatible fuse clips and install R1/R2 = 10 kΩ as already specified in the new schematic/BOM. C2–C6 (100 nF), C7/C8 (100 µF) and R10–R13 (100 Ω) are also part of this design; use the full revised BOM.
 
 For the older board:
 
