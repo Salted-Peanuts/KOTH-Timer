@@ -1,25 +1,24 @@
-Reference,Qty,Part / Value,Purpose / Notes,v0.4 Status,Example source
+﻿Reference,Qty,Part / Value,Purpose / Notes,Status,Example source
 A1,1,Arduino Nano ESP32,Arduino-branded Nano ESP32 / NORA-W106. Firmware pin labels are written for this board.,Required,https://core-electronics.com.au/arduino-nano-esp32.html
-J1,1,2×5 (10-pin) 2.54 mm pin header,DEV breakout connector for buzzer or expansion. Match PCB footprint and assembly style.,Recommended for PCB v0.2.1,
-BT1,1,18650 Li-ion cell,Single-cell battery. Use a suitable undamaged cell.,Required,https://www.jaycar.com.au/18650-samsung-3500mah-3-7v-flat-top-li-ion-rechargeable-battery/p/SB2630
+J1,1,2×5 (10-pin) 2.54 mm header,DEV breakout for optional active buzzer and expansion. Match the PCB footprint and assembly style.,Recommended for PCB v0.2.1,
+BT1,1,18650 Li-ion cell,"Single-cell battery. Use a suitable, undamaged cell.",Required,https://www.jaycar.com.au/18650-samsung-3500mah-3-7v-flat-top-li-ion-rechargeable-battery/p/SB2630
 ,1,18650 battery holder,Holder for the single 18650 cell.,Required,https://www.amazon.com.au/dp/B0CQ73GFVY
 U1,1,5 V step-up converter,Boosts the single-cell battery rail to 5 V for the timer.,Required,https://www.amazon.com.au/dp/B0CWXM62Y5
-F1,1,2.5–3 A fuse + holder,Main battery protection. Size power wiring appropriately for the fuse/current.,Required,https://www.aliexpress.com/item/1005007846817140.html
+F1,1,1 A fast-blow glass cartridge fuse (6.3 × 32 mm) + holder,F1 on battery input. Use a fast-acting 1 A cartridge that fits the existing fuse clips. Verify normal load and start-up current to confirm suitability.,Required,https://www.aliexpress.com/item/1005007846817140.html
 SW1,1,Rocker power switch,Main on/off switch.,Required,https://www.aliexpress.com/item/4001108045600.html
 "SW2, SW3",2,Large arcade push buttons,One team button per side. Current build uses illuminated arcade buttons.,Required,https://www.aliexpress.com/item/33029152680.html
-"D1, D2",2,Arcade button LEDs,Usually integrated into the arcade buttons. Driven from D5 and D7 through current-limiting resistors.,Required if illuminated buttons are used,https://www.aliexpress.com/item/33029152680.html
+"D1, D2",2,Arcade button LEDs,Often integrated into the arcade buttons. Driven by D5 and D7 through current-limiting resistors.,Required if illuminated buttons are used,https://www.aliexpress.com/item/33029152680.html
 TM1637,4,TM1637 4-digit displays,Two displays per team.,Required,https://www.aliexpress.com/item/1005001582129952.html
 SW4,1,Momentary push button,Battery-level display button.,Required,https://www.jaycar.com.au/spst-pcb-mount-tactile-switch-round/p/SP0609
-D3–D7,1,5-segment LED bar graph,"Battery indicator. Current build uses 3× green, 1× yellow and 1× red.",Required for physical battery bar,https://www.aliexpress.com/item/1005010479786364.html
-"R1, R2",2,10 kΩ resistors,Battery-voltage divider to A0. Replaces the 100 kΩ / 100 kΩ values used by earlier builds.,Required for v0.4 battery calibration,https://www.jaycar.com.au/10k-ohm-0-5-watt-metal-film-resistors-pack-of-8/p/RR0596
-R3–R9,7,220 Ω resistors,LED current limiting. Earlier BOM link incorrectly pointed to a 220 kΩ part.,Required where shown by schematic,https://www.jaycar.com.au/220-ohm-0-5-watt-metal-film-resistors-pack-of-8/p/RR0556
-R10–R13,4,100 Ω resistors,Four TM1637 clock-line series resistors. Present in schematic and PCB v0.2.1.,Required for PCB v0.2.1,
+D3–D7,1,5-segment LED bar graph,"Battery indicator. Any preferred colour arrangement can be used; current build uses 3× green, 1× yellow, 1× red.",Required for physical battery bar,https://www.aliexpress.com/item/1005010479786364.html
+"R1, R2",2,10 kΩ resistors,Battery-voltage divider to A0. Replaces the old 100 kΩ / 100 kΩ values used by earlier documentation.,REQUIRED CHANGE for v0.4 firmware battery calibration,https://www.jaycar.com.au/10k-ohm-0-5-watt-metal-film-resistors-pack-of-8/p/RR0596
+R3–R9,7,220 Ω resistors,"LED current limiting. Note: old BOM linked to Jaycar RR0628, which is 220 kΩ; the corrected 220 Ω part is RR0556.",Required where shown by schematic,https://www.jaycar.com.au/220-ohm-0-5-watt-metal-film-resistors-pack-of-8/p/RR0556
+R10–R13,4,100 Ω resistors,Series resistors on the four TM1637 clock lines (one per display).,Required,
 C1,1,470 µF electrolytic capacitor,Power smoothing. Observe polarity.,Required,https://www.jaycar.com.au/470uf-16vdc-low-esr-electrolytic-capacitor/p/RE6314
-"C2–C6",5,100 nF ceramic capacitors,Decoupling at Arduino and the four TM1637 display headers. Present in schematic and PCB v0.2.1.,Required for PCB v0.2.1,https://www.jaycar.com.au/100nf-50vdc-ceramic-capacitors-pack-of-2/p/RC5360
-"C7, C8",2,100 µF electrolytic capacitors,Additional supply smoothing for the two display banks. Observe polarity and PCB footprint.,Required for PCB v0.2.1,
-BZ1,1,Keyestudio Active Buzzer Alarm Module,"Optional audible feedback. This is the module used on the reference build. VCC→3.3 V, GND→GND, SIG→D13. Firmware works normally without it.",Optional / tested on reference build,https://www.keyestudio.com/products/keyestudio-active-buzzer-alarm-module-for-arduino
+C2–C6,5,100 nF (0.1 µF) ceramic capacitors,Decoupling at Nano ESP32 and four TM1637 display connectors. Required on PCB v0.2.1.,Required,https://www.jaycar.com.au/100nf-50vdc-ceramic-capacitors-pack-of-2/p/RC5360
+"C7, C8",2,100 µF electrolytic capacitors,Additional 5 V display-rail smoothing. Observe polarity and match the PCB footprint.,Required,
+BZ1,1,3.3–5 V active buzzer module,"Optional audio feedback. VCC→3.3 V, GND→GND, SIG→D13. Firmware works normally with no buzzer connected.",Optional,https://docs.keyestudio.com/projects/KS0349/en/latest/KS0349.html
 ,As needed,Wire,22 AWG was used in the original build. Size power wiring appropriately for the fuse/current.,Required,
 ,As needed,Heat shrink / insulation,For exposed solder joints and connections.,Required,
 ,As needed,Terminal blocks / headers,Useful for modular wiring and PCB connections.,Build-dependent,
-,1,Enclosure,3D-printed or custom enclosure.,Required,
-,As needed,Prototype board OR PCB v0.2.1,"PCB v0.2.1 is the recommended four-layer PCB; uses 10 kΩ at R1/R2 and optional buzzer via DEV header. Manufactured v0.2 remains usable with 10 kΩ substitutions.",Build-dependent,https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html
+,1,Prototype board OR PCB v0.2.1,Recommended revision: PCB v0.2.1. Earlier tested v0.2 remains usable with R1/R2 = 10 kΩ. Buzzer is optional via D13.,Required,
