@@ -156,7 +156,7 @@ The current **builder BOM** (including the corrected 1 A fast-blow fuse and all 
 |---|---|
 | **v0.1** | First manufactured board. Kept for reference; has known TM1637 display reliability issues. |
 | **v0.2** | Manufactured, assembled and tested. Historical reference design; use 10 kΩ R1/R2 with firmware v0.4.0. |
-| **v0.2.1** | Recommended for new builds. Revised R1/R2 values, cleaned-up schematic, updated silkscreen and a 1 A fast-blow fuse specification (November documentation correction). Not separately manufactured. |
+| **v0.2.1** | Recommended for new builds. Revised R1/R2 values, cleaned-up schematic, updated silkscreen and a 1 A fast-blow fuse specification (November documentation correction). |
 
 ### PCB v0.2.1 and older PCB v0.2 with firmware v0.4.0
 
