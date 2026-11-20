@@ -60,8 +60,6 @@ The network has no internet access. Automatic captive-portal opening is not used
 
 ## PCBWay
 
-The previously manufactured v0.2 board is also available here:
+[View KOTH-Timer on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html).
 
-https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html
-
-Verify the revision of the Gerbers offered by PCBWay before ordering; its page may still show the original v0.2 materials until manually updated. GitHub `PCB/v0.2.1/` is the recommended current source.
+**Current recommended revision: PCB v0.2.1** — obtain the authoritative [schematic and manufacturing files](../PCB/v0.2.1/) from GitHub until the PCBWay downloads have been confirmed as updated. PCB v0.2 remains the manufactured and field-tested reference. PCBWay support is arranging manual application of CERN-OHL-S-2.0 to v0.2.1.
