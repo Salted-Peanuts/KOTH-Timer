@@ -1,5 +1,13 @@
 # Changelog
 
+## PCB v0.2.1 documentation correction — 20 November 2026
+
+- Updated F1 specification to **1 A fast-blow glass cartridge, 6.3 × 32 mm**, with matching holder, replacing earlier 2.5–3 A documentation.
+- Aligned the KiCad source, schematic PDF, Gerber archive's auxiliary BOM, and community builder BOM; preserved the existing copper and drill geometry.
+- Clarified the distinction between the complete builder BOM and PCBWay's generated assembly-only BOM.
+- User confirmed ERC and DRC pass in KiCad. Electrical current and fuse inrush suitability still require physical verification.
+- Kept the existing PCB revision number (v0.2.1); the earlier published GitHub release tag remains a historical snapshot until its downloadable assets are updated.
+
 ## PCB hardware v0.2.1 (minor revision; firmware remains v0.4.0)
 
 - Recommended four-layer PCB source/manufacturing update, derived from manufactured and tested v0.2 routing and circuit.
