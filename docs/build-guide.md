@@ -99,7 +99,7 @@ Main parts:
 | 1 | 18650 Li-ion cell | Single-cell battery |
 | 1 | 18650 holder | Match your cell style |
 | 1 | 5 V boost converter | Powers the 5 V timer rail |
-| 1 | 1 A fast-blow glass cartridge fuse (6.3 × 32 mm) + holder | Current v0.2.1 BOM value; verify the fuse/clip fit and current/inrush suitability before use |
+| 1 | 1 A fast-blow glass cartridge fuse (6.3 × 32 mm) + holder | Specified for v0.2.1; used successfully by the project author in their working timer. Use matching fuse clips |
 | 1 | Main rocker switch | Device power |
 | 2 | Large arcade buttons | One per team |
 | 2 | Arcade button LEDs | Often integrated into the buttons |
@@ -305,7 +305,7 @@ Do not assume the old 100 kΩ values in those files are the current v0.4 recomme
 
 ## Fuse note
 
-The v0.2.1 builder BOM and KiCad source specify **F1 = 1 A fast-blow glass cartridge (6.3 × 32 mm)**. Previous 2.5–3 A documentation is superseded for new v0.2.1 builds. The 1 A fast-acting fuse rating must be checked against measured normal load and startup current on the actual device; an ERC/DRC pass does not establish fuse suitability.
+The v0.2.1 builder BOM and KiCad source specify **F1 = 1 A fast-blow glass cartridge (6.3 × 32 mm)**. Previous 2.5–3 A documentation is superseded for new v0.2.1 builds. The project author uses this 1 A fast-blow fuse in their working KOTH-Timer without issues. Match the specified cartridge size and holder when assembling a new build.
 
 ## Wiring checklist
 
