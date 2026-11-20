@@ -238,7 +238,7 @@
 		)
 		(path "/78c0053f-a11d-44cb-840b-0b1a5825663c")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 17.62 3.92)
@@ -790,7 +790,7 @@
 		)
 		(path "/a3e5ece8-e8e7-4590-8d28-3a96ab6912cc")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 17.62 3.92)
@@ -1342,7 +1342,7 @@
 		)
 		(path "/6ac8bb11-301f-4303-a53f-e696e19322b5")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 17.62 3.92)
@@ -1895,7 +1895,7 @@
 		(property ki_fp_filters "CP_*")
 		(path "/13bb2f0a-07ae-42ff-aa82-0fed12543728")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -2.250241 -1.839)
@@ -3410,7 +3410,7 @@
 		(property ki_fp_filters "CP_*")
 		(path "/307a3917-d487-4851-b63a-ea640dd0ef6b")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -2.250241 -1.839)
@@ -4938,7 +4938,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/b902315b-651c-4565-90ba-c4837b9ac2e6")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -5157,7 +5157,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/c81f6841-7d94-4fc6-85d5-3af196d71e0b")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -5363,7 +5363,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/c0f2fb75-7734-49fa-9d18-5b420fb29402")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.23 -1.07)
@@ -5526,7 +5526,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/9497ed34-2e3a-4271-889e-5b64ac4acd92")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.23 -1.07)
@@ -5688,7 +5688,7 @@
 		)
 		(path "/16191c99-2a93-4390-b73e-16a42374b85b")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 7.62 -4.12)
@@ -6192,7 +6192,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/d0c5a64f-3901-4e79-b2b9-9eb0c3ea2d42")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 14.2 0)
@@ -6631,7 +6631,7 @@
 				)
 			)
 		)
-		(property "Value" "2.5-3A_Fuse"
+		(property "Value" "1A_Glass_Fuse"
 			(at 17.1 5 90)
 			(layer "F.Fab")
 			(uuid "aa1625d0-bb49-4947-b27e-c9d342e19b20")
@@ -6671,7 +6671,7 @@
 		(property ki_fp_filters "*Fuse*")
 		(path "/cbfe6708-ec79-4d54-9b11-6df774e82b01")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 33.955 -3.935)
@@ -7170,7 +7170,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/af210900-1b3d-4518-b830-e21851a88903")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 1.04 0)
@@ -7334,7 +7334,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/d2083326-6d5d-4ad7-b6d1-8f8240949d6e")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 14.2 0)
@@ -7497,7 +7497,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/4038e417-4f3e-4f93-84c1-fb49002b597c")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 14.2 0)
@@ -7672,7 +7672,7 @@
 		)
 		(path "/3173d65c-0837-4145-82a0-ba35544c7818")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.14 -3.61)
@@ -7910,7 +7910,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/2bbec599-ca4f-40db-92db-28db40b5f083")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 14.2 0)
@@ -8086,7 +8086,7 @@
 		(property ki_fp_filters "Arduino*Nano*")
 		(path "/31fb370b-7c37-4229-8831-c14d6511eec5")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 3.68 42.04)
@@ -8843,7 +8843,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/eb4cae10-b409-4e87-86d3-1232f95add5c")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 1.04 0)
@@ -9006,7 +9006,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/b31a7ba2-41ff-4ef6-bb2b-d29b15d68da6")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 4.77 1.07)
@@ -9207,7 +9207,7 @@
 		)
 		(path "/78b981e5-33ba-4f43-8f20-bf1955e46cc7")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 7.62 -4.12)
@@ -9616,7 +9616,7 @@
 		(property ki_fp_filters "CP_*")
 		(path "/acedbdd1-af18-4bba-8c6e-b364176a7995")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.909698 -2.315)
@@ -11340,7 +11340,7 @@
 		)
 		(path "/f3881792-5473-434a-96bd-831b7fdbb6ee")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 17.62 3.92)
@@ -11893,7 +11893,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/e3932978-8965-445c-a3fc-54563dce5d51")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 3.92 -1.38)
@@ -12238,7 +12238,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/9f91fe98-0f10-42c8-9b2c-bf9f998fff78")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -3.12 3.92)
@@ -12647,7 +12647,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/d4fb8cb2-f1c6-4ed4-9393-813d57ab145b")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 4.77 1.07)
@@ -12905,7 +12905,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/1a956a87-9c85-4608-aca0-fb3ee52b5ee4")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 1.04 0)
@@ -13069,7 +13069,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/aa1afc9a-f6cb-4cad-b2f4-9cac4e924124")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 1.04 0)
@@ -14205,7 +14205,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/902d0884-2447-472e-b699-6807eae45418")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 14.2 0)
@@ -14367,7 +14367,7 @@
 		)
 		(path "/8177bf15-0beb-4816-88a0-b84bb3cea02d")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 7.62 -4.12)
@@ -14776,7 +14776,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/04f2cb5f-821b-4da2-809c-b86f80b62673")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 4.77 1.07)
@@ -20920,7 +20920,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/82f4a868-66d2-4116-beb4-5552b3793e0f")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -21139,7 +21139,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/11fbb8cc-a531-474a-ad8a-0bb855e0fc0d")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -21346,7 +21346,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/f6042f13-7525-4f30-97f3-b8aa7db60092")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 1.04 0)
@@ -21603,7 +21603,7 @@
 		)
 		(path "/4252687e-6de3-4fb6-adf0-019c1ea1aba3")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 7.62 -4.12)
@@ -22023,7 +22023,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/904b8b67-323a-41f1-881a-3c58ad7ef324")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 14.2 0)
@@ -22196,7 +22196,7 @@
 		)
 		(path "/857fc7c7-9794-466b-a8a3-544a6f914f33")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 1.38 1.27)
@@ -22431,7 +22431,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/f540898a-4442-4585-92bc-51a55ad9bf82")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 14.2 0)
@@ -22618,7 +22618,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/a211cda7-e274-4931-8d11-f617482b9d80")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -22824,7 +22824,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/1ce9363d-8229-431a-854b-2965b7ade23a")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 14.2 0)
@@ -23011,7 +23011,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/e9038b0c-873c-40f9-97d4-2f8fb1f784f1")
 		(sheetname "/")
-		(sheetfile "KOTH_V2.kicad_sch")
+		(sheetfile "KOTH_v0.2.1.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -3.12 3.92)
