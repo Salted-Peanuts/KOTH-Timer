@@ -13,7 +13,7 @@ Recommended PCB for new builds:
 PCB/v0.2.1/
 ```
 
-Manufactured and field-tested reference: `PCB/v0.2-tested/`. PCB v0.2.1 is a four-layer minor source and silkscreen update using the same tested routing, but has not been separately manufactured.
+Manufactured and field-tested reference: `PCB/v0.2-tested/`. PCB v0.2.1 is a minor source and silkscreen update using the same tested routing, but has not been separately manufactured.
 
 ## Start here
 
