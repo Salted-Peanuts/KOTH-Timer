@@ -40,11 +40,11 @@ Read the [v0.4 hardware notes](../docs/hardware-upgrade-v0.4.0.md) and [build gu
 
 ## PCBWay
 
-PCB v0.2 is published here:
+[View the KOTH-Timer project on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html).
 
-[View KOTH Timer PCB v0.2 on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
+**PCB v0.2.1 is the recommended revision for new builds.** Its current design files are in [PCB/v0.2.1](v0.2.1/). The existing [PCB v0.2](v0.2-tested/) remains the manufactured/tested reference.
 
-Until the PCBWay download files are updated, treat the PCBWay page as the original manufactured v0.2 design and check its fabrication revision before ordering.
+The PCBWay shared-project downloads are being brought into line with v0.2.1. **Verify the revision available on PCBWay before ordering**, as the public downloads may not yet have been replaced. PCBWay support will manually add CERN-OHL-S-2.0 to the updated project.
 
 ## Hardware licence
 
