@@ -8,6 +8,7 @@ PCB v0.2.1 is a minor update based on the manufactured and tested v0.2 design.
 - Updated the board silkscreen and revision identification.
 - No intended circuit-topology or copper-routing changes.
 - Reorganised the KiCad schematic into clearly labelled functional blocks, making the power/battery ADC, team buttons, display connections, battery indicator and Nano ESP32/DEV pinout easier to follow. This is a documentation/layout clean-up rather than a circuit redesign.
+- **November 2026 correction:** documented F1 as a **1 A fast-blow glass cartridge fuse**, 6.3 × 32 mm, with matching fuse clips. This replaces the old 2.5–3 A entry; no change to PCB copper or drills. User reports KiCad ERC/DRC passing with the revised files.
 
 The 10 kΩ / 10 kΩ divider has been verified on existing hardware with firmware v0.4.0. The v0.2.1 fabrication files have not been separately manufactured or physically tested.
 
@@ -33,11 +34,11 @@ Release documents/fabrication outputs:
 
 **Four-layer stack:** F.Cu / In1.Cu / In2.Cu / B.Cu. The Gerber archive contains the Excellon plated/non-plated drills, front/back masks and silkscreens, board outline, and the four copper layers.
 
-**Complete assembly parts:** R1/R2 = 10 kΩ; C2–C6 = five 100 nF; C7/C8 = two 100 µF; R10–R13 = four 100 Ω. Check `PCBWay_bom.csv` inside the Gerber archive. The optional external buzzer is not a PCB-mounted component.
+**Fuse and complete assembly parts:** F1 = 1 A fast-blow 6.3 × 32 mm glass fuse; R1/R2 = 10 kΩ; C2–C6 = five 100 nF; C7/C8 = two 100 µF; R10–R13 = four 100 Ω. The `PCBWay_bom.csv` included inside the Gerber archive is an automatically generated **PCB-only assembly export**, not the complete builder BOM. For sourcing all parts, use the linked builder BOM above. The optional external buzzer is not a PCB-mounted component.
 
 Existing photographs show the manufactured v0.2 PCB, not separately fabricated v0.2.1. Do not represent those photos as a v0.2.1 manufacturing test.
 
-**Before ordering:** verify the latest fabrication package, four-layer board stack and parts values. The existing PCBWay project may still distribute the historical v0.2 design until updated.
+**Before ordering:** verify the current fabrication package, fuse cartridge and holder compatibility, and parts values. The project author reports using the specified 1 A fast-blow fuse in their working KOTH-Timer without nuisance blowing. The existing PCBWay project may still distribute the historical v0.2 design until updated.
 
 ## Hardware licence
 

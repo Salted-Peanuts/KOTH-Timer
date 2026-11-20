@@ -27,7 +27,7 @@ PCB files:
 PCB/v0.2.1/
 ```
 
-PCB v0.2.1 is the recommended **four-layer** fabrication/source revision for new builds. [Download its Gerber ZIP](PCB/v0.2.1/KOTH_v0.2.1_GERBER.zip) or [view the updated schematic PDF](PCB/v0.2.1/KOTH_v0.2.1.pdf). It uses the same v0.2 PCB circuitry and routing, with corrected 10 kΩ battery-divider specifications and revised silkscreen. The original PCB v0.2 was manufactured and tested; v0.2.1 has not separately been manufactured. See the [hardware revision notes](PCB/v0.2.1/README.md).
+PCB v0.2.1 is the recommended fabrication/source revision for new builds. [Download its Gerber ZIP](PCB/v0.2.1/KOTH_v0.2.1_GERBER.zip) or [view the updated schematic PDF](PCB/v0.2.1/KOTH_v0.2.1.pdf). It uses the same v0.2 PCB circuitry and routing, with corrected 10 kΩ battery-divider specifications and revised silkscreen. The original PCB v0.2 was manufactured and tested; v0.2.1 has not separately been manufactured. See the [hardware revision notes](PCB/v0.2.1/README.md).
 
 **Cleaner schematic:** The v0.2.1 KiCad 9 schematic was reorganised into labelled sections for power and battery monitoring, the two teams' controls, TM1637 displays, the Nano ESP32 connections and the DEV breakout. This is a readability/documentation improvement, not an intended circuit redesign. Builders should use the [v0.2.1 schematic](PCB/v0.2.1/KOTH_v0.2.1.pdf) rather than the historical v0.2 schematic.
 
@@ -134,7 +134,7 @@ The current build uses:
 - Arduino Nano ESP32
 - single 18650 Li-ion cell and holder
 - 5 V boost converter
-- fuse and main power switch
+- 1 A fast-blow glass cartridge fuse (6.3 × 32 mm) and main power switch
 - 2 illuminated arcade team buttons
 - 4 TM1637 4-digit displays
 - 5-segment battery indicator
@@ -142,10 +142,10 @@ The current build uses:
 - 2 × 10 kΩ battery-divider resistors
 - 220 Ω LED current-limiting resistors
 - optional active buzzer
-- prototype wiring or PCB v0.2.1 (four-layer)
+- prototype wiring or PCB v0.2.1
 - enclosure
 
-The current BOM is available in both formats:
+The current **builder BOM** (including the corrected 1 A fast-blow fuse and all off-board parts) is available in both formats:
 
 - [BOM.csv](docs/BOM.csv)
 - [BOM.xlsx](docs/BOM.xlsx)
@@ -156,11 +156,11 @@ The current BOM is available in both formats:
 |---|---|
 | **v0.1** | First manufactured board. Kept for reference; has known TM1637 display reliability issues. |
 | **v0.2** | Manufactured, assembled and tested. Historical reference design; use 10 kΩ R1/R2 with firmware v0.4.0. |
-| **v0.2.1** | Recommended for new builds. Four-layer v0.2 design with corrected R1/R2 values in schematic, updated silkscreen and fabrication package. Same external DEV-header buzzer option. Not separately manufactured. |
+| **v0.2.1** | Recommended for new builds. Revised R1/R2 values, cleaned-up schematic, updated silkscreen and a 1 A fast-blow fuse specification (November documentation correction). Not separately manufactured. |
 
 ### PCB v0.2.1 and older PCB v0.2 with firmware v0.4.0
 
-For **v0.2.1**, install R1/R2 = 10 kΩ as already specified in the new schematic/BOM. C2–C6 (100 nF), C7/C8 (100 µF) and R10–R13 (100 Ω) are also part of this four-layer design; use the full revised BOM.
+For **v0.2.1**, fit a **1 A fast-blow glass fuse (6.3 × 32 mm)** in the compatible fuse clips and install R1/R2 = 10 kΩ as already specified in the new schematic/BOM. C2–C6 (100 nF), C7/C8 (100 µF) and R10–R13 (100 Ω) are also part of this design; use the full revised BOM.
 
 For the older board:
 
@@ -217,15 +217,15 @@ Additional reference photographs with buzzer installed:
 
 ![KOTH-Timer custom PCB v0.2](Images/PCB3.jpg)
 
-The new v0.2.1 files are a minor source/fabrication update; existing build photos show the previously manufactured v0.2 PCB.
+The v0.2.1 design files are a minor update; existing build photos show the previously manufactured v0.2 PCB. The November 2026 source-file correction specifies a **1 A fast-blow fuse**; the separate GitHub hardware release tag may still reference the original download until its assets are updated.
 
 ## PCBWay
 
-The PCBWay shared project currently documents the originally manufactured **v0.2** PCB (verify the revision of its downloadable Gerbers before ordering):
+The [KOTH-Timer shared project on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html) is the existing manufacturing/project page.
 
-[View KOTH Timer PCB v0.2 on PCBWay](https://www.pcbway.com/project/shareproject/King_Of_The_Hill_ESP32_based_timer_1aeedfa7.html)
+**Current recommended PCB revision: v0.2.1.** The complete [v0.2.1 KiCad source, schematic and Gerber files](PCB/v0.2.1/) are maintained here on GitHub. The older [v0.2 design](PCB/v0.2-tested/) remains the manufactured and field-tested reference.
 
-That page shows the original v0.2 hardware. For firmware v0.4.0, use the current BOM and the v0.4 hardware notes in this repository.
+The PCBWay project is being updated to v0.2.1. **Until its downloads have been confirmed as updated, check the revision of the files PCBWay actually supplies before ordering.** PCBWay support has agreed to manually apply the CERN-OHL-S-2.0 hardware licence for the new revision.
 
 PCB manufacturing for this project has been supported by [PCBWay](https://pcbway.com/g/EGJ27l).
 

@@ -63,7 +63,7 @@ The timer also has:
 - Arduino Nano ESP32;
 - single 18650 battery;
 - 5 V boost converter;
-- fuse;
+- 1 A fast-blow glass cartridge fuse (6.3 × 32 mm) and matching holder;
 - main power switch;
 - five-segment battery indicator;
 - battery-check button;
@@ -99,7 +99,7 @@ Main parts:
 | 1 | 18650 Li-ion cell | Single-cell battery |
 | 1 | 18650 holder | Match your cell style |
 | 1 | 5 V boost converter | Powers the 5 V timer rail |
-| 1 | 2.5–3 A fuse + holder | Current BOM value; use suitably rated wiring |
+| 1 | 1 A fast-blow glass cartridge fuse (6.3 × 32 mm) + holder | Specified for v0.2.1; used successfully by the project author in their working timer. Use matching fuse clips |
 | 1 | Main rocker switch | Device power |
 | 2 | Large arcade buttons | One per team |
 | 2 | Arcade button LEDs | Often integrated into the buttons |
@@ -303,6 +303,10 @@ The historical v0.2 KiCad and Gerber files are intentionally left unchanged so t
 
 Do not assume the old 100 kΩ values in those files are the current v0.4 recommendation.
 
+## Fuse note
+
+The v0.2.1 builder BOM and KiCad source specify **F1 = 1 A fast-blow glass cartridge (6.3 × 32 mm)**. Previous 2.5–3 A documentation is superseded for new v0.2.1 builds. The project author uses this 1 A fast-blow fuse in their working KOTH-Timer without issues. Match the specified cartridge size and holder when assembling a new build.
+
 ## Wiring checklist
 
 Before first power-up:
@@ -315,7 +319,7 @@ Before first power-up:
 - confirm A0 is connected only to the divider midpoint;
 - confirm TM1637 CLK/DIO wiring;
 - confirm LED resistor values;
-- confirm fuse and power wiring;
+- confirm 1 A fast-blow fuse is seated in the matching 6.3 × 32 mm holder, with suitable power wiring;
 - if fitted, confirm buzzer VCC/GND/SIG orientation.
 
 ## Firmware upload
