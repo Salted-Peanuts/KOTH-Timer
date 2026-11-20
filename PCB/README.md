@@ -6,7 +6,7 @@
 |---|---|
 | v0.1 | First manufactured board. Known TM1637 display problems. Reference only. |
 | v0.2 | Manufactured, assembled and field-tested; historical reference. |
-| **v0.2.1** | **Recommended for new builds.** Four-layer board based on v0.2 routing, corrected battery-divider specs (R1/R2 = 10 kΩ), updated silkscreen. Not separately manufactured. |
+| **v0.2.1** | **Recommended for new builds.** Based on tested v0.2 routing, with corrected R1/R2 values, cleaned schematic, updated silkscreen and a later 1 A fast-blow fuse documentation correction. Not separately manufactured. |
 
 ## PCB v0.2 with firmware v0.4.0
 
@@ -22,7 +22,7 @@ Buzzer = optional, D13 / 3.3 V / GND
 
 The original v0.2 KiCad and Gerber files are left unchanged because they are the files for the board that was actually manufactured and tested.
 
-PCB v0.2.1 is now published in [v0.2.1](v0.2.1/). The resistor changes are reflected in the new schematic and BOM. The buzzer remains optional via the existing DEV header, not integrated on the PCB. This is a four-layer board.
+PCB v0.2.1 is now published in [v0.2.1](v0.2.1/). The resistor changes, clarified fuse specification and schematic cleanup are reflected in the source and current builder BOM. The buzzer remains optional via the existing DEV header, not integrated on the PCB.
 
 ## v0.1
 
@@ -36,7 +36,7 @@ v0.2 fixed the display problems seen on v0.1 with changes to display decoupling,
 
 ## Before ordering
 
-Read the [v0.4 hardware notes](../docs/hardware-upgrade-v0.4.0.md) and [build guide](../docs/build-guide.md). For a new build, use `PCB/v0.2.1/` files and the updated BOM. The 4-layer Gerber stack contains F.Cu, In1.Cu, In2.Cu and B.Cu. For existing v0.2 builds, fit 10 kΩ at R1/R2.
+Read the [v0.4 hardware notes](../docs/hardware-upgrade-v0.4.0.md) and [build guide](../docs/build-guide.md). For a new build, use `PCB/v0.2.1/` files and the updated builder BOM (F1 = 1 A fast-blow glass cartridge, 6.3 × 32 mm). The 4-layer Gerber stack contains F.Cu, In1.Cu, In2.Cu and B.Cu. For existing v0.2 builds, fit 10 kΩ at R1/R2.
 
 ## PCBWay
 
