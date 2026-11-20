@@ -38,7 +38,7 @@ Release documents/fabrication outputs:
 
 Existing photographs show the manufactured v0.2 PCB, not separately fabricated v0.2.1. Do not represent those photos as a v0.2.1 manufacturing test.
 
-**Before ordering:** verify the current fabrication package, fuse cartridge and holder compatibility, and parts values. Also check the chosen 1 A fast-acting fuse's suitability under normal and startup current; ERC/DRC cannot confirm fuse behaviour. The existing PCBWay project may still distribute the historical v0.2 design until updated.
+**Before ordering:** verify the current fabrication package, fuse cartridge and holder compatibility, and parts values. The project author reports using the specified 1 A fast-blow fuse in their working KOTH-Timer without nuisance blowing. The existing PCBWay project may still distribute the historical v0.2 design until updated.
 
 ## Hardware licence
 
